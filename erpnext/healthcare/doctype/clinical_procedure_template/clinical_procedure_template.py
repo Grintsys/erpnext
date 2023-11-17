@@ -81,7 +81,7 @@ def create_item_from_template(doc):
 	"show_in_website": 0,
 	"is_pro_applicable": 0,
 	"disabled": disabled,
-	"stock_uom": "Unit"
+	"stock_uom": "Unidad(es)"
 	}).insert(ignore_permissions=True)
 
 	#insert item price
