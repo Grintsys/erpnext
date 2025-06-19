@@ -38,16 +38,24 @@ def execute(filters=None):
 	salary_slips = frappe.get_all("Salary Slip", ["name", "employee", "gross_pay", "total_deduction", "net_pay", "employee_name", "payment_days", "payroll_entry"], filters = conditions)
 	
 	for ss in salary_slips:
-		Employee = frappe.get_all("Salary Structure Assignment", ["name", "employee","employee_name", "base"], filters = {"employee": ss.employee})
+		Employee = frappe.get_all("Salary Structure Assignment", ["name", "employee","employee_name", "base", "department", "designation", "health_insurance_no"], filters = {"employee": ss.employee})
 
 		salary_detail = frappe.get_all("Salary Detail", ["name", "salary_component", "amount"], filters = {"parent":ss.name})
 
-		row = [ss.employee_name, ss.payment_days]
+		row = [ss.employee_name]
 
-		if len(Employee) > 0:		
+		if len(Employee) > 0:
+			row += [Employee[0].health_insurance_no]	
+			row += [Employee[0].department]
+			row += [Employee[0].designation]	
 			row += [Employee[0].base]
 		else:
+			row += [""]
+			row += [""]
+			row += [""]
 			row += [0]
+
+		row += [ss.payment_days]
 
 		for sc in salary_components_Earning:
 			salarydetail = frappe.get_all("Salary Detail", ["name", "salary_component", "amount"], filters = {"salary_component":sc.name})
@@ -221,7 +229,8 @@ def execute(filters=None):
 def get_columns():
 	dat = []
 	column = [
-		_("Employee Name") + "::140", _("Payment Days") + ":Float:120", _("Salary Base") + ":Currency:120",		
+		_("Employee Name") + "::140",_("Identidad") + "::140",
+		_("Departamento") + "::140",_("Cargo") + "::140",_("Payment Days") + ":Float:120", _("Salary Base") + ":Currency:120",		
 	]
 	salary_components_Earning = frappe.get_all("Salary Component", ["name"], filters = {"type": "Earning"})
 
