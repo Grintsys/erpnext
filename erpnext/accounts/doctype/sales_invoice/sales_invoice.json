@@ -224,6 +224,8 @@
   "total_commission",
   "section_break2",
   "sales_team",
+  "detail_section",
+  "sale_detail",
   "subscription_section",
   "from_date",
   "to_date",
@@ -235,9 +237,7 @@
   "creation_date",
   "total_with_discount",
   "account15",
-  "account18",
-  "comments_section",
-  "comment"
+  "account18"
  ],
  "fields": [
   {
@@ -1943,20 +1943,20 @@
    "read_only": 1
   },
   {
-   "fieldname": "comments_section",
+   "fieldname": "detail_section",
    "fieldtype": "Section Break",
-   "label": "Comentarios"
+   "label": "Detalle"
   },
   {
-   "fieldname": "comment",
-   "fieldtype": "Long Text",
-   "label": "Comentario"
+   "fieldname": "sale_detail",
+   "fieldtype": "Small Text",
+   "label": "Detalle de venta"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 181,
  "is_submittable": 1,
- "modified": "2025-06-18 19:52:44.364413",
+ "modified": "2025-06-20 10:52:10.666421",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",
