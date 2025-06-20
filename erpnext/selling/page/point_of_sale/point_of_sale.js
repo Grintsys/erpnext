@@ -2164,6 +2164,19 @@ class Payment {
 				default: me.frm.doc.total_without_taxes,
 				read_only: 1
 			},
+			{
+				fieldtype: 'Section Break',
+			},
+			{
+				fieldtype: 'Small Text',
+				label: __("Detalle de venta"),
+				fieldname: "sale_detail",
+				onchange: () => {
+					me.update_cur_frm_value('sale_detail', () => {
+						frappe.flags.sale_detail = false;
+					});
+				}
+			},
 		]);
 
 		return fields;
@@ -2179,6 +2192,7 @@ class Payment {
 		frappe.flags.discount_reason = true;
 		frappe.flags.additional_discount_percentage = true;
 		frappe.flags.total_with_discount = true;
+		frappe.flags.sale_detail = true;
 	}
 
 	update_cur_frm_value(fieldname, callback) {
