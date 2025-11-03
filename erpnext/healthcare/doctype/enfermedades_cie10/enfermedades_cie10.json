@@ -1,0 +1,96 @@
+{
+ "autoname": "field:codigo",
+ "creation": "2025-10-24 20:26:31.066386",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "codigo",
+  "cod_grupo",
+  "patologia"
+ ],
+ "fields": [
+  {
+   "fieldname": "codigo",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Codigo CIE-10",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Enfermedades CIE10",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cod_grupo",
+   "fieldtype": "Link",
+   "label": "Codigo de Grupo",
+   "options": "Grupo de Enfermedades CIE10"
+  },
+  {
+   "fieldname": "patologia",
+   "fieldtype": "Small Text",
+   "label": "Patologia"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2025-10-31 01:32:35.247730",
+ "modified_by": "Administrator",
+ "module": "Healthcare",
+ "name": "Enfermedades CIE10",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

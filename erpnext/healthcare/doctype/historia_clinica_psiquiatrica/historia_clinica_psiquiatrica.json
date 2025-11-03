@@ -1,0 +1,1278 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2024-04-02 15:52:57.706434",
+ "description": "Historia Clinica Psiquiatrica",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "naming_series",
+  "patient",
+  "pat_edad",
+  "pat_nacimiento",
+  "pat_sex",
+  "pat_estado",
+  "pat_raza",
+  "pat_religion",
+  "pat_escolaridad",
+  "pat_ocupacion",
+  "column_break_11",
+  "fecha",
+  "pat_edadhoy",
+  "pat_pais",
+  "pat_departamento",
+  "pat_ciudad",
+  "pat_direccion",
+  "pat_mobile",
+  "pat_acompa",
+  "pat_parentesco",
+  "sint_hist",
+  "sintoma_principal",
+  "hist_enfermedad",
+  "fog",
+  "fog_sueno",
+  "fog_apetito",
+  "fog_sed",
+  "column_break0",
+  "fog_miccion",
+  "fog_defecacion",
+  "roas",
+  "roas_revision",
+  "roas_espesifique",
+  "ant_personales",
+  "ant_asfixia",
+  "ant_rasgos",
+  "ant_otros",
+  "comun_break01",
+  "ant_asfixia_desc",
+  "ant_rasgos_desc",
+  "ant_otros_desc",
+  "ant_med",
+  "ant_medicos",
+  "ant_medsqui",
+  "hg",
+  "hg_g",
+  "hg_p",
+  "hg_a",
+  "hg_c",
+  "comun_break02",
+  "hg_hv",
+  "hg_hm",
+  "hg_fum",
+  "hg_sdp",
+  "amqs",
+  "amq_ante",
+  "amq_hosp",
+  "abuso_drogas",
+  "abu_alcohol",
+  "abu_marihuana",
+  "abu_tabaco",
+  "abu_disolvente",
+  "abu_lsd",
+  "abu_fentanilo",
+  "abu_anfetaminas",
+  "column_break_58",
+  "amq_trap",
+  "amg_asv",
+  "abu_hongos",
+  "abu_cocaina",
+  "abu_pasta",
+  "abu_crack",
+  "abu_benzo",
+  "abu_mdma",
+  "amg_ad_otros",
+  "fla",
+  "fla_fun",
+  "fla_per",
+  "fla_esp",
+  "ant_fam",
+  "ant_afpp",
+  "ant_sel",
+  "ant_sel_depresion",
+  "ant_sel_ansiedad",
+  "ant_sel_bipolaridad",
+  "ant_lab_esquizofrenia",
+  "comun_break03",
+  "ant_otrosms03",
+  "ant_dnfa",
+  "ant_lab_abuso",
+  "ant_lab_suicidas",
+  "ant_lab_demencias",
+  "ant_lab_epilepsia",
+  "ant_sv",
+  "buscar_signos_vitales_mas_actuales",
+  "ant_sv_pa",
+  "ant_sv_fr",
+  "ant_sv_fc",
+  "column_break_98",
+  "buscar",
+  "ant_sv_peso",
+  "ant_sv_talla",
+  "ant_sv_imc",
+  "exfisico",
+  "exf_cabeza",
+  "exf_cuello",
+  "exf_orl",
+  "exf_cardio",
+  "exf_gastro",
+  "exf_mues",
+  "exf_pifa",
+  "exf_neuro",
+  "comun_break04",
+  "es_cabeza",
+  "es_cuello",
+  "es_orl",
+  "es_cardiopulmonar",
+  "es_gastro",
+  "es_musculo",
+  "es_piel",
+  "es_neuro",
+  "exmen_aspact",
+  "exmen_edad",
+  "exmen_colabora",
+  "exmen_atencion",
+  "exmen_orienctacion",
+  "exmen_sensor",
+  "comun_break05",
+  "exmen_higiene",
+  "exmen_contacto",
+  "exmen_conciencia",
+  "exmen_ori_esp",
+  "exmen_sen_esp",
+  "exmen_conciencias",
+  "exmen_con_mot",
+  "exmen_afecto",
+  "comun_break06",
+  "exmen_memoria",
+  "exmen_pensamiento",
+  "exmen_forma",
+  "exmen_contenido",
+  "exmen_funciones",
+  "exmen_curso",
+  "exmen_insigth",
+  "comun_break07",
+  "exmen_esp_forma",
+  "exmen_esp_contenido",
+  "exmen_esp_funcion",
+  "exmen_jicio",
+  "cie",
+  "cie_a",
+  "cie_b",
+  "cie_c",
+  "comun_break08",
+  "cie_eje2",
+  "cie_eje3",
+  "plt",
+  "plt_psico",
+  "plt_inter",
+  "est_lab",
+  "plt_est",
+  "est_lab_hem",
+  "est_lab_gli",
+  "est_lab_tsgo",
+  "est_lab_bun",
+  "est_lab_t3",
+  "est_lab_perfil",
+  "est_lab_litio",
+  "comun_break09",
+  "est_lab_otros",
+  "est_lab_carbamazepina",
+  "est_lab_valproico",
+  "est_lab_mografia",
+  "est_lab_cardiograma",
+  "est_lab_encefalograma",
+  "est_lab_magnetica",
+  "est_lab_farmaco",
+  "est_lab_tratamiento",
+  "est_lab_tra_no",
+  "est_lab_tratano",
+  "est_lab_recomiendo",
+  "est_lab_observaciones"
+ ],
+ "fields": [
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Historia Clinica Psiquiatrica",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sintoma_principal",
+   "fieldtype": "Data",
+   "label": "S\u00edntoma Principal"
+  },
+  {
+   "fieldname": "hist_enfermedad",
+   "fieldtype": "Small Text",
+   "label": "Historial de Enfermedad"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "fog",
+   "fieldtype": "Section Break",
+   "label": "Funciones organicas generales (FOG)"
+  },
+  {
+   "fieldname": "fog_sueno",
+   "fieldtype": "Select",
+   "label": "Sue\u00f1o",
+   "options": "none\nSin Alteraci\u00f3n\nAumentado\nDisminuido"
+  },
+  {
+   "fieldname": "fog_apetito",
+   "fieldtype": "Select",
+   "label": "Apetito",
+   "options": "none\nSin Alteraci\u00f3n\nAumentado\nDisminuido"
+  },
+  {
+   "fieldname": "fog_sed",
+   "fieldtype": "Select",
+   "label": "Sed",
+   "options": "none\nSin Alteraci\u00f3n\nAumentado\nDisminuido"
+  },
+  {
+   "fieldname": "column_break0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fog_miccion",
+   "fieldtype": "Select",
+   "label": "Micci\u00f3n",
+   "options": "none\nSin Alteraci\u00f3n\nAumentado\nDisminuido"
+  },
+  {
+   "fieldname": "fog_defecacion",
+   "fieldtype": "Select",
+   "label": "Defecaci\u00f3n",
+   "options": "none\nSin Alteraci\u00f3n\nAumentado\nDisminuido"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "roas",
+   "fieldtype": "Section Break",
+   "label": "Revisi\u00f3n de \u00f3rganos aparatos y sistemas (ROAS)"
+  },
+  {
+   "fieldname": "roas_revision",
+   "fieldtype": "Select",
+   "label": "Revisi\u00f3n de \u00f3rganos",
+   "options": "none\nSin alteraciones\nCon alteraciones\nEspesifiqu\u00e9"
+  },
+  {
+   "fieldname": "roas_espesifique",
+   "fieldtype": "Data",
+   "label": "Espesifiqu\u00e9"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "ant_personales",
+   "fieldtype": "Section Break",
+   "label": "Antecedentes prenatales, natales, postnatales:"
+  },
+  {
+   "fieldname": "ant_asfixia",
+   "fieldtype": "Select",
+   "label": "Asfixia neonatal",
+   "options": "none\nSi\nNo\nDesc."
+  },
+  {
+   "fieldname": "ant_rasgos",
+   "fieldtype": "Select",
+   "label": "Rasgos patologicos de la infancia",
+   "options": "none\nSi\nNo\nDesc."
+  },
+  {
+   "fieldname": "ant_otros",
+   "fieldtype": "Select",
+   "label": "Otros",
+   "options": "none\nSi\nNo\nDesc."
+  },
+  {
+   "fieldname": "comun_break01",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ant_asfixia_desc",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "ant_rasgos_desc",
+   "fieldtype": "Select",
+   "label": "Especifique",
+   "options": "none\nT. Aprendizaje\nOnicafagia\nEnuresis\nTDAH\nRetraso de desarrollo psicomotor\nDepresi\u00f3n\nAnsiedad\nTrastorno alimenticios"
+  },
+  {
+   "fieldname": "ant_otros_desc",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "ant_med",
+   "fieldtype": "Section Break",
+   "label": "Enfermedades M\u00e9dicos no psiqui\u00e1tricos"
+  },
+  {
+   "fieldname": "ant_medicos",
+   "fieldtype": "Select",
+   "label": "Enfermedades m\u00e9dicas no psiqui\u00e1tricos",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "fieldname": "ant_medsqui",
+   "fieldtype": "Link",
+   "label": "Enfermedades m\u00e9dicas no psiqui\u00e1tricos",
+   "options": "Enfermedades Medicas no Psiquiatricas"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "hg",
+   "fieldtype": "Section Break",
+   "label": "Historia Ginecobstetrica"
+  },
+  {
+   "fieldname": "hg_g",
+   "fieldtype": "Data",
+   "label": "G:"
+  },
+  {
+   "fieldname": "hg_p",
+   "fieldtype": "Data",
+   "label": "P:"
+  },
+  {
+   "fieldname": "hg_a",
+   "fieldtype": "Data",
+   "label": "A:"
+  },
+  {
+   "fieldname": "hg_c",
+   "fieldtype": "Data",
+   "label": "C:"
+  },
+  {
+   "fieldname": "comun_break02",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hg_hv",
+   "fieldtype": "Data",
+   "label": "Hv:"
+  },
+  {
+   "fieldname": "hg_hm",
+   "fieldtype": "Data",
+   "label": "Hm:"
+  },
+  {
+   "fieldname": "hg_fum",
+   "fieldtype": "Date",
+   "label": "FUM:"
+  },
+  {
+   "fieldname": "hg_sdp",
+   "fieldtype": "Select",
+   "label": "S\u00edndrome disf\u00f3rico Premestrual",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "amqs",
+   "fieldtype": "Section Break",
+   "label": "Antecedentes M\u00e9dicos Psiqui\u00e1tricos"
+  },
+  {
+   "fieldname": "amq_hosp",
+   "fieldtype": "Data",
+   "label": "Hospitalizaciones"
+  },
+  {
+   "fieldname": "amq_trap",
+   "fieldtype": "Data",
+   "label": "Tratamientos previos"
+  },
+  {
+   "fieldname": "amg_asv",
+   "fieldtype": "Select",
+   "label": "Abuso sexual y violencia",
+   "options": "SM03"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "fla",
+   "fieldtype": "Section Break",
+   "label": "Funcionalidad laboral / acad\u00e9mica"
+  },
+  {
+   "fieldname": "fla_per",
+   "fieldtype": "Select",
+   "label": "Personalidad previa",
+   "options": "none\nNormal\nPatologica"
+  },
+  {
+   "fieldname": "fla_esp",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "ant_fam",
+   "fieldtype": "Section Break",
+   "label": "Antecedentes Familiares"
+  },
+  {
+   "fieldname": "ant_afpp",
+   "fieldtype": "Select",
+   "label": "Antecedentes familiares psiquiatricos de primer grado",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "fieldname": "ant_otrosms03",
+   "fieldtype": "Select",
+   "label": "Otros",
+   "options": "none\nMS03"
+  },
+  {
+   "fieldname": "ant_dnfa",
+   "fieldtype": "Select",
+   "label": "Dinamicas familiares",
+   "options": "None\nBuenas relaciones\nConflictivas\nDistantes"
+  },
+  {
+   "fieldname": "comun_break03",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "exfisico",
+   "fieldtype": "Section Break",
+   "label": "Examen Fisico"
+  },
+  {
+   "fieldname": "exf_cabeza",
+   "fieldtype": "Select",
+   "label": "Cabeza",
+   "options": "None\nNormal\nAnormal\nEspesifique"
+  },
+  {
+   "fieldname": "exf_cuello",
+   "fieldtype": "Select",
+   "label": "Cuello",
+   "options": "None\nNormal\nAnormal\nEspesifique"
+  },
+  {
+   "fieldname": "exf_orl",
+   "fieldtype": "Select",
+   "label": "ORL",
+   "options": "None\nNormal\nAnormal\nEspesifique"
+  },
+  {
+   "fieldname": "exf_cardio",
+   "fieldtype": "Select",
+   "label": "Cardiopulmonar",
+   "options": "None\nNormal\nAnormal\nEspesifique"
+  },
+  {
+   "fieldname": "exf_gastro",
+   "fieldtype": "Select",
+   "label": "Gastrointestinal",
+   "options": "None\nNormal\nAnormal\nEspesifique"
+  },
+  {
+   "fieldname": "exf_mues",
+   "fieldtype": "Select",
+   "label": "Musculo esqueletico",
+   "options": "None\nNormal\nAnormal\nEspesifique"
+  },
+  {
+   "fieldname": "exf_pifa",
+   "fieldtype": "Select",
+   "label": "Piel y faneras",
+   "options": "None\nNormal\nAnormal\nEspesifique"
+  },
+  {
+   "fieldname": "exf_neuro",
+   "fieldtype": "Select",
+   "label": "Neurol\u00f3gico",
+   "options": "None\nNormal\nAnormal\nEspesifique"
+  },
+  {
+   "fieldname": "comun_break04",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "es_cabeza",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "es_cuello",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "es_orl",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "es_cardiopulmonar",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "es_gastro",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "es_musculo",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "es_piel",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "es_neuro",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "exmen_edad",
+   "fieldtype": "Select",
+   "label": "Edad real concuerda con aparente",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "fieldname": "exmen_colabora",
+   "fieldtype": "Select",
+   "label": "Colabora",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "fieldname": "exmen_higiene",
+   "fieldtype": "Select",
+   "label": "Higiene y vestimenta adeacuada",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "fieldname": "exmen_contacto",
+   "fieldtype": "Select",
+   "label": "Hace contacto visual",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "exmen_aspact",
+   "fieldtype": "Section Break",
+   "label": "Aspecto y actitud General"
+  },
+  {
+   "fieldname": "comun_break05",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "exmen_conciencias",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "exmen_conciencia",
+   "fieldtype": "Select",
+   "label": "Conciencia",
+   "options": "None\nNormal\nObnubilado\nSomnoliento\nEstupor"
+  },
+  {
+   "fieldname": "exmen_atencion",
+   "fieldtype": "Select",
+   "label": "Atenci\u00f3n",
+   "options": "None\nNormal\nInatento\nDistractil\nPerseveraci\u00f3n"
+  },
+  {
+   "fieldname": "exmen_orienctacion",
+   "fieldtype": "Select",
+   "label": "Orientaci\u00f3n",
+   "options": "None\nOrientado\nDesorientado\nEspecifique"
+  },
+  {
+   "fieldname": "exmen_sensor",
+   "fieldtype": "Select",
+   "label": "Sensopercepci\u00f3n",
+   "options": "None\nSin alteracion\nAlucinaciones\nIlusiones\nEspecifique"
+  },
+  {
+   "fieldname": "exmen_con_mot",
+   "fieldtype": "Select",
+   "label": "Conducta motora",
+   "options": "None\nNormal\nDisminuida\nAumentada\nBARS-01\nBARS-02\nBARS-03\nBARS-04\nBARS-05\nBARS-06\nBARS-07"
+  },
+  {
+   "fieldname": "comun_break06",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "exmen_afecto",
+   "fieldtype": "Select",
+   "label": "Afecto",
+   "options": "None\nEutimico\nEuforico\nTriste\nAnsioso\nAplanado\nInapropiado\nIndiferente\nIncogruencia afectiva\nIrritable"
+  },
+  {
+   "fieldname": "exmen_memoria",
+   "fieldtype": "Select",
+   "label": "Memoria",
+   "options": "None\nNormal\nDisminuida"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "exmen_pensamiento",
+   "fieldtype": "Section Break",
+   "label": "Pensamiento"
+  },
+  {
+   "fieldname": "exmen_forma",
+   "fieldtype": "Select",
+   "label": "Forma",
+   "options": "None\nCoherente\nIncoherente\nFuga de ideas\nOtras\nEspecifique"
+  },
+  {
+   "fieldname": "exmen_curso",
+   "fieldtype": "Select",
+   "label": "Curso",
+   "options": "None\nEulalico\nTaquilalia\nBradilalia\nBloqueo del pensamiento"
+  },
+  {
+   "fieldname": "exmen_contenido",
+   "fieldtype": "Select",
+   "label": "Contenido",
+   "options": "None\nIdeas sobrevalorados\nIdeas delirantes\nControl del pensamiento\nOtras ideas patologicas no delirantes\nEspecifique"
+  },
+  {
+   "fieldname": "comun_break07",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "exmen_insigth",
+   "fieldtype": "Select",
+   "label": "Insigth",
+   "options": "None\nGrado_01\nGrado_02\nGrado_03\nGrado_04\nGrado_05"
+  },
+  {
+   "fieldname": "exmen_jicio",
+   "fieldtype": "Select",
+   "label": "Juicio",
+   "options": "None\nAdecuado\nInadecuado"
+  },
+  {
+   "fieldname": "exmen_funciones",
+   "fieldtype": "Select",
+   "label": "Funciones corticales superiores",
+   "options": "None\nNormal\nAnormal\nEspecifique"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cie",
+   "fieldtype": "Section Break",
+   "label": "Imprecion Diagnostica (CIE-10)"
+  },
+  {
+   "fieldname": "cie_a",
+   "fieldtype": "Link",
+   "label": "EJE I A)",
+   "options": "Grupo de Enfermedades CIE10"
+  },
+  {
+   "fieldname": "cie_b",
+   "fieldtype": "Link",
+   "label": "EJE I B)",
+   "options": "Grupo de Enfermedades CIE10"
+  },
+  {
+   "fieldname": "cie_c",
+   "fieldtype": "Link",
+   "label": "EJE I C)",
+   "options": "Grupo de Enfermedades CIE10"
+  },
+  {
+   "fieldname": "comun_break08",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cie_eje2",
+   "fieldtype": "Link",
+   "label": "EJE II",
+   "options": "Enfermedades CIE10"
+  },
+  {
+   "fieldname": "cie_eje3",
+   "fieldtype": "Link",
+   "label": "EJE III",
+   "options": "Enfermedades CIE10"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "plt",
+   "fieldtype": "Section Break",
+   "label": "PLAN TERAPEUTICO"
+  },
+  {
+   "fieldname": "plt_psico",
+   "fieldtype": "Select",
+   "label": "Psicoeducai\u00f3n",
+   "options": "None\nSi\nNo"
+  },
+  {
+   "fieldname": "plt_inter",
+   "fieldtype": "Select",
+   "label": "Intervenci\u00f3n por trabajo social",
+   "options": "None\nSi\nNo"
+  },
+  {
+   "fieldname": "plt_est",
+   "fieldtype": "Select",
+   "label": "Estudios de laboratorio o de imagen",
+   "options": "None\nSi\nNo"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "est_lab",
+   "fieldtype": "Section Break",
+   "label": "Estudios de Laboratorio"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_hem",
+   "fieldtype": "Check",
+   "label": "Hemograma completo"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_gli",
+   "fieldtype": "Check",
+   "label": "Glicemia"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_tsgo",
+   "fieldtype": "Check",
+   "label": "TSGO / TSGP"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_bun",
+   "fieldtype": "Check",
+   "label": "BUN Creatinina"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_t3",
+   "fieldtype": "Check",
+   "label": "T3, T4, THS"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_perfil",
+   "fieldtype": "Check",
+   "label": "Perfil lip\u00eddo"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_litio",
+   "fieldtype": "Check",
+   "label": "Niveles s\u00e9ricos de litio"
+  },
+  {
+   "fieldname": "est_lab_otros",
+   "fieldtype": "Data",
+   "label": "Otros"
+  },
+  {
+   "fieldname": "comun_break09",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_carbamazepina",
+   "fieldtype": "Check",
+   "label": "Niveles s\u00e9ricos de Carbamazepina"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_valproico",
+   "fieldtype": "Check",
+   "label": "Niveles s\u00e9ricos de acido valproico"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_mografia",
+   "fieldtype": "Check",
+   "label": "Tomograf\u00eda cerebral"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_cardiograma",
+   "fieldtype": "Check",
+   "label": "Electrocardiograma"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_encefalograma",
+   "fieldtype": "Check",
+   "label": "Electroencefalograma"
+  },
+  {
+   "default": "0",
+   "fieldname": "est_lab_magnetica",
+   "fieldtype": "Check",
+   "label": "Resonancia magnetica cerebral"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "est_lab_farmaco",
+   "fieldtype": "Section Break",
+   "label": "Tratamiento farmacologico"
+  },
+  {
+   "fieldname": "est_lab_tratamiento",
+   "fieldtype": "Small Text",
+   "label": "Tratamiento Farmacol\u00f3gico"
+  },
+  {
+   "fieldname": "est_lab_tratano",
+   "fieldtype": "Select",
+   "label": "Tratamiento no farmacol\u00f3gico",
+   "options": "None\nPsicoterapia Individual\nPsicoterapia grupal\nProgramas especiales\nIntervencion familiar"
+  },
+  {
+   "fieldname": "est_lab_recomiendo",
+   "fieldtype": "Small Text",
+   "label": "Recomendaciones"
+  },
+  {
+   "fieldname": "est_lab_observaciones",
+   "fieldtype": "Small Text",
+   "label": "Observaciones o ocmentarios especiales"
+  },
+  {
+   "fieldname": "amq_ante",
+   "fieldtype": "Select",
+   "label": "Antecedentes M\u00e9dicos Psiqui\u00e1tricos",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "fieldname": "amg_ad_otros",
+   "fieldtype": "Data",
+   "label": "Abuso o dependencias Otros"
+  },
+  {
+   "fieldname": "fla_fun",
+   "fieldtype": "Select",
+   "label": "Funcionalidad laboral / acad\u00e9mica",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "default": "0",
+   "fieldname": "ant_sel_depresion",
+   "fieldtype": "Check",
+   "label": "Depresi\u00f3n",
+   "options": "Depresi\u00f3n"
+  },
+  {
+   "default": "0",
+   "fieldname": "ant_sel_ansiedad",
+   "fieldtype": "Check",
+   "label": "T. de ansiedad",
+   "options": "T. de ansiedad"
+  },
+  {
+   "default": "0",
+   "fieldname": "ant_sel_bipolaridad",
+   "fieldtype": "Check",
+   "label": "T. bipolaridad",
+   "options": "T. bipolaridad"
+  },
+  {
+   "default": "0",
+   "fieldname": "ant_lab_esquizofrenia",
+   "fieldtype": "Check",
+   "label": "Esquizofrenia",
+   "options": "Esquizofrenia"
+  },
+  {
+   "default": "0",
+   "fieldname": "ant_lab_abuso",
+   "fieldtype": "Check",
+   "label": "Abuso de sustancias",
+   "options": "Abuso de sustancias"
+  },
+  {
+   "default": "0",
+   "fieldname": "ant_lab_suicidas",
+   "fieldtype": "Check",
+   "label": "Intentos suicidas",
+   "options": "Intentos suicidas"
+  },
+  {
+   "default": "0",
+   "fieldname": "ant_lab_demencias",
+   "fieldtype": "Check",
+   "label": "Demencias",
+   "options": "Demencias"
+  },
+  {
+   "default": "0",
+   "fieldname": "ant_lab_epilepsia",
+   "fieldtype": "Check",
+   "label": "Epilepsia",
+   "options": "Epilepsia"
+  },
+  {
+   "fieldname": "ant_sel",
+   "fieldtype": "Heading",
+   "label": "(Seleccion de Antecedentes)"
+  },
+  {
+   "fieldname": "ant_sv",
+   "fieldtype": "Section Break",
+   "label": "Signos Vitales"
+  },
+  {
+   "fieldname": "ant_sv_pa",
+   "fieldtype": "Read Only",
+   "label": "P/A:"
+  },
+  {
+   "fieldname": "exmen_ori_esp",
+   "fieldtype": "Data",
+   "label": "Orientaci\u00f3n Espesifique"
+  },
+  {
+   "fieldname": "exmen_sen_esp",
+   "fieldtype": "Data",
+   "label": "Sensopercepci\u00f3n Espesifique"
+  },
+  {
+   "fieldname": "exmen_esp_forma",
+   "fieldtype": "Data",
+   "label": "Especifique Forma"
+  },
+  {
+   "fieldname": "exmen_esp_contenido",
+   "fieldtype": "Data",
+   "label": "Especifique Contenido"
+  },
+  {
+   "fieldname": "exmen_esp_funcion",
+   "fieldtype": "Data",
+   "label": "Especifique Funciones"
+  },
+  {
+   "fieldname": "est_lab_tra_no",
+   "fieldtype": "Select",
+   "label": "Tratamiento no farmacol\u00f3gico",
+   "options": "none\nSi\nNo"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sint_hist",
+   "fieldtype": "Section Break",
+   "label": "S\u00edntomas e Historial"
+  },
+  {
+   "bold": 1,
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Historia Clinica Psiquiatrica",
+   "no_copy": 1,
+   "options": "HCPSQ-.YY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "patient.sex",
+   "fieldname": "pat_sex",
+   "fieldtype": "Read Only",
+   "label": "Sexo del Paciente"
+  },
+  {
+   "fetch_from": "patient.dob",
+   "fieldname": "pat_edad",
+   "fieldtype": "Read Only",
+   "label": "Fecha de nacimiento"
+  },
+  {
+   "fetch_from": "patient.pac_estado",
+   "fieldname": "pat_estado",
+   "fieldtype": "Read Only",
+   "label": "Estado Civil"
+  },
+  {
+   "fetch_from": "patient.pac_raza",
+   "fieldname": "pat_raza",
+   "fieldtype": "Read Only",
+   "label": "Raza"
+  },
+  {
+   "fetch_from": "patient.pac_religion",
+   "fieldname": "pat_religion",
+   "fieldtype": "Read Only",
+   "label": "Religi\u00f3n"
+  },
+  {
+   "fetch_from": "patient.pac_escolaridad",
+   "fieldname": "pat_escolaridad",
+   "fieldtype": "Read Only",
+   "label": "Escolaridad"
+  },
+  {
+   "fetch_from": "patient.pac_ocupacion",
+   "fieldname": "pat_ocupacion",
+   "fieldtype": "Read Only",
+   "label": "Ocupaci\u00f3n"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "patient.pac_pais",
+   "fieldname": "pat_pais",
+   "fieldtype": "Read Only",
+   "label": "Pa\u00eds"
+  },
+  {
+   "fetch_from": "patient.pac_departamento",
+   "fieldname": "pat_departamento",
+   "fieldtype": "Read Only",
+   "label": "Departamento"
+  },
+  {
+   "fetch_from": "patient.pac_ciudad",
+   "fieldname": "pat_ciudad",
+   "fieldtype": "Read Only",
+   "label": "Municipio"
+  },
+  {
+   "fetch_from": "patient.pac_acompa",
+   "fieldname": "pat_acompa",
+   "fieldtype": "Read Only",
+   "label": "Acompa\u00f1ante"
+  },
+  {
+   "fetch_from": "patient.pac_parentesco",
+   "fieldname": "pat_parentesco",
+   "fieldtype": "Read Only",
+   "label": "Parentesco"
+  },
+  {
+   "fetch_from": "patient.nacimiento",
+   "fieldname": "pat_nacimiento",
+   "fieldtype": "Read Only",
+   "label": "Lugar de nacimiento"
+  },
+  {
+   "fetch_from": "patient.cologne",
+   "fieldname": "pat_direccion",
+   "fieldtype": "Read Only",
+   "label": "Direccion"
+  },
+  {
+   "fetch_from": "patient.mobile",
+   "fieldname": "pat_mobile",
+   "fieldtype": "Read Only",
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "abuso_drogas",
+   "fieldtype": "Heading",
+   "label": "Abuso o dependencias"
+  },
+  {
+   "fieldname": "column_break_58",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_alcohol",
+   "fieldtype": "Check",
+   "label": "Alcohol"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_marihuana",
+   "fieldtype": "Check",
+   "label": "Marihuana"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_tabaco",
+   "fieldtype": "Check",
+   "label": "Tabaco"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_disolvente",
+   "fieldtype": "Check",
+   "label": "Disolvente"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_lsd",
+   "fieldtype": "Check",
+   "label": "LSD"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_fentanilo",
+   "fieldtype": "Check",
+   "label": "Fentanilo"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_anfetaminas",
+   "fieldtype": "Check",
+   "label": "Anfetaminas"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_hongos",
+   "fieldtype": "Check",
+   "label": "Hongos"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_cocaina",
+   "fieldtype": "Check",
+   "label": "Cocaina"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_pasta",
+   "fieldtype": "Check",
+   "label": "Pasta base"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_crack",
+   "fieldtype": "Check",
+   "label": "Crack"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_benzo",
+   "fieldtype": "Check",
+   "label": "Benzodiazepinas"
+  },
+  {
+   "default": "0",
+   "fieldname": "abu_mdma",
+   "fieldtype": "Check",
+   "label": "\u00c9xtasis / MDMA"
+  },
+  {
+   "default": "Today",
+   "fieldname": "fecha",
+   "fieldtype": "Date",
+   "label": "Fecha",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ant_sv_fr",
+   "fieldtype": "Read Only",
+   "label": "FR:"
+  },
+  {
+   "fieldname": "ant_sv_fc",
+   "fieldtype": "Read Only",
+   "label": "FC:"
+  },
+  {
+   "fieldname": "column_break_98",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ant_sv_peso",
+   "fieldtype": "Read Only",
+   "label": "PESO"
+  },
+  {
+   "fieldname": "ant_sv_talla",
+   "fieldtype": "Read Only",
+   "label": "TALLA"
+  },
+  {
+   "fieldname": "ant_sv_imc",
+   "fieldtype": "Read Only",
+   "label": "IMC"
+  },
+  {
+   "fieldname": "buscar_signos_vitales_mas_actuales",
+   "fieldtype": "Heading",
+   "label": "Buscar Signos vitales mas actuales"
+  },
+  {
+   "fieldname": "buscar",
+   "fieldtype": "Button",
+   "label": "Buscar"
+  },
+  {
+   "fieldname": "pat_edadhoy",
+   "fieldtype": "HTML",
+   "label": "Edad Actual"
+  }
+ ],
+ "icon": "fa fa-user",
+ "is_submittable": 1,
+ "modified": "2025-10-31 00:48:55.259926",
+ "modified_by": "Administrator",
+ "module": "Healthcare",
+ "name": "Historia Clinica Psiquiatrica",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

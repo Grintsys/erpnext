@@ -28,8 +28,8 @@ def get_data():
 				'items': ['Clinical History Psychology', 'Medical Evolution Notes Psychology', 'Psychology Test Sheet', 'Reference and Response', 'Scanned Contracts Psycology']
 			},
 			{
-				'label': _('Historial Psiquiatria'),
-				'items': ['Clinical History Psychiatric', 'Medical Evolution Notes Psychiatric', 'Psychiatric Examination Sheet', 'Reference and Answers Psychiatric', 'Clinical Deposit Registration']
+				'label': _('Historial de Psiquiatria'),
+				'items': ['Historia Clinica Psiquiatrica', 'Medical Evolution Notes Psychiatric', 'Psychiatric Examination Sheet', 'Reference and Answers Psychiatric', 'Clinical Deposit Registration']
 			},
 			{
 				'label': _('Trabajo Social'),

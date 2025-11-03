@@ -3,7 +3,6 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "naming_series:",
- "beta": 1,
  "creation": "2017-01-23 14:03:49.084370",
  "description": "Patient",
  "doctype": "DocType",
@@ -15,20 +14,31 @@
   "inpatient_record",
   "naming_series",
   "patient_name",
-  "sex",
   "dob",
   "dni",
-  "blood_group",
-  "age_html",
+  "sex",
+  "pac_estado",
+  "pac_raza",
+  "pac_religion",
+  "pac_escolaridad",
+  "pac_ocupacion",
+  "pac_acompa",
+  "pac_parentesco",
   "status",
   "image",
   "column_break_14",
   "customer",
+  "nacimiento",
+  "age_html",
+  "blood_group",
   "report_preference",
   "mobile",
-  "email",
-  "cologne",
   "phone",
+  "email",
+  "pac_pais",
+  "pac_departamento",
+  "pac_ciudad",
+  "cologne",
   "disabled",
   "sb_relation",
   "patient_relation",
@@ -102,7 +112,7 @@
    "fieldname": "sex",
    "fieldtype": "Select",
    "label": "Gender",
-   "options": "\nMale\nFemale\nOther",
+   "options": "\nMasculino\nFemenino",
    "reqd": 1
   },
   {
@@ -161,6 +171,7 @@
   {
    "fieldname": "report_preference",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Report Preference",
    "options": "\nEmail\nPrint"
   },
@@ -173,7 +184,6 @@
    "label": "Mobile"
   },
   {
-   "bold": 1,
    "fieldname": "email",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -361,7 +371,7 @@
    "bold": 1,
    "fieldname": "cologne",
    "fieldtype": "Link",
-   "label": "Cologne",
+   "label": "Direccion",
    "options": "Cologne"
   },
   {
@@ -369,12 +379,71 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Age"
+  },
+  {
+   "fieldname": "pac_pais",
+   "fieldtype": "Link",
+   "label": "Pa\u00eds",
+   "options": "Pais"
+  },
+  {
+   "fieldname": "pac_departamento",
+   "fieldtype": "Link",
+   "label": "Departamento",
+   "options": "Departamento"
+  },
+  {
+   "fieldname": "pac_ciudad",
+   "fieldtype": "Link",
+   "label": "Ciudad",
+   "options": "Ciudad"
+  },
+  {
+   "fieldname": "pac_estado",
+   "fieldtype": "Select",
+   "label": "Estado Civil",
+   "options": "\nSoltero/a\nCasado/a\nViudo/a\nDivorciado/a\nUni\u00f3n libre\nSeparado/a"
+  },
+  {
+   "fieldname": "pac_raza",
+   "fieldtype": "Data",
+   "label": "Raza"
+  },
+  {
+   "fieldname": "pac_religion",
+   "fieldtype": "Data",
+   "label": "Religi\u00f3n"
+  },
+  {
+   "fieldname": "pac_escolaridad",
+   "fieldtype": "Data",
+   "label": "Escolaridad"
+  },
+  {
+   "fieldname": "pac_ocupacion",
+   "fieldtype": "Data",
+   "label": "Ocupaci\u00f3n"
+  },
+  {
+   "fieldname": "pac_acompa",
+   "fieldtype": "Data",
+   "label": "Acompa\u00f1ante"
+  },
+  {
+   "fieldname": "pac_parentesco",
+   "fieldtype": "Data",
+   "label": "Parentesco"
+  },
+  {
+   "fieldname": "nacimiento",
+   "fieldtype": "Data",
+   "label": "Lugar de nacimiento"
   }
  ],
  "icon": "fa fa-user",
  "image_field": "image",
  "max_attachments": 50,
- "modified": "2021-12-09 15:14:41.191480",
+ "modified": "2025-10-31 14:43:03.260847",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "Patient",
