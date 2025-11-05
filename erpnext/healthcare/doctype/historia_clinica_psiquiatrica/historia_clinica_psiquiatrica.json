@@ -10,6 +10,7 @@
   "amended_from",
   "naming_series",
   "patient",
+  "pat_nombre",
   "pat_edad",
   "pat_nacimiento",
   "pat_sex",
@@ -43,11 +44,10 @@
   "roas_espesifique",
   "ant_personales",
   "ant_asfixia",
-  "ant_rasgos",
-  "ant_otros",
-  "comun_break01",
   "ant_asfixia_desc",
+  "ant_rasgos",
   "ant_rasgos_desc",
+  "ant_otros",
   "ant_otros_desc",
   "ant_med",
   "ant_medicos",
@@ -74,8 +74,8 @@
   "abu_fentanilo",
   "abu_anfetaminas",
   "column_break_58",
-  "amq_trap",
   "amg_asv",
+  "amq_trap",
   "abu_hongos",
   "abu_cocaina",
   "abu_pasta",
@@ -113,21 +113,21 @@
   "ant_sv_imc",
   "exfisico",
   "exf_cabeza",
-  "exf_cuello",
-  "exf_orl",
-  "exf_cardio",
-  "exf_gastro",
-  "exf_mues",
-  "exf_pifa",
-  "exf_neuro",
-  "comun_break04",
   "es_cabeza",
+  "exf_cuello",
   "es_cuello",
+  "exf_orl",
   "es_orl",
+  "exf_cardio",
   "es_cardiopulmonar",
+  "column_break_114",
+  "exf_gastro",
   "es_gastro",
+  "exf_mues",
   "es_musculo",
+  "exf_pifa",
   "es_piel",
+  "exf_neuro",
   "es_neuro",
   "exmen_aspact",
   "exmen_edad",
@@ -161,9 +161,11 @@
   "cie_a",
   "cie_b",
   "cie_c",
-  "comun_break08",
-  "cie_eje2",
   "cie_eje3",
+  "comun_break08",
+  "cie_eje2a",
+  "cie_eje2b",
+  "cie_eje2c",
   "plt",
   "plt_psico",
   "plt_inter",
@@ -193,7 +195,6 @@
  ],
  "fields": [
   {
-   "fetch_from": "patient.patient_name",
    "fieldname": "patient",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -302,12 +303,8 @@
    "options": "none\nSi\nNo\nDesc."
   },
   {
-   "fieldname": "comun_break01",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "ant_asfixia_desc",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
@@ -318,7 +315,7 @@
   },
   {
    "fieldname": "ant_otros_desc",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
@@ -347,22 +344,22 @@
   },
   {
    "fieldname": "hg_g",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "G:"
   },
   {
    "fieldname": "hg_p",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "P:"
   },
   {
    "fieldname": "hg_a",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "A:"
   },
   {
    "fieldname": "hg_c",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "C:"
   },
   {
@@ -371,17 +368,17 @@
   },
   {
    "fieldname": "hg_hv",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Hv:"
   },
   {
    "fieldname": "hg_hm",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Hm:"
   },
   {
    "fieldname": "hg_fum",
-   "fieldtype": "Date",
+   "fieldtype": "Small Text",
    "label": "FUM:"
   },
   {
@@ -398,19 +395,19 @@
   },
   {
    "fieldname": "amq_hosp",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Hospitalizaciones"
   },
   {
    "fieldname": "amq_trap",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Tratamientos previos"
   },
   {
    "fieldname": "amg_asv",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Abuso sexual y violencia",
-   "options": "SM03"
+   "options": "Enfermedades CIE10"
   },
   {
    "collapsible": 1,
@@ -443,9 +440,8 @@
   },
   {
    "fieldname": "ant_otrosms03",
-   "fieldtype": "Select",
-   "label": "Otros",
-   "options": "none\nMS03"
+   "fieldtype": "Data",
+   "label": "Otros"
   },
   {
    "fieldname": "ant_dnfa",
@@ -512,47 +508,43 @@
    "options": "None\nNormal\nAnormal\nEspesifique"
   },
   {
-   "fieldname": "comun_break04",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "es_cabeza",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
    "fieldname": "es_cuello",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
    "fieldname": "es_orl",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
    "fieldname": "es_cardiopulmonar",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
    "fieldname": "es_gastro",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
    "fieldname": "es_musculo",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
    "fieldname": "es_piel",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
    "fieldname": "es_neuro",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Especifique"
   },
   {
@@ -697,29 +689,23 @@
    "fieldname": "cie_a",
    "fieldtype": "Link",
    "label": "EJE I A)",
-   "options": "Grupo de Enfermedades CIE10"
+   "options": "Enfermedades CIE10"
   },
   {
    "fieldname": "cie_b",
    "fieldtype": "Link",
    "label": "EJE I B)",
-   "options": "Grupo de Enfermedades CIE10"
+   "options": "Enfermedades CIE10"
   },
   {
    "fieldname": "cie_c",
    "fieldtype": "Link",
    "label": "EJE I C)",
-   "options": "Grupo de Enfermedades CIE10"
+   "options": "Enfermedades Medicas no Psiquiatricas"
   },
   {
    "fieldname": "comun_break08",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "cie_eje2",
-   "fieldtype": "Link",
-   "label": "EJE II",
-   "options": "Enfermedades CIE10"
   },
   {
    "fieldname": "cie_eje3",
@@ -1230,18 +1216,46 @@
   },
   {
    "fieldname": "buscar",
-   "fieldtype": "Button",
-   "label": "Buscar"
+   "fieldtype": "Link",
+   "label": "Buscar",
+   "options": "Vital Signs"
   },
   {
    "fieldname": "pat_edadhoy",
-   "fieldtype": "HTML",
+   "fieldtype": "Data",
    "label": "Edad Actual"
+  },
+  {
+   "fieldname": "column_break_114",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cie_eje2a",
+   "fieldtype": "Select",
+   "label": "EJE II - A",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "cie_eje2b",
+   "fieldtype": "Select",
+   "label": "EJE II - B",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "cie_eje2c",
+   "fieldtype": "Select",
+   "label": "EJE II - C",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "pat_nombre",
+   "fieldtype": "Read Only",
+   "label": "Nombre del Paciente"
   }
  ],
  "icon": "fa fa-user",
  "is_submittable": 1,
- "modified": "2025-10-31 00:48:55.259926",
+ "modified": "2025-11-04 11:18:33.776772",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "Historia Clinica Psiquiatrica",

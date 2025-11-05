@@ -25,7 +25,7 @@ def get_data():
 			},
 			{
 				'label': _('Historial Psicología'),
-				'items': ['Clinical History Psychology', 'Medical Evolution Notes Psychology', 'Psychology Test Sheet', 'Reference and Response', 'Scanned Contracts Psycology']
+				'items': ['Historia Clinica Psicologia', 'Medical Evolution Notes Psychology', 'Psychology Test Sheet', 'Reference and Response', 'Scanned Contracts Psycology']
 			},
 			{
 				'label': _('Historial de Psiquiatria'),
