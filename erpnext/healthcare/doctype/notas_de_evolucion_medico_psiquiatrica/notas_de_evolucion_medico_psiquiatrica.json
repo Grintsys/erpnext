@@ -11,6 +11,7 @@
   "naming_series",
   "patient",
   "pat_nombre",
+  "pat_nickname",
   "salto001",
   "fecha_actual",
   "pat_edadhoy",
@@ -33,6 +34,19 @@
   "hist_eje2b",
   "hist_eje2c",
   "hist_eje3",
+  "nev",
+  "nevhist",
+  "nevhist_fecha",
+  "nevhist_e1a",
+  "nevhist_e1b",
+  "nevhist_e1c",
+  "nevhist_e2a",
+  "nevhist_e2b",
+  "nevhist_e2c",
+  "nevhist_e3",
+  "nevhist_satisfactoria",
+  "nevhist_nota",
+  "nevhist_tratamiento",
   "exme",
   "exme_amp",
   "exme_actitud",
@@ -109,6 +123,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "patient.nickname",
    "fieldname": "pat_nombre",
    "fieldtype": "Read Only",
    "label": "Nombre del Paciente"
@@ -452,7 +467,7 @@
    "collapsible": 1,
    "fieldname": "hist_spquiatria",
    "fieldtype": "Section Break",
-   "label": "Hostoria Clinica Psiquiatrica"
+   "label": "Historia Cl\u00ednica Psiqui\u00e1trica"
   },
   {
    "fieldname": "doctype_psiquiatria",
@@ -508,12 +523,97 @@
    "fieldname": "hist_eje3",
    "fieldtype": "Table",
    "label": "Diagnostico Psiquiatrico Eje III",
+   "options": "diagnostico no cei10",
+   "read_only": 1
+  },
+  {
+   "description": "Con este nombre le gusta ser llamado",
+   "fetch_from": "patient.nickname",
+   "fieldname": "pat_nickname",
+   "fieldtype": "Read Only",
+   "label": "Dime"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "nev",
+   "fieldtype": "Section Break",
+   "label": "Historia de Notas de Evoluci\u00f3n"
+  },
+  {
+   "fieldname": "nevhist",
+   "fieldtype": "Link",
+   "label": "Historia de Notas de Evoluci\u00f3n",
+   "options": "Notas de Evolucion Medico Psiquiatrica"
+  },
+  {
+   "fieldname": "nevhist_fecha",
+   "fieldtype": "Read Only",
+   "label": "Fecha Historia Notas de Evoluci\u00f3n",
+   "read_only": 1
+  },
+  {
+   "fieldname": "nevhist_e1a",
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-A",
    "options": "diagnostico cei10",
+   "read_only": 1
+  },
+  {
+   "fieldname": "nevhist_e1b",
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-B",
+   "options": "diagnostico cei10",
+   "read_only": 1
+  },
+  {
+   "fieldname": "nevhist_e1c",
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-C",
+   "options": "diagnostico cei10",
+   "read_only": 1
+  },
+  {
+   "fieldname": "nevhist_e2a",
+   "fieldtype": "Read Only",
+   "label": "Eje II-A. CALIDAD PERSONAL Y SUPERVIVENCIA"
+  },
+  {
+   "fieldname": "nevhist_e2b",
+   "fieldtype": "Read Only",
+   "label": "Eje II-B. FUNCIONAMIENTO/INTERACCI\u00d3N CON LA FAMILIAB. FUNCIONAMIENTO/INTERACCI\u00d3N CON LA FAMILIA"
+  },
+  {
+   "fieldname": "nevhist_e2c",
+   "fieldtype": "Read Only",
+   "label": "Eje II-C. FUNCIONAMIENTO EN OTROS DESEMPE\u00d1OS Y ACTIVIDADES (SOCIALIZACI\u00d3N)"
+  },
+  {
+   "fieldname": "nevhist_e3",
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje III",
+   "options": "diagnostico no cei10"
+  },
+  {
+   "fieldname": "nevhist_satisfactoria",
+   "fieldtype": "Read Only",
+   "label": "Evolucion satisfactoria",
+   "read_only": 1
+  },
+  {
+   "fieldname": "nevhist_nota",
+   "fieldtype": "Small Text",
+   "label": "Notas de Evolucion",
+   "read_only": 1
+  },
+  {
+   "fieldname": "nevhist_tratamiento",
+   "fieldtype": "Small Text",
+   "label": "Tratamiento",
    "read_only": 1
   }
  ],
  "is_submittable": 1,
- "modified": "2025-12-08 14:17:55.987459",
+ "modified": "2025-12-08 21:54:22.641776",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "Notas de Evolucion Medico Psiquiatrica",
@@ -555,5 +655,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "track_changes": 1
+ "track_changes": 1,
+ "track_seen": 1
 }
