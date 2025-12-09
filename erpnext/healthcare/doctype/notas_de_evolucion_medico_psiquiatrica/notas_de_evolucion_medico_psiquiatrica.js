@@ -1,12 +1,12 @@
 // Notas de Evolucion Medico Psiquiatrica – Client Script
 // ------------------------------------------------------
 // - Calcula y muestra edad actual del paciente.
-// - Filtra y carga Signos Vitales más recientes del paciente.
-// - Muestra la ÚLTIMA Historia Clínica Psiquiátrica del paciente
-//   en la sección "Historia Clínica Psiquiátrica" (hist_*).
-// - Muestra la ÚLTIMA Nota de Evolución previa del paciente
-//   en la sección "Historia de Notas de Evolución" (nevhist_*).
-// - Deja libres los campos de abajo para registrar la nueva evolución.
+// - Filtra y carga Signos Vitales del paciente.
+// - Permite elegir manualmente:
+//      * Historia Clinica Psiquiatrica (doctype_psiquiatria)
+//      * Nota de Evolucion histórica (nevhist)
+//   y al seleccionar, carga los datos en las secciones de solo lectura.
+// - No sugiere automáticamente “la última” HCP ni NEV.
 
 frappe.ui.form.on('Notas de Evolucion Medico Psiquiatrica', {
 
@@ -17,8 +17,6 @@ frappe.ui.form.on('Notas de Evolucion Medico Psiquiatrica', {
 
         if (frm.doc.patient) {
             update_patient_info(frm);
-            load_latest_hcpsiq(frm);
-            load_latest_evolucion(frm);
         }
     },
 
@@ -27,13 +25,8 @@ frappe.ui.form.on('Notas de Evolucion Medico Psiquiatrica', {
         set_hcpsiq_query(frm);
         set_nev_hist_query(frm);
 
-        if (frm.doc.patient) {
-            if (!frm.doc.pat_nombre || !frm.doc.pat_edadhoy) {
-                update_patient_info(frm);
-            }
-            // Aseguramos que las secciones históricas estén llenas
-            load_latest_hcpsiq(frm);
-            load_latest_evolucion(frm);
+        if (frm.doc.patient && (!frm.doc.pat_nombre || !frm.doc.pat_edadhoy)) {
+            update_patient_info(frm);
         }
 
         // Si ya hay signos vitales y campos vacíos, rellenarlos
@@ -41,11 +34,13 @@ frappe.ui.form.on('Notas de Evolucion Medico Psiquiatrica', {
             update_vital_signs_info(frm);
         }
 
+        // Tablas históricas siguen siendo solo lectura
         make_history_tables_read_only(frm);
     },
 
     patient(frm) {
         if (!frm.doc.patient) {
+            // limpiar todo si se borra paciente
             frm.set_value('pat_nombre', '');
             frm.set_value('pat_edadhoy', '');
             frm.set_value('signos_vitales', '');
@@ -59,13 +54,12 @@ frappe.ui.form.on('Notas de Evolucion Medico Psiquiatrica', {
         // Datos del paciente (nombre + edad)
         update_patient_info(frm);
 
-        // Limpia signos vitales del paciente anterior
+        // Limpiar signos vitales y secciones históricas
         frm.set_value('signos_vitales', '');
         clear_vital_signs(frm);
 
-        // Cargar última Historia Clínica y última Nota de Evolución
-        load_latest_hcpsiq(frm);
-        load_latest_evolucion(frm);
+        clear_historia_clinica_section(frm);
+        clear_nevhist_section(frm);
     },
 
     fecha_actual(frm) {
@@ -82,7 +76,7 @@ frappe.ui.form.on('Notas de Evolucion Medico Psiquiatrica', {
         }
     },
 
-    // Si por algún motivo se cambia manualmente la Historia Clínica
+    // Al elegir manualmente una Historia Clínica Psiquiátrica
     doctype_psiquiatria(frm) {
         if (!frm.doc.doctype_psiquiatria) {
             clear_historia_clinica_section(frm);
@@ -91,7 +85,7 @@ frappe.ui.form.on('Notas de Evolucion Medico Psiquiatrica', {
         load_hcpsiq_into_fields(frm, frm.doc.doctype_psiquiatria);
     },
 
-    // Si se cambia manualmente la Nota de Evolución histórica
+    // Al elegir manualmente una Nota de Evolución histórica
     nevhist(frm) {
         if (!frm.doc.nevhist) {
             clear_nevhist_section(frm);
@@ -241,37 +235,8 @@ function clear_vital_signs(frm) {
 }
 
 /* ============================================================================
- * HISTORIA CLÍNICA PSIQUIÁTRICA – ÚLTIMA
+ * HISTORIA CLÍNICA PSIQUIÁTRICA – SECCIÓN LECTURA
  * ==========================================================================*/
-
-// Busca la última HCPsiq del paciente y la carga en la sección hist_*
-function load_latest_hcpsiq(frm) {
-    if (!frm.doc.patient) return;
-
-    frappe.call({
-        method: 'frappe.client.get_list',
-        args: {
-            doctype: 'Historia Clinica Psiquiatrica',
-            fields: ['name', 'fecha'],
-            filters: { patient: frm.doc.patient },
-            order_by: 'fecha desc',
-            limit_page_length: 1
-        },
-        callback(r) {
-            const rows = r.message || [];
-            if (!rows.length) {
-                clear_historia_clinica_section(frm);
-                return;
-            }
-            const hc_name = rows[0].name;
-
-            if (frm.doc.doctype_psiquiatria !== hc_name) {
-                frm.set_value('doctype_psiquiatria', hc_name);
-            }
-            load_hcpsiq_into_fields(frm, hc_name);
-        }
-    });
-}
 
 // Copia campos y tablas de una Historia Clínica específica
 function load_hcpsiq_into_fields(frm, hc_name) {
@@ -283,7 +248,7 @@ function load_hcpsiq_into_fields(frm, hc_name) {
         hist_eje2a: 'cie_eje2a',
         hist_eje2b: 'cie_eje2b',
         hist_eje2c: 'cie_eje2c'
-        // Eje III y EMNP son tablas, se manejan abajo
+        // Eje III se maneja abajo como tabla
     };
 
     const fields_to_fetch = Object.values(HCP_MAP);
@@ -326,42 +291,8 @@ function clear_historia_clinica_section(frm) {
 }
 
 /* ============================================================================
- * HISTORIA DE NOTAS DE EVOLUCIÓN – ÚLTIMA
+ * HISTORIA DE NOTAS DE EVOLUCIÓN – SECCIÓN LECTURA
  * ==========================================================================*/
-
-// Busca la última Nota de Evolución previa de este paciente
-function load_latest_evolucion(frm) {
-    if (!frm.doc.patient) return;
-
-    const filters = { patient: frm.doc.patient };
-    if (frm.doc.name) {
-        filters.name = ['!=', frm.doc.name];
-    }
-
-    frappe.call({
-        method: 'frappe.client.get_list',
-        args: {
-            doctype: 'Notas de Evolucion Medico Psiquiatrica',
-            fields: ['name', 'fecha_actual'],
-            filters,
-            order_by: 'fecha_actual desc',
-            limit_page_length: 1
-        },
-        callback(r) {
-            const rows = r.message || [];
-            if (!rows.length) {
-                clear_nevhist_section(frm);
-                return;
-            }
-            const nev_name = rows[0].name;
-
-            if (frm.doc.nevhist !== nev_name) {
-                frm.set_value('nevhist', nev_name);
-            }
-            load_evol_hist_from_doc(frm, nev_name);
-        }
-    });
-}
 
 // Copia campos y tablas desde otra Nota de Evolución a la sección nevhist_*
 function load_evol_hist_from_doc(frm, nev_name) {
@@ -424,7 +355,6 @@ function clear_nevhist_section(frm) {
  * UTILIDADES: copiar tablas + hacerlas solo lectura
  * ==========================================================================*/
 
-// Copia una child table origen -> destino copiando todos los campos no meta
 function copy_child_table(frm, src_doc, src_field, dst_field) {
     if (!frm.fields_dict[dst_field]) return;
 
