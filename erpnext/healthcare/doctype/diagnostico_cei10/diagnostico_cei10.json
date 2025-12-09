@@ -1,0 +1,55 @@
+{
+ "creation": "2025-12-04 11:18:07.809592",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "cie10",
+  "codigo",
+  "patologia",
+  "cod_grupo"
+ ],
+ "fields": [
+  {
+   "fieldname": "cie10",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "CIE-10",
+   "length": 35,
+   "options": "Enfermedades CIE10"
+  },
+  {
+   "fetch_from": "cie10.codigo",
+   "fieldname": "codigo",
+   "fieldtype": "Data",
+   "label": "Codigo CIE-10",
+   "length": 40,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "cie10.patologia",
+   "fieldname": "patologia",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Patolog\u00eda",
+   "length": 300,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "cie10.cod_grupo",
+   "fieldname": "cod_grupo",
+   "fieldtype": "Data",
+   "label": "C\u00f3digo de Grupo",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2025-12-04 17:07:21.013860",
+ "modified_by": "Administrator",
+ "module": "Healthcare",
+ "name": "diagnostico cei10",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

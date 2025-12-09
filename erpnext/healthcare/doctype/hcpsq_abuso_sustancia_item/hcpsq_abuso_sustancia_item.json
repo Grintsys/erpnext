@@ -1,0 +1,14 @@
+{
+  "doctype": "DocType",
+  "name": "HCPSQ Abuso Sustancia Item",
+  "module": "Healthcare",
+  "istable": 1,
+  "editable_grid": 1,
+  "track_changes": 1,
+  "field_order": ["sustancia","presente","detalle"],
+  "fields": [
+    {"fieldname":"sustancia","fieldtype":"Select","label":"Sustancia","options":"Alcohol\nMarihuana\nTabaco\nDisolvente\nLSD\nFentanilo\nAnfetaminas\nHongos\nCocaína\nPasta base\nCrack\nBenzodiazepinas\nÉxtasis / MDMA","reqd":1},
+    {"fieldname":"presente","fieldtype":"Select","label":"Presente","options":"none\nSi\nNo","reqd":1},
+    {"fieldname":"detalle","fieldtype":"Small Text","label":"Detalle"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+    "doctype": "DocType",
+    "name": "HCPSQ ROAS Item",
+    "module": "Healthcare",
+    "istable": 1,
+    "editable_grid": 1,
+    "track_changes": 1,
+    "field_order": ["organo","revision","detalle"],
+    "fields": [
+        {"fieldname":"organo","fieldtype":"Data","label":"Órgano/Aparato/Sistema","reqd":1},
+        {"fieldname":"revision","fieldtype":"Select","label":"Revisión","options":"none\nSin alteraciones\nCon alteraciones\nEspecifique","reqd":1},
+        {"fieldname":"detalle","fieldtype":"Small Text","label":"Detalle"}
+    ]
+}

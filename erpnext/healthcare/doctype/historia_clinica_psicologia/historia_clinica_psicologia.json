@@ -11,40 +11,24 @@
   "naming_series",
   "patient",
   "pat_name",
-  "pat_edad",
-  "pat_nacimiento",
-  "pat_sex",
-  "pat_estado",
-  "pat_raza",
-  "pat_religion",
-  "pat_escolaridad",
-  "pat_ocupacion",
+  "pat_info_html",
   "column_break_11",
   "fecha",
   "pat_edadhoy",
-  "pat_pais",
-  "pat_departamento",
-  "pat_ciudad",
-  "pat_direccion",
-  "pat_mobile",
-  "pat_acompa",
-  "pat_parentesco",
   "hist_spquiatria",
   "doctype_psiquiatria",
+  "hist_fecha",
   "hist_eje1a",
   "hist_eje1b",
   "hist_eje1c",
-  "hist_eje3",
-  "hist_farmacologico",
-  "column_break_30",
-  "hist_fecha",
   "hist_eje2a",
   "hist_eje2b",
   "hist_eje2c",
+  "hist_eje3",
+  "hist_farmacologico",
   "sinopsis_biografica_section",
   "hist_emnp",
   "hist_perprevia",
-  "column_break_38",
   "hist_ant_medicos",
   "hist_esp_pp",
   "antecedentes_familiares_neuropsiquiatricos_section",
@@ -154,7 +138,16 @@
   "_conciencia",
   "_impresion",
   "_plan",
-  "intervencion"
+  "intervencion",
+  "cie_10",
+  "e1a_diag_cie10",
+  "e1b_diag_cie10",
+  "e1c_diag_cie10",
+  "cie_eje2a",
+  "cie_eje2b",
+  "cie_eje2c",
+  "cie_eje3",
+  "comentario"
  ],
  "fields": [
   {
@@ -191,54 +184,6 @@
    "label": "Nombre del paciente"
   },
   {
-   "fetch_from": "patient.dob",
-   "fieldname": "pat_edad",
-   "fieldtype": "Read Only",
-   "label": "Fecha de nacimiento"
-  },
-  {
-   "fetch_from": "patient.nacimiento",
-   "fieldname": "pat_nacimiento",
-   "fieldtype": "Read Only",
-   "label": "Lugar de nacimiento"
-  },
-  {
-   "fetch_from": "patient.sex",
-   "fieldname": "pat_sex",
-   "fieldtype": "Read Only",
-   "label": "Sexo del Paciente"
-  },
-  {
-   "fetch_from": "patient.pac_estado",
-   "fieldname": "pat_estado",
-   "fieldtype": "Read Only",
-   "label": "Estado Civil"
-  },
-  {
-   "fetch_from": "patient.pac_raza",
-   "fieldname": "pat_raza",
-   "fieldtype": "Read Only",
-   "label": "Raza"
-  },
-  {
-   "fetch_from": "patient.pac_religion",
-   "fieldname": "pat_religion",
-   "fieldtype": "Read Only",
-   "label": "Religi\u00f3n"
-  },
-  {
-   "fetch_from": "patient.pac_escolaridad",
-   "fieldname": "pat_escolaridad",
-   "fieldtype": "Read Only",
-   "label": "Escolaridad"
-  },
-  {
-   "fetch_from": "patient.pac_ocupacion",
-   "fieldname": "pat_ocupacion",
-   "fieldtype": "Read Only",
-   "label": "Ocupaci\u00f3n"
-  },
-  {
    "fieldname": "column_break_11",
    "fieldtype": "Column Break"
   },
@@ -253,48 +198,6 @@
    "fieldname": "pat_edadhoy",
    "fieldtype": "Read Only",
    "label": "Edad Actual"
-  },
-  {
-   "fetch_from": "patient.pac_pais",
-   "fieldname": "pat_pais",
-   "fieldtype": "Read Only",
-   "label": "Pa\u00eds"
-  },
-  {
-   "fetch_from": "patient.pac_departamento",
-   "fieldname": "pat_departamento",
-   "fieldtype": "Read Only",
-   "label": "Departamento"
-  },
-  {
-   "fetch_from": "patient.pac_ciudad",
-   "fieldname": "pat_ciudad",
-   "fieldtype": "Read Only",
-   "label": "Municipio"
-  },
-  {
-   "fetch_from": "patient.cologne",
-   "fieldname": "pat_direccion",
-   "fieldtype": "Read Only",
-   "label": "Direccion"
-  },
-  {
-   "fetch_from": "patient.mobile",
-   "fieldname": "pat_mobile",
-   "fieldtype": "Read Only",
-   "label": "Mobile"
-  },
-  {
-   "fetch_from": "patient.pac_acompa",
-   "fieldname": "pat_acompa",
-   "fieldtype": "Read Only",
-   "label": "Acompa\u00f1ante"
-  },
-  {
-   "fetch_from": "patient.pac_parentesco",
-   "fieldname": "pat_parentesco",
-   "fieldtype": "Read Only",
-   "label": "Parentesco"
   },
   {
    "collapsible": 1,
@@ -315,23 +218,30 @@
   },
   {
    "fieldname": "hist_farmacologico",
-   "fieldtype": "Read Only",
-   "label": "Tratamiento farmacologico"
+   "fieldtype": "Small Text",
+   "label": "Tratamiento farmacologico",
+   "read_only": 1
   },
   {
    "fieldname": "hist_eje1a",
-   "fieldtype": "Read Only",
-   "label": "Diagnostico Psiquiatrico Eje I-A"
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-A",
+   "options": "diagnostico cei10",
+   "read_only": 1
   },
   {
    "fieldname": "hist_eje1b",
-   "fieldtype": "Read Only",
-   "label": "Diagnostico Psiquiatrico Eje I-B"
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-B",
+   "options": "diagnostico cei10",
+   "read_only": 1
   },
   {
    "fieldname": "hist_eje1c",
-   "fieldtype": "Read Only",
-   "label": "Diagnostico Psiquiatrico Eje I-C"
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-C",
+   "options": "diagnostico cei10",
+   "read_only": 1
   },
   {
    "fieldname": "hist_eje2a",
@@ -350,12 +260,10 @@
   },
   {
    "fieldname": "hist_eje3",
-   "fieldtype": "Read Only",
-   "label": "Diagnostico Psiquiatrico Eje III"
-  },
-  {
-   "fieldname": "column_break_30",
-   "fieldtype": "Column Break"
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje III",
+   "options": "diagnostico no cei10",
+   "read_only": 1
   },
   {
    "collapsible": 1,
@@ -365,17 +273,15 @@
   },
   {
    "fieldname": "hist_emnp",
-   "fieldtype": "Read Only",
-   "label": "Antecedentes Medicos no Psiquiatricos"
+   "fieldtype": "Table",
+   "label": "Antecedentes Medicos no Psiquiatricos",
+   "options": "diagnostico no cei10",
+   "read_only": 1
   },
   {
    "fieldname": "hist_perprevia",
    "fieldtype": "Read Only",
    "label": "Personalidad Previa"
-  },
-  {
-   "fieldname": "column_break_38",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "hist_ant_medicos",
@@ -993,6 +899,7 @@
    "label": "bradilalia"
   },
   {
+   "collapsible": 1,
    "fieldname": "conciencia_",
    "fieldtype": "Section Break",
    "label": "conciencia de enmedad"
@@ -1018,10 +925,68 @@
    "fieldtype": "Select",
    "label": "Tipo de intervenci\u00f3n",
    "options": "none\nTerapia individual\nConsejer\u00eda\nIntervenci\u00f3n en crisis (PAPS)\nTerapia grupal\nPsico-educai\u00f3n"
+  },
+  {
+   "fieldname": "pat_info_html",
+   "fieldtype": "HTML",
+   "label": "Informaci\u00f3n del paciente"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cie_10",
+   "fieldtype": "Section Break",
+   "label": "Imprecion Diagnostica (CIE-10)"
+  },
+  {
+   "fieldname": "e1a_diag_cie10",
+   "fieldtype": "Table",
+   "label": "EJE I A)",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "e1b_diag_cie10",
+   "fieldtype": "Table",
+   "label": "EJE I B)",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "e1c_diag_cie10",
+   "fieldtype": "Table",
+   "label": "EJE I C)",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "cie_eje2a",
+   "fieldtype": "Select",
+   "label": "EJE II - A Familiar",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "cie_eje2b",
+   "fieldtype": "Select",
+   "label": "EJE II - B Laboral",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "cie_eje2c",
+   "fieldtype": "Select",
+   "label": "EJE II - C Social",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "cie_eje3",
+   "fieldtype": "Table",
+   "label": "EJE III",
+   "options": "diagnostico no cei10"
+  },
+  {
+   "fieldname": "comentario",
+   "fieldtype": "Small Text",
+   "label": "Comentarios"
   }
  ],
  "is_submittable": 1,
- "modified": "2025-11-04 12:06:23.317961",
+ "modified": "2025-12-08 17:14:07.918705",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "Historia Clinica Psicologia",

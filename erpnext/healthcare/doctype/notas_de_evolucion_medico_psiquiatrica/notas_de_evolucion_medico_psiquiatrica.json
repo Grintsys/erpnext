@@ -1,0 +1,559 @@
+{
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-04-02 15:53:41.645910",
+ "description": "Notas de Evolucion Medico Psiquiatrica",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "naming_series",
+  "patient",
+  "pat_nombre",
+  "salto001",
+  "fecha_actual",
+  "pat_edadhoy",
+  "sal_signos_vitales",
+  "signos_vitales",
+  "ant_sv_pa",
+  "ant_sv_fr",
+  "ant_sv_fc",
+  "salto002",
+  "ant_sv_peso",
+  "ant_sv_talla",
+  "ant_sv_imc",
+  "hist_spquiatria",
+  "doctype_psiquiatria",
+  "hist_fecha",
+  "hist_eje1a",
+  "hist_eje1b",
+  "hist_eje1c",
+  "hist_eje2a",
+  "hist_eje2b",
+  "hist_eje2c",
+  "hist_eje3",
+  "exme",
+  "exme_amp",
+  "exme_actitud",
+  "exme_higiene",
+  "atencion",
+  "orientacion",
+  "afecto",
+  "irritable",
+  "depresivo",
+  "ansioso",
+  "column_break_27",
+  "aplanado",
+  "euforico",
+  "otro_orien",
+  "conducta",
+  "normal",
+  "aumentada",
+  "bars",
+  "column_break_35",
+  "disminuido",
+  "efecto_extra",
+  "otro_conduc",
+  "sensopercepcion",
+  "sin_alteracion",
+  "iluciones",
+  "alucinaciones",
+  "column_break_43",
+  "tipo_conducta",
+  "otro_senso",
+  "pensamiento",
+  "des_pensamiento",
+  "memoria",
+  "normal_pensa",
+  "disminuida",
+  "column_break_51",
+  "n_valorable",
+  "insigth",
+  "evolucion",
+  "e1a_diag_cie10",
+  "e1b_diag_cie10",
+  "e1c_diag_cie10",
+  "cie_eje2a",
+  "cie_eje2b",
+  "cie_eje2c",
+  "cie_eje3",
+  "evolucion_sat",
+  "evolucion_texto",
+  "tratamiento"
+ ],
+ "fields": [
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Notas de Evolucion Medico Psiquiatrica",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Notas de Evolucion Medico Psiquiatrica",
+   "options": "NEPSQ-.YY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pat_nombre",
+   "fieldtype": "Read Only",
+   "label": "Nombre del Paciente"
+  },
+  {
+   "fieldname": "salto001",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "fecha_actual",
+   "fieldtype": "Date",
+   "label": "Fecha Actual"
+  },
+  {
+   "fieldname": "signos_vitales",
+   "fieldtype": "Link",
+   "label": "Buscar Signos Vitales",
+   "options": "Vital Signs"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sal_signos_vitales",
+   "fieldtype": "Section Break",
+   "label": "Signos Vitales"
+  },
+  {
+   "fieldname": "ant_sv_pa",
+   "fieldtype": "Read Only",
+   "label": "P/A:"
+  },
+  {
+   "fieldname": "ant_sv_fr",
+   "fieldtype": "Read Only",
+   "label": "FR:"
+  },
+  {
+   "fieldname": "ant_sv_fc",
+   "fieldtype": "Read Only",
+   "label": "FC:"
+  },
+  {
+   "fieldname": "salto002",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ant_sv_peso",
+   "fieldtype": "Read Only",
+   "label": "PESO"
+  },
+  {
+   "fieldname": "ant_sv_talla",
+   "fieldtype": "Read Only",
+   "label": "TALLA"
+  },
+  {
+   "fieldname": "ant_sv_imc",
+   "fieldtype": "Read Only",
+   "label": "IMC"
+  },
+  {
+   "fieldname": "pat_edadhoy",
+   "fieldtype": "Data",
+   "label": "Edad Actual",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "exme",
+   "fieldtype": "Section Break",
+   "label": "Examen Mental"
+  },
+  {
+   "fieldname": "exme_amp",
+   "fieldtype": "Select",
+   "label": "Aplica",
+   "options": "None\nSi\nNo"
+  },
+  {
+   "fieldname": "exme_actitud",
+   "fieldtype": "Select",
+   "label": "Actitud",
+   "options": "None\nColaborador\nNo Colaborador"
+  },
+  {
+   "fieldname": "exme_higiene",
+   "fieldtype": "Select",
+   "label": "Higiene y vestimenta",
+   "options": "None\nAli\u00f1ado\nNo Ali\u00f1ado"
+  },
+  {
+   "fieldname": "atencion",
+   "fieldtype": "Select",
+   "label": "Atencion",
+   "options": "None\nAtento\nDistractil\nInatento\nNo valorable"
+  },
+  {
+   "fieldname": "orientacion",
+   "fieldtype": "Select",
+   "label": "Orientacion",
+   "options": "None\nOrientado\nDesorientado\nNo valorable"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "afecto",
+   "fieldtype": "Section Break",
+   "label": "Afecto"
+  },
+  {
+   "default": "0",
+   "fieldname": "irritable",
+   "fieldtype": "Check",
+   "label": "Irritable"
+  },
+  {
+   "default": "0",
+   "fieldname": "depresivo",
+   "fieldtype": "Check",
+   "label": "Depresivo"
+  },
+  {
+   "default": "0",
+   "fieldname": "ansioso",
+   "fieldtype": "Check",
+   "label": "Ansioso"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "aplanado",
+   "fieldtype": "Check",
+   "label": "Aplanado"
+  },
+  {
+   "default": "0",
+   "fieldname": "euforico",
+   "fieldtype": "Check",
+   "label": "Euforico"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "conducta",
+   "fieldtype": "Section Break",
+   "label": "Conducta motora"
+  },
+  {
+   "default": "0",
+   "fieldname": "normal",
+   "fieldtype": "Check",
+   "label": "Normal"
+  },
+  {
+   "default": "0",
+   "fieldname": "aumentada",
+   "fieldtype": "Check",
+   "label": "Aumentada"
+  },
+  {
+   "fieldname": "bars",
+   "fieldtype": "Select",
+   "label": "BARS",
+   "options": "None\nBARS 1\nBARS 2\nBARS 3\nBARS 4\nBARS 5\nBARS 6\nBARS 7"
+  },
+  {
+   "default": "0",
+   "fieldname": "disminuido",
+   "fieldtype": "Check",
+   "label": "Disminuido"
+  },
+  {
+   "default": "0",
+   "fieldname": "efecto_extra",
+   "fieldtype": "Check",
+   "label": "Efecto extrapiramidal"
+  },
+  {
+   "fieldname": "otro_orien",
+   "fieldtype": "Data",
+   "label": "Otro"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "otro_conduc",
+   "fieldtype": "Data",
+   "label": "Otros"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sensopercepcion",
+   "fieldtype": "Section Break",
+   "label": "Sensopercepcion"
+  },
+  {
+   "default": "0",
+   "fieldname": "sin_alteracion",
+   "fieldtype": "Check",
+   "label": "Sin Alteracion"
+  },
+  {
+   "default": "0",
+   "fieldname": "iluciones",
+   "fieldtype": "Check",
+   "label": "Ilusiones"
+  },
+  {
+   "default": "0",
+   "fieldname": "alucinaciones",
+   "fieldtype": "Check",
+   "label": "Alucinaciones"
+  },
+  {
+   "fieldname": "column_break_43",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tipo_conducta",
+   "fieldtype": "Data",
+   "label": "Tipo de conducta"
+  },
+  {
+   "fieldname": "otro_senso",
+   "fieldtype": "Data",
+   "label": "Otro"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "pensamiento",
+   "fieldtype": "Section Break",
+   "label": "Pensamiento"
+  },
+  {
+   "fieldname": "des_pensamiento",
+   "fieldtype": "Small Text",
+   "label": "Descripcion de pensamiento"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "memoria",
+   "fieldtype": "Section Break",
+   "label": "Memoria"
+  },
+  {
+   "default": "0",
+   "fieldname": "normal_pensa",
+   "fieldtype": "Check",
+   "label": "Normal"
+  },
+  {
+   "default": "0",
+   "fieldname": "disminuida",
+   "fieldtype": "Check",
+   "label": "Disminuida"
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "n_valorable",
+   "fieldtype": "Check",
+   "label": "No valorable"
+  },
+  {
+   "fieldname": "insigth",
+   "fieldtype": "Select",
+   "label": "Insigth",
+   "options": "None\nI\nII\nIII\nIV\nV\nVI"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "evolucion",
+   "fieldtype": "Section Break",
+   "label": "Evolucion"
+  },
+  {
+   "fieldname": "evolucion_sat",
+   "fieldtype": "Select",
+   "label": "Evolucion satisfactoria",
+   "options": "None\nSi\nNo"
+  },
+  {
+   "fieldname": "evolucion_texto",
+   "fieldtype": "Small Text",
+   "label": "Evolucion"
+  },
+  {
+   "fieldname": "tratamiento",
+   "fieldtype": "Small Text",
+   "label": "Tratamiento"
+  },
+  {
+   "fieldname": "e1a_diag_cie10",
+   "fieldtype": "Table",
+   "label": "EJE I A)",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "e1b_diag_cie10",
+   "fieldtype": "Table",
+   "label": "EJE I B)",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "e1c_diag_cie10",
+   "fieldtype": "Table",
+   "label": "EJE I C)",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "cie_eje2a",
+   "fieldtype": "Select",
+   "label": "EJE II - A Familiar",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "cie_eje2b",
+   "fieldtype": "Select",
+   "label": "EJE II - B Laboral",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "cie_eje2c",
+   "fieldtype": "Select",
+   "label": "EJE II - C Social",
+   "options": "0: Ninguna disfunci\u00f3n\n1: Disfunci\u00f3n m\u00ednima\n2: Disfunci\u00f3n obvia\n3: Disfunci\u00f3n severa\n4: Disfunci\u00f3n muy severa\n5: Disfunci\u00f3n m\u00e1xima\n6: No aplicable"
+  },
+  {
+   "fieldname": "cie_eje3",
+   "fieldtype": "Table",
+   "label": "EJE III",
+   "options": "diagnostico no cei10"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "hist_spquiatria",
+   "fieldtype": "Section Break",
+   "label": "Hostoria Clinica Psiquiatrica"
+  },
+  {
+   "fieldname": "doctype_psiquiatria",
+   "fieldtype": "Link",
+   "label": "Historia Clinica Psiquiatrica",
+   "options": "Historia Clinica Psiquiatrica"
+  },
+  {
+   "fieldname": "hist_fecha",
+   "fieldtype": "Read Only",
+   "label": "Fecha Historia Clinica Psiquiatria"
+  },
+  {
+   "fieldname": "hist_eje1a",
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-A",
+   "options": "diagnostico cei10",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hist_eje1b",
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-B",
+   "options": "diagnostico cei10",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hist_eje1c",
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje I-C",
+   "options": "diagnostico cei10",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hist_eje2a",
+   "fieldtype": "Read Only",
+   "label": "Eje II-A. CALIDAD PERSONAL Y SUPERVIVENCIA",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hist_eje2b",
+   "fieldtype": "Read Only",
+   "label": "Eje II-B. FUNCIONAMIENTO/INTERACCI\u00d3N CON LA FAMILIAB. FUNCIONAMIENTO/INTERACCI\u00d3N CON LA FAMILIA",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hist_eje2c",
+   "fieldtype": "Read Only",
+   "label": "Eje II-C. FUNCIONAMIENTO EN OTROS DESEMPE\u00d1OS Y ACTIVIDADES (SOCIALIZACI\u00d3N)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hist_eje3",
+   "fieldtype": "Table",
+   "label": "Diagnostico Psiquiatrico Eje III",
+   "options": "diagnostico cei10",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2025-12-08 14:17:55.987459",
+ "modified_by": "Administrator",
+ "module": "Healthcare",
+ "name": "Notas de Evolucion Medico Psiquiatrica",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

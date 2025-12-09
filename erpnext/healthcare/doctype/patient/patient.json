@@ -14,6 +14,7 @@
   "inpatient_record",
   "naming_series",
   "patient_name",
+  "nickname",
   "dob",
   "dni",
   "sex",
@@ -28,6 +29,8 @@
   "image",
   "column_break_14",
   "customer",
+  "tipo_paciente",
+  "estatus_paciente",
   "nacimiento",
   "age_html",
   "blood_group",
@@ -438,12 +441,30 @@
    "fieldname": "nacimiento",
    "fieldtype": "Data",
    "label": "Lugar de nacimiento"
+  },
+  {
+   "description": "Como quiere ser llamado.",
+   "fieldname": "nickname",
+   "fieldtype": "Data",
+   "label": "Nickname"
+  },
+  {
+   "fieldname": "tipo_paciente",
+   "fieldtype": "Select",
+   "label": "Tipo de Paciente",
+   "options": "Temporal\nSub Siguiente"
+  },
+  {
+   "fieldname": "estatus_paciente",
+   "fieldtype": "Select",
+   "label": "Estatus del Paciente",
+   "options": "Activo\nInactivo"
   }
  ],
  "icon": "fa fa-user",
  "image_field": "image",
  "max_attachments": 50,
- "modified": "2025-10-31 14:43:03.260847",
+ "modified": "2025-12-08 15:03:16.621652",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "Patient",

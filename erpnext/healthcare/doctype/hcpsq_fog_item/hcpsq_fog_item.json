@@ -1,0 +1,14 @@
+{
+    "doctype": "DocType",
+    "name": "HCPSQ FOG Item",
+    "module": "Healthcare",
+    "istable": 1,
+    "editable_grid": 1,
+    "track_changes": 1,
+    "field_order": ["funcion","valor","detalle"],
+    "fields": [
+        {"fieldname":"funcion","fieldtype":"Select","label":"Función","options":"Sueño\nApetito\nSed\nMicción\nDefecación","reqd":1},
+        {"fieldname":"valor","fieldtype":"Select","label":"Valor","options":"none\nSin Alteración\nAumentado\nDisminuido","reqd":1},
+        {"fieldname":"detalle","fieldtype":"Small Text","label":"Detalle"}
+    ]
+}

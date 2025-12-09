@@ -6,10 +6,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "amended_from",
   "codigo",
   "codigo_grupo",
-  "patologia",
-  "amended_from"
+  "patologia"
  ],
  "fields": [
   {
@@ -42,7 +42,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2025-10-30 20:09:17.025770",
+ "modified": "2025-12-04 17:07:29.765215",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "Enfermedades Medicas no Psiquiatricas",
@@ -90,6 +90,7 @@
    "share": 1
   }
  ],
+ "search_fields": "codigo, patologia",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

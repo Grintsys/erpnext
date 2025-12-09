@@ -1,0 +1,39 @@
+{
+ "allow_import": 1,
+ "creation": "2025-11-10 23:10:38.661590",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "datos"
+ ],
+ "fields": [
+  {
+   "fieldname": "datos",
+   "fieldtype": "Data",
+   "label": "datos"
+  }
+ ],
+ "modified": "2025-11-11 00:27:48.976770",
+ "modified_by": "Administrator",
+ "module": "Healthcare",
+ "name": "HCPSQ Examen Mental Item",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

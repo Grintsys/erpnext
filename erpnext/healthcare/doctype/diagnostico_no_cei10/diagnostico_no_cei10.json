@@ -1,0 +1,45 @@
+{
+ "creation": "2025-12-04 16:49:43.357630",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "nocie10",
+  "patologia",
+  "codigo_grupo"
+ ],
+ "fields": [
+  {
+   "fieldname": "nocie10",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Enfermedades Medicas no Psiquiatricas",
+   "length": 35,
+   "options": "Enfermedades Medicas no Psiquiatricas"
+  },
+  {
+   "fetch_from": "nocie10.patologia",
+   "fieldname": "patologia",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Patolog\u00eda",
+   "length": 300,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "nocie10.codigo_grupo",
+   "fieldname": "codigo_grupo",
+   "fieldtype": "Data",
+   "label": "C\u00f3digo de Grupo"
+  }
+ ],
+ "istable": 1,
+ "modified": "2025-12-04 17:05:49.701864",
+ "modified_by": "Administrator",
+ "module": "Healthcare",
+ "name": "diagnostico no cei10",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

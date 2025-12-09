@@ -1,190 +1,413 @@
-// Historia Clinica Psiquiatrica - Client JS
-// v4: usa 'buscar' (Link a Vital Signs) filtrado por patient,
-//     copia signos vitales, y guarda 'pat_edadhoy' como "X años Y meses"
-//     calculado respecto a la fecha del documento.
+/* ============================================================================
+   Historia Clinica Psiquiatrica – Client Script
+   Versión: layout compacto con HTML + cálculo de edad
+   ---------------------------------------------------------------------------
+   - Muestra datos de Paciente en un campo HTML (pat_info_html).
+   - Muestra el registro de Signos Vitales en un campo HTML (sv_info_html).
+   - Filtra "buscar" (Link a Vital Signs) por paciente.
+   - Calcula y guarda pat_edadhoy = "X años Y meses" (campo tipo Data).
+   - Precarga filas por defecto en tablas hijas (si las usas luego).
+   - Reordena el layout:
+       * Tabla de datos del paciente a la izquierda (debajo de patient).
+       * Campo "buscar" debajo de pat_edadhoy.
+       * Tabla de signos vitales debajo de "buscar".
+   ==========================================================================*/
 
 frappe.ui.form.on('Historia Clinica Psiquiatrica', {
+
+  // Se ejecuta al cargar el formulario (nuevo o existente)
   onload(frm) {
-    set_vs_query(frm);          // filtra 'buscar' por paciente
-    set_amg_asv_query(frm);     // tus filtros CIE
-    set_cie_eje3_query(frm);
-
-    if (frm.doc.patient) {
-      hydrate_patient_side_fields(frm);   // nombre, DOB y edad a la fecha
-    }
-  },
-
-  refresh(frm) {
+    // filtra el Link "buscar" por paciente
     set_vs_query(frm);
-    set_amg_asv_query(frm);
-    set_cie_eje3_query(frm);
-  },
 
-  // Cuando cambie el paciente
-  patient(frm) {
-    frm.set_value('buscar', null);
-    clear_vitals(frm);
-
+    // si ya viene con paciente, carga datos del paciente
     if (frm.doc.patient) {
       hydrate_patient_side_fields(frm);
-    } else {
-      // limpia campos derivados del paciente
-      safe_set(frm, 'pat_nombre', null);
-      safe_set(frm, 'pat_edad', null);
-      safe_set(frm, 'pat_edadhoy', null);
     }
 
-    set_vs_query(frm);
+    // si quieres usar tablas hijas, aquí se precargan (solo en nuevo)
+    ensure_default_rows(frm);
   },
 
-  // Cuando cambie la fecha del documento, recalcula edad a esa fecha
+  // Se ejecuta en cada refresh (abrir, guardar, cambiar estado)
+  refresh(frm) {
+    set_vs_query(frm);          // por si cambió el paciente
+    render_patient_html(frm);   // repinta HTML de paciente
+
+    // Si hay un Vital Signs seleccionado, lo recargamos;
+    // si no, limpiamos la tabla de signos vitales.
+    if (frm.doc.buscar) {
+      load_vital_signs(frm);
+    } else {
+      render_sv_html(frm, null);
+    }
+
+    // Reordena la posición visual de los campos
+    reflow_layout(frm);
+  },
+
+  // Cuando el usuario cambia de Paciente
+  patient(frm) {
+    // limpia el Link de signos vitales seleccionado
+    frm.set_value('buscar', null);
+
+    if (frm.doc.patient) {
+      // vuelve a cargar los datos del paciente y recalcular edad
+      hydrate_patient_side_fields(frm);
+    } else {
+      // si se borra el paciente, limpia HTML y edad
+      frm.__hc_patient_cache = null;
+      render_patient_html(frm, null);
+      render_sv_html(frm, null);
+      if (frm.get_field('pat_edadhoy')) {
+        frm.set_value('pat_edadhoy', null);
+      }
+    }
+
+    reflow_layout(frm);
+  },
+
+  // Cuando se cambia la fecha del documento, recalculamos la edad
   fecha(frm) {
     recalc_age_to_doc_date(frm);
   },
 
-  // Cuando el usuario seleccione un registro en "buscar" (Vital Signs)
+  // Cuando se selecciona un registro de Vital Signs en "buscar"
   buscar(frm) {
-    if (!frm.doc.buscar) {
-      clear_vitals(frm);
-      return;
-    }
-
-    frappe.db.get_value('Vital Signs', frm.doc.buscar, [
-      'bp', 'respiratory_rate', 'pulse', 'weight', 'height', 'bmi',
-      'bp_systolic','bp_diastolic','signs_date','signs_time','patient'
-    ]).then(r => {
-      const v = (r && r.message) || {};
-
-      // Seguridad: si no corresponde al paciente del form, lo vaciamos
-      if (frm.doc.patient && v.patient && v.patient !== frm.doc.patient) {
-        frappe.msgprint(__('El registro de Signos Vitales no corresponde al paciente seleccionado.'));
-        frm.set_value('buscar', null);
-        clear_vitals(frm);
-        return;
-      }
-
-      let bp = v.bp;
-      if (!bp && v.bp_systolic && v.bp_diastolic) {
-        bp = `${v.bp_systolic}/${v.bp_diastolic} mmHg`;
-      }
-
-      safe_set(frm, 'ant_sv_pa',    bp || null);
-      safe_set(frm, 'ant_sv_fr',    v.respiratory_rate || null);
-      safe_set(frm, 'ant_sv_fc',    v.pulse || null);
-      safe_set(frm, 'ant_sv_peso',  v.weight || null);
-      safe_set(frm, 'ant_sv_talla', v.height || null);
-      safe_set(frm, 'ant_sv_imc',   v.bmi || null);
-    });
+    load_vital_signs(frm);
   },
 
-  // Aseguramos que la edad quede guardada siempre
+  // Antes de guardar, garantizamos que pat_edadhoy esté actualizado
   before_save(frm) {
     recalc_age_to_doc_date(frm);
   }
 });
 
-/** ===== Helpers ===== */
+/* ============================================================================
+   Helpers de queries y datos
+   ==========================================================================*/
 
-// set_value protegido (evita warnings si el campo no existe)
-function safe_set(frm, fieldname, value) {
-  if (frm.get_field(fieldname)) {
-    frm.set_value(fieldname, value);
-  }
-}
-
-function clear_vitals(frm) {
-  safe_set(frm, 'ant_sv_pa', null);
-  safe_set(frm, 'ant_sv_fr', null);
-  safe_set(frm, 'ant_sv_fc', null);
-  safe_set(frm, 'ant_sv_peso', null);
-  safe_set(frm, 'ant_sv_talla', null);
-  safe_set(frm, 'ant_sv_imc', null);
-}
-
+// Filtro del Link "buscar" para que solo muestre Signos Vitales de ese paciente
 function set_vs_query(frm) {
-  // Filtra el LINK 'buscar' (Vital Signs) por el paciente del formulario
   frm.set_query('buscar', () => {
     if (!frm.doc.patient) {
-      // evita que se liste todo cuando no hay paciente
+      // truco: devolver filtro imposible si no hay paciente
       return { filters: { name: '__never__' } };
     }
     return {
-      filters: { patient: frm.doc.patient }
-    };
-  });
-}
-
-function set_amg_asv_query(frm) {
-  // Ajusta según tu catálogo real
-  frm.set_query('amg_asv', () => {
-    return {
       filters: {
-        cod_grupo: ['in', ['Y4', 'Y6', 'Y09', 'AA175', 'AA207', 'AA208', 'AA210']]
+        patient: frm.doc.patient
       }
     };
   });
 }
 
-function set_cie_eje3_query(frm) {
-  frm.set_query('cie_eje3', () => {
-    return {
-      filters: {
-        cod_grupo: ['in', ['X60-X69','X70-X89','X85-X99','Y00-Y03','Y04','Y05','Y06','Y07','Y08','Y09','T74.1','T74.2','T74.3','AA206','AA207','AA208','AA175','AA210','Z00-Z13','Z20-Z29','Z30-Z39','Z40-Z54','Z55-Z65','Z70-Z76','Z80-Z99','NPP']]
-      }
-    };
-  });
-}
-
-/** Carga nombre + DOB del Patient y calcula edad a la fecha del documento */
+// Carga datos básicos del paciente y los guarda en un cache del form
 function hydrate_patient_side_fields(frm) {
   frappe.db.get_value('Patient', frm.doc.patient, [
-    'patient_name', 'dob'
+    'patient_name',
+    'nickname',
+    'dob',
+    'sex',
+    'pac_estado',
+    'pac_raza',
+    'pac_religion',
+    'pac_escolaridad',
+    'pac_ocupacion',
+    'pac_pais',
+    'pac_departamento',
+    'pac_ciudad',
+    'pac_acompa',
+    'pac_parentesco',
+    'nacimiento',
+    'cologne',
+    'mobile'
   ]).then(r => {
     const p = (r && r.message) || {};
-    safe_set(frm, 'pat_nombre', p.patient_name || null);
-    if (p.dob) safe_set(frm, 'pat_edad', p.dob); // guardas DOB en tu campo espejo si lo deseas
 
-    // edad a la fecha del documento
+    // dejamos el objeto del paciente en memoria del form
+    frm.__hc_patient_cache = p;
+
+    // recalculamos y guardamos la edad actual (texto) en pat_edadhoy
     recalc_age_to_doc_date(frm, p.dob);
+
+    // repintamos el HTML del panel de paciente
+    render_patient_html(frm);
   });
 }
 
-/** Recalcula y guarda pat_edadhoy como "X años Y meses" usando la fecha del doc */
-function recalc_age_to_doc_date(frm, dobOpt) {
-  const dob = dobOpt || frm.doc.pat_edad || null; // pat_edad guarda DOB según tu JSON
-  const baseDate = frm.doc.fecha || frappe.datetime.get_today(); // usa fecha del documento
-  const txt = age_text(dob, baseDate);
-  safe_set(frm, 'pat_edadhoy', txt);
+/* ============================================================================
+   Carga de Signos Vitales (se usa en refresh y en buscar)
+   ==========================================================================*/
+
+function load_vital_signs(frm) {
+  if (!frm.doc.buscar) {
+    // si se limpia el campo, se borra el panel de SV
+    render_sv_html(frm, null);
+    return;
+  }
+
+  frappe.db.get_value('Vital Signs', frm.doc.buscar, [
+    'bp',
+    'respiratory_rate',
+    'pulse',
+    'weight',
+    'height',
+    'bmi',
+    'bp_systolic',
+    'bp_diastolic',
+    'signs_date',
+    'signs_time',
+    'patient'
+  ]).then(r => {
+    const v = (r && r.message) || {};
+
+    // seguridad: que el registro de SV sea del mismo paciente
+    if (frm.doc.patient && v.patient && v.patient !== frm.doc.patient) {
+      frappe.msgprint(__('El registro de Signos Vitales no corresponde al paciente seleccionado.'));
+      frm.set_value('buscar', null);
+      render_sv_html(frm, null);
+      return;
+    }
+
+    // pinta el panel HTML de signos vitales
+    render_sv_html(frm, v);
+  });
 }
 
-/** Texto "X años Y meses" dado dob (YYYY-MM-DD) y fecha base (YYYY-MM-DD) */
+/* ============================================================================
+   Cálculo de edad
+   ==========================================================================*/
+
+// Calcula y setea pat_edadhoy = "X años Y meses"
+function recalc_age_to_doc_date(frm, dobOpt) {
+  // dobOpt se usa cuando lo tenemos fresquito del Patient
+  const dob = dobOpt || (frm.__hc_patient_cache && frm.__hc_patient_cache.dob) || null;
+
+  if (!dob) {
+    if (frm.get_field('pat_edadhoy')) {
+      frm.set_value('pat_edadhoy', null);
+    }
+    return;
+  }
+
+  // fecha base = fecha del documento, o hoy si no está
+  const baseDate = frm.doc.fecha || frappe.datetime.get_today();
+  const txt = age_text(dob, baseDate);
+
+  if (frm.get_field('pat_edadhoy')) {
+    frm.set_value('pat_edadhoy', txt);
+  }
+}
+
+// Construye el texto "X años Y meses"
 function age_text(dob, baseYmd) {
   const parts = age_parts(dob, baseYmd);
   if (parts.years == null) return null;
+
   const y = `${parts.years} ${parts.years === 1 ? 'año' : 'años'}`;
   const m = `${parts.months} ${parts.months === 1 ? 'mes' : 'meses'}`;
+
   return `${y} ${m}`;
 }
 
-/** Devuelve {years, months} calculados a partir de DOB y una fecha base */
+// Calcula la diferencia exacta en años y meses
 function age_parts(dob, baseYmd) {
   if (!dob) return { years: null, months: null };
+
   try {
     const birth = frappe.datetime.str_to_obj(dob);
-    const base  = frappe.datetime.str_to_obj(baseYmd || frappe.datetime.get_today());
+    const base = frappe.datetime.str_to_obj(baseYmd || frappe.datetime.get_today());
 
-    let years  = base.getFullYear() - birth.getFullYear();
-    let months = base.getMonth()    - birth.getMonth();
+    let years = base.getFullYear() - birth.getFullYear();
+    let months = base.getMonth() - birth.getMonth();
 
-    // Si aún no cumple el día en el mes base, restamos 1 mes
-    if (base.getDate() < birth.getDate()) months -= 1;
+    // si aún no ha pasado el día del mes, restamos un mes
+    if (base.getDate() < birth.getDate()) {
+      months -= 1;
+    }
 
-    if (months < 0) { years -= 1; months += 12; }
-    if (years < 0)  { years = 0;  months = 0; }
+    // normalizamos si quedan meses negativos
+    if (months < 0) {
+      years -= 1;
+      months += 12;
+    }
+
+    if (years < 0) {
+      years = 0;
+      months = 0;
+    }
 
     return { years, months };
   } catch (e) {
     console.warn('No se pudo calcular la edad:', e);
     return { years: null, months: null };
+  }
+}
+
+/* ============================================================================
+   Render de HTML (paciente y signos vitales)
+   ==========================================================================*/
+
+// Pinta la tabla HTML de datos del paciente en pat_info_html
+function render_patient_html(frm) {
+  const t = frm.get_field('pat_info_html');
+  if (!t) return;
+
+  const p = frm.__hc_patient_cache || {};
+
+  const rows = [
+    ['Nombre', p.patient_name],
+    ['Dime', p.nickname],
+    ['Sexo', p.sex],
+    ['Estado civil', p.pac_estado],
+    ['Raza', p.pac_raza],
+    ['Religión', p.pac_religion],
+    ['Escolaridad', p.pac_escolaridad],
+    ['Ocupación', p.pac_ocupacion],
+    ['País', p.pac_pais],
+    ['Departamento', p.pac_departamento],
+    ['Municipio', p.pac_ciudad],
+    ['Acompañante', p.pac_acompa],
+    ['Parentesco', p.pac_parentesco],
+    ['Lugar de nacimiento', p.nacimiento],
+    ['Dirección', p.cologne],
+    ['Móvil', p.mobile]
+  ];
+
+  const html = `
+    <div class="form-grid">
+      <table class="table table-bordered table-condensed">
+        <tbody>
+          ${rows
+            .map(([k, v]) =>
+              v
+                ? `<tr><th style="width:30%">${k}</th><td>${frappe.utils.escape_html(
+                    String(v)
+                  )}</td></tr>`
+                : ''
+            )
+            .join('')}
+        </tbody>
+      </table>
+    </div>`;
+
+  t.$wrapper.html(html);
+}
+
+// Pinta la tabla HTML de signos vitales en sv_info_html
+function render_sv_html(frm, v) {
+  const t = frm.get_field('sv_info_html');
+  if (!t) return;
+
+  const d = v || {};
+
+  // si no viene bp directo, lo armamos con sistólica/diastólica
+  let bp = d.bp;
+  if (!bp && d.bp_systolic && d.bp_diastolic) {
+    bp = `${d.bp_systolic}/${d.bp_diastolic} mmHg`;
+  }
+
+  const rows = [
+    ['Fecha', d.signs_date],
+    ['Hora', d.signs_time],
+    ['P/A', bp],
+    ['FR', d.respiratory_rate],
+    ['FC', d.pulse],
+    ['Peso', d.weight],
+    ['Talla', d.height],
+    ['IMC', d.bmi]
+  ];
+
+  const html = `
+    <div class="form-grid">
+      <table class="table table-bordered table-condensed">
+        <tbody>
+          ${rows
+            .map(([k, v]) =>
+              v
+                ? `<tr><th style="width:30%">${k}</th><td>${frappe.utils.escape_html(
+                    String(v)
+                  )}</td></tr>`
+                : ''
+            )
+            .join('')}
+        </tbody>
+      </table>
+    </div>`;
+
+  t.$wrapper.html(html);
+}
+
+/* ============================================================================
+   Precarga de filas de tablas hijas (si las usas)
+   ==========================================================================*/
+
+function ensure_default_rows(frm) {
+  if (!frm.is_new()) return;
+
+  // Si no estás usando aún las tablas hijas, puedes comentar todo este bloque.
+  // Ejemplo para Examen Físico:
+  if (!(frm.doc.exf_items || []).length && frm.fields_dict.exf_items) {
+    ['Cabeza', 'Cuello', 'ORL', 'Cardiopulmonar', 'Gastrointestinal', 'Músculo-esquelético', 'Piel y faneras', 'Neurológico']
+      .forEach(parte => {
+        const r = frm.add_child('exf_items');
+        r.parte = parte;
+        r.resultado = 'None';
+      });
+  }
+
+  // Examen Mental
+  if (!(frm.doc.exm_items || []).length && frm.fields_dict.exm_items) {
+    ['Aspecto y actitud', 'Edad aparente', 'Colabora', 'Higiene/vestimenta', 'Contacto visual', 'Conciencia', 'Atención', 'Orientación', 'Sensopercepción', 'Conducta motora', 'Afecto', 'Memoria', 'Pensamiento-Forma', 'Pensamiento-Curso', 'Pensamiento-Contenido', 'Funciones corticales', 'Insight', 'Juicio']
+      .forEach(aspecto => {
+        const r = frm.add_child('exm_items');
+        r.aspecto = aspecto;
+        r.valor = 'None';
+      });
+  }
+
+  // FOG
+  if (!(frm.doc.fog_items || []).length && frm.fields_dict.fog_items) {
+    ['Sueño', 'Apetito', 'Sed', 'Micción', 'Defecación']
+      .forEach(funcion => {
+        const r = frm.add_child('fog_items');
+        r.funcion = funcion;
+        r.valor = 'none';
+      });
+  }
+
+  frm.refresh_fields(['exf_items', 'exm_items', 'fog_items']);
+}
+
+/* ============================================================================
+   Reordenar layout en el DOM
+   ==========================================================================*/
+
+function reflow_layout(frm) {
+  // Mover tabla de datos del paciente debajo de "patient" (lado izquierdo)
+  try {
+    const pat_html = frm.fields_dict.pat_info_html && frm.fields_dict.pat_info_html.$wrapper;
+    const patient = frm.fields_dict.patient && frm.fields_dict.patient.$wrapper;
+
+    if (pat_html && patient && pat_html.prev()[0] !== patient[0]) {
+      pat_html.insertAfter(patient);
+    }
+
+    // Mover campo "buscar" debajo de "pat_edadhoy" (Edad hoy – lado derecho)
+    const buscar = frm.fields_dict.buscar && frm.fields_dict.buscar.$wrapper;
+    const edad = frm.fields_dict.pat_edadhoy && frm.fields_dict.pat_edadhoy.$wrapper;
+
+    if (buscar && edad && buscar.prev()[0] !== edad[0]) {
+      buscar.insertAfter(edad);
+    }
+
+    // Mover tabla de signos vitales debajo de "buscar"
+    const sv_html = frm.fields_dict.sv_info_html && frm.fields_dict.sv_info_html.$wrapper;
+    if (sv_html && buscar && sv_html.prev()[0] !== buscar[0]) {
+      sv_html.insertAfter(buscar);
+    }
+  } catch (e) {
+    console.warn('No se pudo reordenar el layout de Historia Clinica Psiquiatrica:', e);
   }
 }
