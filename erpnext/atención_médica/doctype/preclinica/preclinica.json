@@ -1,0 +1,70 @@
+{
+ "autoname": "PRE-.YYYY.--########",
+ "creation": "2025-12-15 18:21:19.223632",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "appointment",
+  "patient",
+  "date",
+  "section1",
+  "detail"
+ ],
+ "fields": [
+  {
+   "fieldname": "appointment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cita M\u00e9dica",
+   "options": "Cita Medica",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "appointment.patient",
+   "fieldname": "patient",
+   "fieldtype": "Data",
+   "label": "Patient",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "appointment.appointment_date",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section1",
+   "fieldtype": "Section Break",
+   "label": "SIgnos Vitales"
+  },
+  {
+   "fieldname": "detail",
+   "fieldtype": "Table",
+   "label": "Detalle",
+   "options": "Detalle Preclinica"
+  }
+ ],
+ "modified": "2025-12-15 18:21:19.223632",
+ "modified_by": "Administrator",
+ "module": "Atenci\u00f3n M\u00e9dica",
+ "name": "Preclinica",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

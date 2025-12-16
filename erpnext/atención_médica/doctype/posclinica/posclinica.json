@@ -1,0 +1,58 @@
+{
+ "autoname": "POS-.YYYY.-.########",
+ "creation": "2025-12-15 18:25:21.555275",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "appointment",
+  "profesional",
+  "comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "appointment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cita M\u00e9dica",
+   "options": "Cita Medica",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "appointment.profesional",
+   "fieldname": "profesional",
+   "fieldtype": "Data",
+   "label": "M\u00e9dico",
+   "read_only": 1
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Long Text",
+   "in_list_view": 1,
+   "label": "Comentarios (Cierre)",
+   "reqd": 1
+  }
+ ],
+ "modified": "2025-12-15 18:25:21.555275",
+ "modified_by": "Administrator",
+ "module": "Atenci\u00f3n M\u00e9dica",
+ "name": "Posclinica",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

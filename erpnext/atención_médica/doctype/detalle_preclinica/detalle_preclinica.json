@@ -1,0 +1,37 @@
+{
+ "creation": "2025-12-15 18:16:29.964137",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "detail",
+  "result"
+ ],
+ "fields": [
+  {
+   "fieldname": "detail",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Detalle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "result",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Resultado",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2025-12-15 18:20:31.300979",
+ "modified_by": "Administrator",
+ "module": "Atenci\u00f3n M\u00e9dica",
+ "name": "Detalle Preclinica",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
