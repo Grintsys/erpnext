@@ -1,0 +1,59 @@
+{
+ "autoname": "fiel:nameBranch",
+ "creation": "2025-12-15 16:52:52.937138",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "namebranch",
+  "code",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "namebranch",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nombre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "C\u00f3digo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Estado",
+   "options": "Activa\nInactiva",
+   "reqd": 1
+  }
+ ],
+ "modified": "2025-12-15 16:52:52.937138",
+ "modified_by": "Administrator",
+ "module": "Atenci\u00f3n M\u00e9dica",
+ "name": "Sucursal",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

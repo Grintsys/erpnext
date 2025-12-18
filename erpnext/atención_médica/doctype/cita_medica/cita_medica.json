@@ -1,0 +1,192 @@
+{
+ "autoname": "CIT-.YYYY.-.########",
+ "creation": "2025-12-15 17:53:13.477067",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section1",
+  "patient",
+  "first_time",
+  "column1",
+  "new_year",
+  "actual_year",
+  "section2",
+  "branch",
+  "service",
+  "unit",
+  "column2",
+  "profesional",
+  "appointment_type",
+  "section3",
+  "register_date",
+  "appointment_date",
+  "column3",
+  "start_hour",
+  "end_hour",
+  "section4",
+  "status",
+  "observations"
+ ],
+ "fields": [
+  {
+   "fieldname": "section1",
+   "fieldtype": "Section Break",
+   "label": "Datos del Paciente"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Paciente",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "first_time",
+   "fieldtype": "Check",
+   "label": "Primera vez"
+  },
+  {
+   "fieldname": "column1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "new_year",
+   "fieldtype": "Check",
+   "label": "Nueva del a\u00f1o"
+  },
+  {
+   "fieldname": "actual_year",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "A\u00f1o actual",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section2",
+   "fieldtype": "Section Break",
+   "label": "Configuraci\u00f3n de cita"
+  },
+  {
+   "fetch_from": "profesional.branch",
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sucursal",
+   "options": "Sucursal",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "profesional.service",
+   "fieldname": "service",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Servicio",
+   "options": "Servicio",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "profesional.unit",
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unidad",
+   "options": "Unidad",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "profesional",
+   "fieldtype": "Link",
+   "label": "Profesional",
+   "options": "Profesional de salud",
+   "reqd": 1
+  },
+  {
+   "fieldname": "appointment_type",
+   "fieldtype": "Link",
+   "label": "Tipo de cita",
+   "options": "Tipo de cita",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section3",
+   "fieldtype": "Section Break",
+   "label": "Fecha y Tiempo"
+  },
+  {
+   "fieldname": "register_date",
+   "fieldtype": "Date",
+   "label": "Fecha de registro",
+   "reqd": 1
+  },
+  {
+   "fieldname": "appointment_date",
+   "fieldtype": "Date",
+   "label": "Fecha de cita",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_hour",
+   "fieldtype": "Time",
+   "label": "Hora Inicio",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_hour",
+   "fieldtype": "Time",
+   "label": "Hora FIn",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "Programado\nEn Precl\u00ednica\nEn COnsulta\nFInalizada\nCancelada",
+   "reqd": 1
+  },
+  {
+   "fieldname": "observations",
+   "fieldtype": "Long Text",
+   "label": "Observaciones"
+  }
+ ],
+ "modified": "2025-12-15 18:48:18.116250",
+ "modified_by": "Administrator",
+ "module": "Atenci\u00f3n M\u00e9dica",
+ "name": "Cita Medica",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

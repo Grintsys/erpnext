@@ -1,0 +1,72 @@
+{
+ "creation": "2025-12-15 18:31:54.547121",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "appointment",
+  "patient",
+  "method",
+  "section1",
+  "items"
+ ],
+ "fields": [
+  {
+   "fieldname": "appointment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cita M\u00e9dica",
+   "options": "Cita Medica",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "appointment.patient",
+   "fieldname": "patient",
+   "fieldtype": "Data",
+   "label": "Paciente",
+   "read_only": 1
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "M\u00e9todo",
+   "options": "Nota de Entrega\nDescargo\nFactura",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section1",
+   "fieldtype": "Section Break",
+   "label": "Detalle"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Productos",
+   "options": "Sales Invoice Item",
+   "reqd": 1
+  }
+ ],
+ "modified": "2025-12-15 18:31:54.547121",
+ "modified_by": "Administrator",
+ "module": "Atenci\u00f3n M\u00e9dica",
+ "name": "Clinica de deposito",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

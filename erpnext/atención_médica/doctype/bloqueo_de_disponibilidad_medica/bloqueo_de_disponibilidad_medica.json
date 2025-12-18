@@ -1,0 +1,58 @@
+{
+ "creation": "2025-12-15 17:58:39.921465",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "profesional",
+  "date",
+  "motive"
+ ],
+ "fields": [
+  {
+   "fieldname": "profesional",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "M\u00e9dico",
+   "options": "Profesional de salud",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Fecha",
+   "reqd": 1
+  },
+  {
+   "fieldname": "motive",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Motivo",
+   "reqd": 1
+  }
+ ],
+ "modified": "2025-12-15 17:58:39.921465",
+ "modified_by": "Administrator",
+ "module": "Atenci\u00f3n M\u00e9dica",
+ "name": "Bloqueo de disponibilidad medica",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
