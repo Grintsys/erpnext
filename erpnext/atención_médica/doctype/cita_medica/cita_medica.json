@@ -1,4 +1,6 @@
 {
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
  "autoname": "CIT-.YYYY.-.########",
  "creation": "2025-12-15 17:53:13.477067",
  "doctype": "DocType",
@@ -26,7 +28,8 @@
   "end_hour",
   "section4",
   "status",
-  "observations"
+  "observations",
+  "user_id"
  ],
  "fields": [
   {
@@ -71,32 +74,26 @@
    "label": "Configuraci\u00f3n de cita"
   },
   {
-   "fetch_from": "profesional.branch",
    "fieldname": "branch",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Sucursal",
    "options": "Sucursal",
-   "read_only": 1,
    "reqd": 1
   },
   {
-   "fetch_from": "profesional.service",
    "fieldname": "service",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Servicio",
    "options": "Servicio",
-   "read_only": 1,
    "reqd": 1
   },
   {
-   "fetch_from": "profesional.unit",
    "fieldname": "unit",
    "fieldtype": "Link",
    "label": "Unidad",
    "options": "Unidad",
-   "read_only": 1,
    "reqd": 1
   },
   {
@@ -107,7 +104,7 @@
    "fieldname": "profesional",
    "fieldtype": "Link",
    "label": "Profesional",
-   "options": "Profesional de salud",
+   "options": "Healthcare Practitioner",
    "reqd": 1
   },
   {
@@ -165,9 +162,17 @@
    "fieldname": "observations",
    "fieldtype": "Long Text",
    "label": "Observaciones"
+  },
+  {
+   "fetch_from": "profesional.user_id",
+   "fieldname": "user_id",
+   "fieldtype": "Link",
+   "label": "user",
+   "options": "User",
+   "read_only": 1
   }
  ],
- "modified": "2025-12-15 18:48:18.116250",
+ "modified": "2026-01-31 07:35:56.980244",
  "modified_by": "Administrator",
  "module": "Atenci\u00f3n M\u00e9dica",
  "name": "Cita Medica",

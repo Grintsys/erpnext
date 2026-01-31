@@ -206,15 +206,9 @@ def get_data():
                 },
                 {
                     "type": "doctype",
-                    "name": "Profesional de salud",
-                    "description": _("Lista de médicos, Enfermeros, Psicologos, entre otros."),
-                    "dependencies": ["Unidad"]
-                },
-                {
-                    "type": "doctype",
                     "name": "Cita Medica",
                     "description": _("Lista, crea y edita las citas médicas."),
-                    "dependencies": ["Profesional de salud"]
+                    "dependencies": ["Healthcare Practitioner"]
                 },
                 {
                     "type": "doctype",
@@ -248,7 +242,7 @@ def get_data():
                     "type": "doctype",
                     "name": "Bloqueo de disponibilidad medica",
                     "description": _("Manejo de Bloqueo de disponibilidad medica."),
-                    "dependencies": ["Profesional de salud"]
+                    "dependencies": ["Healthcare Practitioner"]
                 },
             ]
         }

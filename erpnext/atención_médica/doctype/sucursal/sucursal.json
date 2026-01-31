@@ -1,5 +1,5 @@
 {
- "autoname": "fiel:nameBranch",
+ "autoname": "field:namebranch",
  "creation": "2025-12-15 16:52:52.937138",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -15,7 +15,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Nombre",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "code",
@@ -33,7 +34,7 @@
    "reqd": 1
   }
  ],
- "modified": "2025-12-15 16:52:52.937138",
+ "modified": "2025-12-23 10:25:35.088420",
  "modified_by": "Administrator",
  "module": "Atenci\u00f3n M\u00e9dica",
  "name": "Sucursal",

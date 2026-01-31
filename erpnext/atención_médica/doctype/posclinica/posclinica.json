@@ -23,6 +23,7 @@
    "fieldname": "profesional",
    "fieldtype": "Data",
    "label": "M\u00e9dico",
+   "options": "Healthcare Practitioner",
    "read_only": 1
   },
   {
@@ -33,7 +34,7 @@
    "reqd": 1
   }
  ],
- "modified": "2025-12-15 18:25:21.555275",
+ "modified": "2026-01-31 06:40:00.660196",
  "modified_by": "Administrator",
  "module": "Atenci\u00f3n M\u00e9dica",
  "name": "Posclinica",
