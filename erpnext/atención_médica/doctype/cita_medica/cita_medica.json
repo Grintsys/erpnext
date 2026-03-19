@@ -31,7 +31,8 @@
   "observations",
   "user_id",
   "start_datetime",
-  "end_datetime"
+  "end_datetime",
+  "color"
  ],
  "fields": [
   {
@@ -184,9 +185,16 @@
    "fieldtype": "Datetime",
    "hidden": 1,
    "label": "end_datetime"
+  },
+  {
+   "fetch_from": "appointment_type.color",
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "hidden": 1,
+   "label": "color"
   }
  ],
- "modified": "2026-03-18 19:12:58.648798",
+ "modified": "2026-03-18 19:39:16.290491",
  "modified_by": "Administrator",
  "module": "Atenci\u00f3n M\u00e9dica",
  "name": "Cita Medica",

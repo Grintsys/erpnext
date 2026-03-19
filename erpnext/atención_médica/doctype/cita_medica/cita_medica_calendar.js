@@ -4,7 +4,8 @@ frappe.views.calendar["Cita Medica"] = {
 		end: "end_datetime",
 		title: "patient",
 		id: "name",
-		allDay: "all_day"
+		allDay: "all_day",
+		color: "color"
 	},
 
 	filters: [
