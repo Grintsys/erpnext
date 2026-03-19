@@ -1,21 +1,21 @@
 frappe.views.calendar["Cita Medica"] = {
 	field_map: {
-		start: "appointment_date",
-		end: "appointment_date",
-		start_time: "start_hour",
-		end_time: "end_hour",
+		start: "start_datetime",
+		end: "end_datetime",
 		title: "patient",
-		allDay: false
+		id: "name",
+		allDay: "all_day"
 	},
 
-	// Filtros visibles en el calendario
 	filters: [
 		{
 			fieldtype: "Link",
 			fieldname: "user_id",
 			options: "User",
 			label: __("Doctor"),
-			default: frappe.session.user   // 👈 aquí la magia
+			default: frappe.session.user
 		}
-	]
+	],
+
+	get_events_method: "frappe.desk.calendar.get_events"
 };
