@@ -885,38 +885,57 @@ class PurchaseInvoice(BuyingController):
 		net_amt_precision = item.precision("base_net_amount")
 		val_rate_db_precision = 6 if cint(item.precision("valuation_rate")) <= 6 else 9
 
-		warehouse_debit_amount = flt(flt(item.valuation_rate, val_rate_db_precision)
-			* flt(item.qty)	* flt(item.conversion_factor), net_amt_precision)
+		warehouse_debit_amount = flt(
+			flt(item.valuation_rate, val_rate_db_precision)
+			* flt(item.qty)
+			* flt(item.conversion_factor),
+			net_amt_precision
+		)
 
 		# Stock ledger value is not matching with the warehouse amount
-		if (self.update_stock and voucher_wise_stock_value.get(item.name) and
-			warehouse_debit_amount != flt(voucher_wise_stock_value.get(item.name), net_amt_precision)):
-
+		if (
+			self.update_stock
+			and item.name in voucher_wise_stock_value
+			and warehouse_debit_amount != flt(voucher_wise_stock_value.get(item.name), net_amt_precision)
+		):
 			cost_of_goods_sold_account = self.get_company_default("default_expense_account")
-			stock_amount = flt(voucher_wise_stock_value.get(item.name), net_amt_precision)
-			stock_adjustment_amt = warehouse_debit_amount - stock_amount
 
-			if  item.purchase_default_values != None:
-				gl_entries.append(
-					self.get_gl_dict({
-						"account": cost_of_goods_sold_account,
-						"against": item.purchase_default_values,
-						"debit": stock_adjustment_amt,
-						"remarks": self.get("remarks") or _("Stock Adjustment"),
-						"cost_center": item.cost_center,
-						"project": item.project
-					}, account_currency, item=item)
-				)
-			else:
-				self.get_gl_dict({
-					"account": cost_of_goods_sold_account,
-					"against": item.expense_account,
+			if not cost_of_goods_sold_account:
+				frappe.throw(_("Please set Default Expense Account in Company {0}").format(self.company))
+
+			stock_amount = flt(voucher_wise_stock_value.get(item.name), net_amt_precision)
+			stock_adjustment_amt = flt(warehouse_debit_amount - stock_amount, net_amt_precision)
+
+			against_account = item.purchase_default_values or item.expense_account
+			stock_adjustment_account_currency = get_account_currency(cost_of_goods_sold_account)
+
+			adjustment_gl_dict = {
+				"account": cost_of_goods_sold_account,
+				"against": against_account,
+				"remarks": self.get("remarks") or _("Stock Adjustment"),
+				"cost_center": item.cost_center,
+				"project": item.project
+			}
+
+			if stock_adjustment_amt > 0:
+				adjustment_gl_dict.update({
 					"debit": stock_adjustment_amt,
-					"remarks": self.get("remarks") or _("Stock Adjustment"),
-					"cost_center": item.cost_center,
-					"project": item.project
-				}, account_currency, item=item)
-				
+					"debit_in_account_currency": stock_adjustment_amt
+				})
+			elif stock_adjustment_amt < 0:
+				adjustment_gl_dict.update({
+					"credit": abs(stock_adjustment_amt),
+					"credit_in_account_currency": abs(stock_adjustment_amt)
+				})
+
+			if stock_adjustment_amt:
+				gl_entries.append(
+					self.get_gl_dict(
+						adjustment_gl_dict,
+						stock_adjustment_account_currency,
+						item=item
+					)
+				)
 
 			warehouse_debit_amount = stock_amount
 
