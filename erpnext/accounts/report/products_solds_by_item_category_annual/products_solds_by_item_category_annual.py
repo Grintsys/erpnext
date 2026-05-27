@@ -123,7 +123,7 @@ def execute(filters=None):
 		["posting_date", ">=", from_date],
 		["posting_date", "<=", to_date],
 		["naming_series", "=", filters.get("prefix")],
-		["docstatus", "=", 0]
+		["docstatus", "=", 1]
 	]
 
 	if filters.get("user"):
