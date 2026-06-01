@@ -563,15 +563,30 @@ class SalesInvoice(SellingController):
 					if self.exonerated == 1:
 						exonerated += self.total
 					else:
-						invoice_table_taxes = frappe.get_all("Sales Taxes and Charges", ["name", "rate", "tax_amount"], filters = {"parent": self.name})
+						invoice_table_taxes = frappe.get_all(
+							"Sales Taxes and Charges",
+							[
+								"name",
+								"rate",
+								"tax_amount",
+								"base_tax_amount_after_discount_amount",
+								"tax_amount_after_discount_amount"
+							],
+							filters={"parent": self.name}
+						)
 
 						for invoice_tax in invoice_table_taxes:
+							tax_amount = flt(
+								invoice_tax.base_tax_amount_after_discount_amount
+								or invoice_tax.tax_amount_after_discount_amount
+								or invoice_tax.tax_amount
+							)
 
 							if invoice_tax.rate == 15:
-								taxed15 += invoice_tax.tax_amount							
-							
+								taxed15 += tax_amount
+
 							if invoice_tax.rate == 18:
-								taxed18 += invoice_tax.tax_amount
+								taxed18 += tax_amount
 		else:
 			items = frappe.get_all("Sales Invoice Item", ["name", "item_code", "amount"], filters = {"parent": self.name})
 
