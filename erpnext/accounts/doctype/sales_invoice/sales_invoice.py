@@ -791,25 +791,24 @@ class SalesInvoice(SellingController):
 							for tax_detail in tax_details:
 								# frappe.msgprint("tax detail {}".format(tax_detail))
 								if tax_detail.tax_rate == 15:
-									# frappe.msgprint("cuenta tax 15 {}".format(tax_detail.tax_type))
 									self.account15 = tax_detail.tax_type
 									if self.exonerated == 1:
-										taxed_sales15 += item.amount + item.discount_amount
-										taxed15 += (item.amount + item.discount_amount) * 0.15
+										taxed_sales15 += item.amount
+										taxed15 += item.amount * 0.15
 										exonerated += taxed_sales15 + taxed15
 									else:
-										taxed_sales15 += (item.amount+ item.discount_amount)/1.15
-										taxed15 += (item.amount + item.discount_amount) - ((item.amount + item.discount_amount)/1.15)
+										taxed_sales15 += item.amount / 1.15
+										taxed15 += item.amount - (item.amount / 1.15)
 								
 								if tax_detail.tax_rate == 18:
 									self.account18 = tax_detail.tax_type
 									if self.exonerated == 1:
-										taxed_sales18 += (item.amount + item.discount_amount) + item.discount_amount
-										taxed18 += (item.amount + item.discount_amount) * 0.18
+										taxed_sales18 += item.amount
+										taxed18 += item.amount * 0.18
 										exonerated += taxed_sales18 + taxed18
 									else:
-										taxed_sales18 += item.amount/1.18
-										taxed18 += (item.amount + item.discount_amount) - ((item.amount + item.discount_amount)/1.18)
+										taxed_sales18 += item.amount / 1.18
+										taxed18 += item.amount - (item.amount / 1.18)
 				else:
 					exempt += item.amount
 	
