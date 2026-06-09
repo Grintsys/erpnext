@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.mapper import get_mapped_doc
-from frappe.utils import flt, nowdate, getdate
+from frappe.utils import flt, nowdate, getdate, add_days, nowdate
 from frappe import _
 
 from erpnext.controllers.selling_controller import SellingController
@@ -24,6 +24,9 @@ class Quotation(SellingController):
 
 	def validate(self):
 		super(Quotation, self).validate()
+		if self.quotation_to == 'Customer':
+			self.verificate_customer_solved()
+			self.verificate_credit_limit_customer()
 		self.set_status()
 		self.set_total_deduction_product()
 		self.update_opportunity()
@@ -37,10 +40,79 @@ class Quotation(SellingController):
 	def on_update(self):
 		self.verify_rounding()
 
+	def verificate_customer_solved(self):
+		fecha_limite = add_days(nowdate(), -30)
+
+		invoices_pending = frappe.get_all(
+			"Sales Invoice",
+			filters={
+				"customer": self.party_name,
+				"docstatus": 1,
+				"posting_date": ["<=", fecha_limite],
+				"outstanding_amount": [">", 0]
+			},
+			fields=[
+				"name",
+				"posting_date",
+				"outstanding_amount"
+			]
+		)
+
+		if invoices_pending:
+			factura = invoices_pending[0]
+
+			frappe.throw(_(
+				"El cliente tiene facturas vencidas. "
+				"Factura: {0}, Fecha: {1}, Saldo pendiente: {2}"
+			).format(
+				factura.name,
+				factura.posting_date,
+				factura.outstanding_amount
+			))
+
+	def verificate_credit_limit_customer(self):
+		customer = frappe.get_doc("Customer", self.party_name)
+
+		customer_credit_limit = None
+
+		for row in customer.credit_limits:
+			if row.company == self.company:
+				customer_credit_limit = row
+				break
+
+		if not customer_credit_limit:
+			return
+		
+		if customer_credit_limit.bypass_credit_limit_check:
+			return
+		
+		# si es por monto pendiente cambiar a outstanding_amount
+		total_outstanding = frappe.db.sql("""
+			SELECT COALESCE(SUM(grand_total), 0)
+			FROM `tabSales Invoice`
+			WHERE customer = %s
+				AND company = %s
+				AND docstatus = 1
+				AND outstanding_amount > 0
+		""", (
+			self.party_name,
+			self.company
+		))[0][0] or 0
+
+		if total_outstanding >= customer_credit_limit.credit_limit:
+			frappe.throw(_(
+				"El cliente ha excedido su límite de crédito.<br><br>"
+				"Límite de crédito: {0}<br>"
+				"Saldo pendiente: {1}"
+			).format(
+				frappe.format_value(customer_credit_limit.credit_limit, {"fieldtype": "Currency"}),
+				frappe.format_value(total_outstanding, {"fieldtype": "Currency"})
+			))
+
 	def verify_rounding(self):
 		if self.disable_rounded_total:
 			self.rounding_adjustment = 0
-			self.rounded_total = self.grand_total
+			self.rounded_total = self.grand_total	
 			
 	def set_total_deduction_product(self):
 		if self.docstatus==1:

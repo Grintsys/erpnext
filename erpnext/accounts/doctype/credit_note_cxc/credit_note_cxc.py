@@ -111,63 +111,129 @@ class CreditNoteCXC(Document):
 						frappe.throw(_("The amount can not be accepted to pay the bills, the amount must pay the bills or pay one and advance another."))
 
 	def verificate_amount(self):
-		remaining = 0
 		amount_total = self.amount_total
+
 		if len(self.get("references")) > 1:
 			for d in sorted(self.references, key=lambda item: item.total_amount):
 				sales_invoice = frappe.get_doc("Sales Invoice", d.reference_name)
+
 				if amount_total > d.total_amount:
 					amount_total -= d.total_amount
+
 					if sales_invoice.outstanding_amount == d.total_amount:
-						sales_invoice.status = "Paid"
+						sales_invoice.db_set(
+							"status",
+							"Paid",
+							update_modified=False
+						)
+
 					sales_invoice.outstanding_amount -= d.total_amount
+
 				else:
 					if amount_total <= d.total_amount:
+
 						if sales_invoice.outstanding_amount == amount_total:
-							sales_invoice.status = "Paid"
+							sales_invoice.db_set(
+								"status",
+								"Paid",
+								update_modified=False
+							)
+
 						sales_invoice.outstanding_amount -= amount_total
-				sales_invoice.save()
-		else: 
+
+				sales_invoice.db_set(
+					"outstanding_amount",
+					sales_invoice.outstanding_amount,
+					update_modified=False
+				)
+
+		else:
 			for x in self.get("references"):
+
 				if amount_total <= x.total_amount:
-					sales_invoice = frappe.get_doc("Sales Invoice", x.reference_name)
+					sales_invoice = frappe.get_doc(
+						"Sales Invoice",
+						x.reference_name
+					)
+
 					if sales_invoice.outstanding_amount == self.amount_total:
-						sales_invoice.status = "Paid"
+						sales_invoice.db_set(
+							"status",
+							"Paid",
+							update_modified=False
+						)
+
 					sales_invoice.outstanding_amount -= self.amount_total
-				sales_invoice.save()
+
+					sales_invoice.db_set(
+						"outstanding_amount",
+						sales_invoice.outstanding_amount,
+						update_modified=False
+					)
 	
 	def verificate_amount_cancel(self):
+		amount_total = self.amount_total
+
 		if len(self.get("references")) > 1:
 			for d in sorted(self.references, key=lambda item: item.total_amount):
-				sales_invoice = frappe.get_doc("Sales Invoice", d.reference_name)
+				sales_invoice = frappe.get_doc(
+					"Sales Invoice",
+					d.reference_name
+				)
+
 				if amount_total > d.total_amount:
 					amount_total -= d.total_amount
+
 					if sales_invoice.outstanding_amount == d.total_amount:
-						sales_invoice.status = "Unpaid"
-						sales_invoice.db_set('status', "Unpaid", update_modified=False)
+						sales_invoice.db_set(
+							"status",
+							"Unpaid",
+							update_modified=False
+						)
 
 					sales_invoice.outstanding_amount += d.total_amount
-					sales_invoice.db_set('outstanding_amount', sales_invoice.outstanding_amount, update_modified=False)
+
 				else:
 					if amount_total <= d.total_amount:
-						if sales_invoice.outstanding_amount == amount_total:
-							sales_invoice.status = "Unpaid"
-							sales_invoice.db_set('status', "Unpaid", update_modified=False)
 
-						sales_invoice.outstanding_amount += amount_total	
-						sales_invoice.db_set('outstanding_amount', sales_invoice.outstanding_amount, update_modified=False)						
-				sales_invoice.save()
-		else: 
+						if sales_invoice.outstanding_amount == amount_total:
+							sales_invoice.db_set(
+								"status",
+								"Unpaid",
+								update_modified=False
+							)
+
+						sales_invoice.outstanding_amount += amount_total
+
+				sales_invoice.db_set(
+					"outstanding_amount",
+					sales_invoice.outstanding_amount,
+					update_modified=False
+				)
+
+		else:
 			for x in self.get("references"):
+
 				if amount_total <= x.total_amount:
-					sales_invoice = frappe.get_doc("Sales Invoice", x.reference_name)
+					sales_invoice = frappe.get_doc(
+						"Sales Invoice",
+						x.reference_name
+					)
+
 					if sales_invoice.outstanding_amount == self.amount_total:
-						sales_invoice.status = "Unpaid"
-						sales_invoice.db_set('status', "Unpaid", update_modified=False)
+						sales_invoice.db_set(
+							"status",
+							"Unpaid",
+							update_modified=False
+						)
 
 					sales_invoice.outstanding_amount += self.amount_total
-					sales_invoice.db_set('outstanding_amount', sales_invoice.outstanding_amount, update_modified=False)
-				sales_invoice.save()
+
+					sales_invoice.db_set(
+						"outstanding_amount",
+						sales_invoice.outstanding_amount,
+						update_modified=False
+					)
 	
 	def update_accounts_status(self):
 		customer = frappe.get_doc("Customer", self.customer)
