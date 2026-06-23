@@ -75,7 +75,7 @@ def execute(filters=None):
 		)
 
 	conditions.append(
-		["docstatus", "=", 0]
+		["docstatus", "=", 1]
 	)
 
 	invoices = frappe.get_all(

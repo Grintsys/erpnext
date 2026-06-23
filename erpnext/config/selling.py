@@ -422,6 +422,12 @@ def get_data():
 					"is_query_report": True,
 					"name": "Detailed sales book per transaction",
 					"doctype": "Sales Invoice"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Comisión por entrada de pago",
+					"doctype": "Sales Invoice"
 				}
 			]
 		},
