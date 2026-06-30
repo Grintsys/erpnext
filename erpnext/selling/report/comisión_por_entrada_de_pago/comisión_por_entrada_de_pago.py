@@ -129,7 +129,13 @@ def execute(filters=None):
 
 			sales_partner = invoice.sales_partner or "SIN SOCIO DE VENTAS"
 
-			commission_rate = invoice.commission_rate or 0
+			commission_rate = frappe.db.get_value(
+				"Sales Partner",
+				invoice.sales_partner,
+				"commission_rate"
+			)
+
+			# commission_rate = invoice.commission_rate or 0
 
 			payment_commission = (
 				(ref.allocated_amount or 0)
