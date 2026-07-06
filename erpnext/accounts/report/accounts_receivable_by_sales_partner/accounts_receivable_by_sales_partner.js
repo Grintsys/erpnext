@@ -88,7 +88,7 @@ frappe.query_reports["Accounts Receivable By Sales Partner"] = {
 					});
 
 					frappe.db.get_value('Customer Credit Limit', {'parent': customer, 'company': company}, 
-						["credit_limfvit"], function(value) {
+						["credit_limit"], function(value) {
 						if (value) {
 							frappe.query_report.set_filter_value('credit_limit', value["credit_limit"]);
 						}
