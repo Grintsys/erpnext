@@ -1,0 +1,1067 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2026-07-01 12:52:00.752220",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "naming_series",
+  "patient",
+  "column_break_4",
+  "fecha",
+  "pat_edadhoy",
+  "buscar",
+  "pat_name",
+  "pat_info_html",
+  "seccion1",
+  "motivo1",
+  "seccion2",
+  "historia",
+  "seccion3",
+  "4_historia_del_desarrollo",
+  "seccion41",
+  "embarazo",
+  "espesificar41",
+  "enfermedad",
+  "depresion41",
+  "psicosis41",
+  "preecla41",
+  "itu41",
+  "otros41",
+  "psicomotor",
+  "lenguaje",
+  "social",
+  "seccion42",
+  "edades",
+  "esp421",
+  "repetir",
+  "esp422",
+  "indice",
+  "esp423",
+  "problemas",
+  "esp424",
+  "aprendisaje",
+  "esp425",
+  "seccion43",
+  "identidad43",
+  "inicios43",
+  "riego43",
+  "promiscuidad",
+  "proteccion",
+  "anticonceptico",
+  "orientacion",
+  "esp431",
+  "historial",
+  "historia_abuso_tabla",
+  "antecedentes",
+  "seccion5",
+  "enfermedades",
+  "esp5",
+  "enfermedad5",
+  "hosp",
+  "esp51",
+  "tratamiento",
+  "esp52",
+  "abuso5",
+  "esp53",
+  "rasgos",
+  "esp54",
+  "sessio6",
+  "padres",
+  "esp61",
+  "fallecido",
+  "esp62",
+  "fallecida",
+  "esp63",
+  "conflicto",
+  "esp64",
+  "cuidado",
+  "abm",
+  "abp",
+  "tios",
+  "otros61",
+  "conflictos",
+  "esp65",
+  "seccion7",
+  "afectuoso",
+  "sobreprotector",
+  "indiferente",
+  "hostil",
+  "inexistente",
+  "seccion8",
+  "81",
+  "82",
+  "83",
+  "84",
+  "85",
+  "86",
+  "87",
+  "88",
+  "89",
+  "parentesco",
+  "seccion9",
+  "etario",
+  "edad91",
+  "condiciones",
+  "vestimenta",
+  "actitud",
+  "reaccion",
+  "actitud901",
+  "actitud902",
+  "actitud903",
+  "actitud904",
+  "actitud905",
+  "actitud906",
+  "actitud907",
+  "actitud908",
+  "actitud909",
+  "actitud910",
+  "actitud911",
+  "actitud912",
+  "actitud913",
+  "actitud914",
+  "actitud915",
+  "seccion10",
+  "atencion101",
+  "enc_afecto",
+  "afec1001",
+  "afec1002",
+  "afec1003",
+  "afec1004",
+  "afec1005",
+  "afec1006",
+  "afec1007",
+  "afec1008",
+  "afec1009",
+  "afec1010",
+  "pensamiento10",
+  "fom10",
+  "forma101",
+  "forma102",
+  "forma103",
+  "forma104",
+  "forma105",
+  "cur10",
+  "cur101",
+  "cur102",
+  "cur103",
+  "cur104",
+  "cont10",
+  "cont101",
+  "cont102",
+  "cont103",
+  "cont104",
+  "cont105",
+  "seccion11",
+  "imagen",
+  "observacion",
+  "plan"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Historia Clinica Psicologia",
+   "options": "HCPSC-UNA-.YY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pat_name",
+   "fieldtype": "Read Only",
+   "label": "Nombre del paciente"
+  },
+  {
+   "fieldname": "pat_info_html",
+   "fieldtype": "HTML",
+   "label": "Informaci\u00f3n del paciente"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "UNA Historia Clinica Psicologia",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion1",
+   "fieldtype": "Section Break",
+   "label": "1. MOTIVO DE REMISI\u00d3N"
+  },
+  {
+   "fieldname": "motivo1",
+   "fieldtype": "Select",
+   "label": "Motivo",
+   "options": "\nPsicoterapia\nPsicodiagn\u00f3stico\nIntervenci\u00f3n en crisis"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion2",
+   "fieldtype": "Section Break",
+   "label": "2. DIAGNOSTICO PSIQUI\u00c1TRICO DE REMISI\u00d3N"
+  },
+  {
+   "fieldname": "historia",
+   "fieldtype": "Select",
+   "label": "Historia Clinica Psicologia ninos",
+   "options": "UNA Historia Clinica Psiquiatrica"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion3",
+   "fieldtype": "Section Break",
+   "label": "3. TRATAMIENTO FARMACOL\u00d3GICO BRINDADO POR PSIQUIATR\u00cdA"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "4_historia_del_desarrollo",
+   "fieldtype": "Heading",
+   "label": "4. HISTORIA DEL DESARROLLO"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion41",
+   "fieldtype": "Section Break",
+   "label": "4.1 ANTECEDENTES PRENATALES, NATALES Y POSTNATALES"
+  },
+  {
+   "fieldname": "embarazo",
+   "fieldtype": "Select",
+   "label": "Embarazo deseado",
+   "options": "\nSi\nNo\nEspecifique"
+  },
+  {
+   "fieldname": "espesificar41",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "enfermedad",
+   "fieldtype": "Select",
+   "label": "Enfermedades del embarazo",
+   "options": "\nSi\nNo\nEspecifique"
+  },
+  {
+   "default": "0",
+   "fieldname": "depresion41",
+   "fieldtype": "Check",
+   "label": "Depresion"
+  },
+  {
+   "default": "0",
+   "fieldname": "psicosis41",
+   "fieldtype": "Check",
+   "label": "Psicosis"
+  },
+  {
+   "default": "0",
+   "fieldname": "preecla41",
+   "fieldtype": "Check",
+   "label": "Preeclampsia"
+  },
+  {
+   "default": "0",
+   "fieldname": "itu41",
+   "fieldtype": "Check",
+   "label": "ITU"
+  },
+  {
+   "fieldname": "otros41",
+   "fieldtype": "Data",
+   "label": "Otros"
+  },
+  {
+   "fieldname": "psicomotor",
+   "fieldtype": "Data",
+   "label": "Desarrollo Psicomotor"
+  },
+  {
+   "fieldname": "lenguaje",
+   "fieldtype": "Data",
+   "label": "Desarrollo del lenguaje normal"
+  },
+  {
+   "fieldname": "social",
+   "fieldtype": "Data",
+   "label": "Desarrollo social normal"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion42",
+   "fieldtype": "Section Break",
+   "label": "4.2 ESCOLARIDAD"
+  },
+  {
+   "fieldname": "edades",
+   "fieldtype": "Select",
+   "label": "Edades de inicio academico adecuados",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp421",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "repetir",
+   "fieldtype": "Select",
+   "label": "Repitencia de a\u00f1os",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp422",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "indice",
+   "fieldtype": "Select",
+   "label": "Indice academico promedio",
+   "options": "Si\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp423",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "problemas",
+   "fieldtype": "Select",
+   "label": "Problemas de comportamiento",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp424",
+   "fieldtype": "Table",
+   "label": "Especifique",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "aprendisaje",
+   "fieldtype": "Select",
+   "label": "Problemas de aprendizaje",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp425",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion43",
+   "fieldtype": "Section Break",
+   "label": "4.3 DESARROLLO SEXUAL"
+  },
+  {
+   "fieldname": "identidad43",
+   "fieldtype": "Select",
+   "label": "Ideentificacion de genero",
+   "options": "\nSi\nNo\nNa"
+  },
+  {
+   "fieldname": "inicios43",
+   "fieldtype": "Select",
+   "label": "Inicio de vida sexual",
+   "options": "\nSi\nNo\nNa"
+  },
+  {
+   "fieldname": "riego43",
+   "fieldtype": "Select",
+   "label": "Conductas sexuales de riesgo",
+   "options": "\nSi\nNo\nNa"
+  },
+  {
+   "default": "0",
+   "fieldname": "promiscuidad",
+   "fieldtype": "Check",
+   "label": "Promiscuidad sexual"
+  },
+  {
+   "default": "0",
+   "fieldname": "proteccion",
+   "fieldtype": "Check",
+   "label": "No uso de proteccion"
+  },
+  {
+   "default": "0",
+   "fieldname": "anticonceptico",
+   "fieldtype": "Check",
+   "label": "No uso de anticonceptivos"
+  },
+  {
+   "fieldname": "orientacion",
+   "fieldtype": "Select",
+   "label": "Orientacion sexual definida",
+   "options": "Si\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp431",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "historial",
+   "fieldtype": "Select",
+   "label": "Historia de abuso sexual",
+   "options": "Si\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "historia_abuso_tabla",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "antecedentes",
+   "fieldtype": "Heading",
+   "label": "ANTECEDENTES PERSONALES"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion5",
+   "fieldtype": "Section Break",
+   "label": "5. Enfermedades m\u00e9dicas no psiqui\u00e1tricos"
+  },
+  {
+   "fieldname": "enfermedades",
+   "fieldtype": "Select",
+   "label": "Enfermedades m\u00e9dicas no psiqui\u00e1tricas",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "esp5",
+   "fieldtype": "Table",
+   "label": "Especifique",
+   "options": "diagnostico cei10"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "enfermedad5",
+   "fieldtype": "Section Break",
+   "label": "Enfermedades m\u00e9dicos psiqui\u00e1tricos"
+  },
+  {
+   "fieldname": "hosp",
+   "fieldtype": "Select",
+   "label": "Hospitalizaci\u00f3nes",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "esp51",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "tratamiento",
+   "fieldtype": "Select",
+   "label": "Tratamientos previos",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "esp52",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "abuso5",
+   "fieldtype": "Select",
+   "label": "Abuso o dependendia de sustancias",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "esp53",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "rasgos",
+   "fieldtype": "Select",
+   "label": "Rasgos de personalidad patologica",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "esp54",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "sessio6",
+   "fieldtype": "Section Break",
+   "label": "6. ESTRUCTURA FAMILIAR"
+  },
+  {
+   "fieldname": "padres",
+   "fieldtype": "Select",
+   "label": "Padres juntos",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp61",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "fallecido",
+   "fieldtype": "Select",
+   "label": "Padre fallecido",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp62",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "fallecida",
+   "fieldtype": "Select",
+   "label": "Madre fallecida",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp63",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "conflicto",
+   "fieldtype": "Select",
+   "label": "Conflictos con alguno de los padres",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp64",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "cuidado",
+   "fieldtype": "Select",
+   "label": "Cuidado a cargo de otra persona que no son los padres",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "default": "0",
+   "fieldname": "abm",
+   "fieldtype": "Check",
+   "label": "Abuelos maternos"
+  },
+  {
+   "default": "0",
+   "fieldname": "abp",
+   "fieldtype": "Check",
+   "label": "Abuelos paternos"
+  },
+  {
+   "default": "0",
+   "fieldname": "tios",
+   "fieldtype": "Check",
+   "label": "Tios"
+  },
+  {
+   "default": "0",
+   "fieldname": "otros61",
+   "fieldtype": "Check",
+   "label": "otros"
+  },
+  {
+   "fieldname": "conflictos",
+   "fieldtype": "Select",
+   "label": "Conflicto con otros familiares",
+   "options": "\nSi\nNo\nEspesifique"
+  },
+  {
+   "fieldname": "esp65",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion7",
+   "fieldtype": "Section Break",
+   "label": "7. Actitud de los cuidadores"
+  },
+  {
+   "default": "0",
+   "fieldname": "afectuoso",
+   "fieldtype": "Check",
+   "label": "Afectuoso"
+  },
+  {
+   "default": "0",
+   "fieldname": "sobreprotector",
+   "fieldtype": "Check",
+   "label": "Sobreprotectora"
+  },
+  {
+   "default": "0",
+   "fieldname": "indiferente",
+   "fieldtype": "Check",
+   "label": "Indifirente"
+  },
+  {
+   "default": "0",
+   "fieldname": "hostil",
+   "fieldtype": "Check",
+   "label": "Hostil"
+  },
+  {
+   "default": "0",
+   "fieldname": "inexistente",
+   "fieldtype": "Check",
+   "label": "Relacion inexistente"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion8",
+   "fieldtype": "Section Break",
+   "label": "8. ANTECEDENTES FAMILIARES PSIQUIATRICOS DE PRIMER GRADO"
+  },
+  {
+   "default": "0",
+   "fieldname": "81",
+   "fieldtype": "Check",
+   "label": "Depresi\u00f3n"
+  },
+  {
+   "default": "0",
+   "fieldname": "82",
+   "fieldtype": "Check",
+   "label": "T. de ansiedad"
+  },
+  {
+   "default": "0",
+   "fieldname": "83",
+   "fieldtype": "Check",
+   "label": "T. bipolar"
+  },
+  {
+   "default": "0",
+   "fieldname": "84",
+   "fieldtype": "Check",
+   "label": "Esquizofrenia"
+  },
+  {
+   "default": "0",
+   "fieldname": "85",
+   "fieldtype": "Check",
+   "label": "Abuso de sustancias"
+  },
+  {
+   "default": "0",
+   "fieldname": "86",
+   "fieldtype": "Check",
+   "label": "Intentos suicidas"
+  },
+  {
+   "default": "0",
+   "fieldname": "87",
+   "fieldtype": "Check",
+   "label": "Demencias"
+  },
+  {
+   "default": "0",
+   "fieldname": "88",
+   "fieldtype": "Check",
+   "label": "Epilepsia"
+  },
+  {
+   "default": "0",
+   "fieldname": "89",
+   "fieldtype": "Check",
+   "label": "Otros"
+  },
+  {
+   "fieldname": "parentesco",
+   "fieldtype": "Data",
+   "label": "Parentesco"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion9",
+   "fieldtype": "Section Break",
+   "label": "9.  SITUACION ACTUAL"
+  },
+  {
+   "fieldname": "etario",
+   "fieldtype": "Select",
+   "label": "Grupo etario",
+   "options": "\nPreescolar\nEscolar\nAdolescente"
+  },
+  {
+   "fieldname": "edad91",
+   "fieldtype": "Select",
+   "label": "Edad aparente / referida",
+   "options": "\nMayor\nIgual\nMenor"
+  },
+  {
+   "fieldname": "condiciones",
+   "fieldtype": "Select",
+   "label": "Condiciones de higiene y ali\u00f1o",
+   "options": "\nAdecuado\nInadecuado"
+  },
+  {
+   "fieldname": "vestimenta",
+   "fieldtype": "Select",
+   "label": "Vestimenta",
+   "options": "\nAdecuada\nInadeacuada"
+  },
+  {
+   "fieldname": "actitud",
+   "fieldtype": "Select",
+   "label": "Actitud",
+   "options": "\nActiva\nPasiva"
+  },
+  {
+   "fieldname": "reaccion",
+   "fieldtype": "Heading",
+   "label": "Reacci\u00f3n al medio inmediato"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud901",
+   "fieldtype": "Check",
+   "label": "Confiado"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud902",
+   "fieldtype": "Check",
+   "label": "Extrovertido"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud903",
+   "fieldtype": "Check",
+   "label": "Tranquilo"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud904",
+   "fieldtype": "Check",
+   "label": "Cooperador"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud905",
+   "fieldtype": "Check",
+   "label": "Interesado"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud906",
+   "fieldtype": "Check",
+   "label": "Amable"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud907",
+   "fieldtype": "Check",
+   "label": "Relajado"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud908",
+   "fieldtype": "Check",
+   "label": "Desconfiado"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud909",
+   "fieldtype": "Check",
+   "label": "Introvertido"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud910",
+   "fieldtype": "Check",
+   "label": "Inquieto"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud911",
+   "fieldtype": "Check",
+   "label": "Renuente"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud912",
+   "fieldtype": "Check",
+   "label": "Ap\u00e1tico"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud913",
+   "fieldtype": "Check",
+   "label": "Descortes"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud914",
+   "fieldtype": "Check",
+   "label": "Tenso"
+  },
+  {
+   "default": "0",
+   "fieldname": "actitud915",
+   "fieldtype": "Check",
+   "label": "Temeroso"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion10",
+   "fieldtype": "Section Break",
+   "label": "10. ATENCI\u00d3N AFECTO y PENSAMIENTO"
+  },
+  {
+   "fieldname": "atencion101",
+   "fieldtype": "Select",
+   "label": "Atenci\u00f3n",
+   "options": "\nNormal\nInatento\nDistractil"
+  },
+  {
+   "fieldname": "enc_afecto",
+   "fieldtype": "Heading",
+   "label": "AFECTO"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1001",
+   "fieldtype": "Check",
+   "label": "Eutimico"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1002",
+   "fieldtype": "Check",
+   "label": "Euforico"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1003",
+   "fieldtype": "Check",
+   "label": "Triste"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1004",
+   "fieldtype": "Check",
+   "label": "Ansioso"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1005",
+   "fieldtype": "Check",
+   "label": "Aplanado"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1006",
+   "fieldtype": "Check",
+   "label": "Inapropiado"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1007",
+   "fieldtype": "Check",
+   "label": "Indiferente"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1008",
+   "fieldtype": "Check",
+   "label": "Incongruencia"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1009",
+   "fieldtype": "Check",
+   "label": "Afectiva"
+  },
+  {
+   "default": "0",
+   "fieldname": "afec1010",
+   "fieldtype": "Check",
+   "label": "Irritable"
+  },
+  {
+   "fieldname": "pensamiento10",
+   "fieldtype": "Heading",
+   "label": "PENSAMIENTO"
+  },
+  {
+   "fieldname": "fom10",
+   "fieldtype": "Heading",
+   "label": "Forma"
+  },
+  {
+   "default": "0",
+   "fieldname": "forma101",
+   "fieldtype": "Check",
+   "label": "Coherente"
+  },
+  {
+   "default": "0",
+   "fieldname": "forma102",
+   "fieldtype": "Check",
+   "label": "Incoherente"
+  },
+  {
+   "default": "0",
+   "fieldname": "forma103",
+   "fieldtype": "Check",
+   "label": "Fuga de Ideas"
+  },
+  {
+   "default": "0",
+   "fieldname": "forma104",
+   "fieldtype": "Check",
+   "label": "Otros"
+  },
+  {
+   "fieldname": "forma105",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "cur10",
+   "fieldtype": "Heading",
+   "label": "Curso"
+  },
+  {
+   "default": "0",
+   "fieldname": "cur101",
+   "fieldtype": "Check",
+   "label": "Eulalico"
+  },
+  {
+   "default": "0",
+   "fieldname": "cur102",
+   "fieldtype": "Check",
+   "label": "Taquilalia"
+  },
+  {
+   "default": "0",
+   "fieldname": "cur103",
+   "fieldtype": "Check",
+   "label": "Bradilalia"
+  },
+  {
+   "default": "0",
+   "fieldname": "cur104",
+   "fieldtype": "Check",
+   "label": "Bloqueo del pensamiento"
+  },
+  {
+   "fieldname": "cont10",
+   "fieldtype": "Heading",
+   "label": "Contenido"
+  },
+  {
+   "default": "0",
+   "fieldname": "cont101",
+   "fieldtype": "Check",
+   "label": "Ideas Sobrevaloradas"
+  },
+  {
+   "default": "0",
+   "fieldname": "cont102",
+   "fieldtype": "Check",
+   "label": "Ideas delirantes"
+  },
+  {
+   "default": "0",
+   "fieldname": "cont103",
+   "fieldtype": "Check",
+   "label": "Control del pensamiento"
+  },
+  {
+   "default": "0",
+   "fieldname": "cont104",
+   "fieldtype": "Check",
+   "label": "Otras ideas patologivas no delirantes"
+  },
+  {
+   "default": "0",
+   "fieldname": "cont105",
+   "fieldtype": "Check",
+   "label": "Especifique"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion11",
+   "fieldtype": "Section Break",
+   "label": "11. DIAGNOSTICO DE JUEGOS REALIZADOS"
+  },
+  {
+   "fieldname": "imagen",
+   "fieldtype": "Image",
+   "label": "Imagen"
+  },
+  {
+   "fieldname": "observacion",
+   "fieldtype": "Small Text",
+   "label": "OBSERVACIONES"
+  },
+  {
+   "fieldname": "plan",
+   "fieldtype": "Small Text",
+   "label": "PLAN TERAP\u00c9UTICO"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "fecha",
+   "fieldtype": "Date",
+   "label": "Fecha",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pat_edadhoy",
+   "fieldtype": "Data",
+   "label": "Edad Actual"
+  },
+  {
+   "fieldname": "buscar",
+   "fieldtype": "Link",
+   "label": "Buscar Signos vitales mas actuales",
+   "options": "Vital Signs"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2026-08-26 18:11:21.906181",
+ "modified_by": "Administrator",
+ "module": "Healthcare",
+ "name": "UNA Historia Clinica Psicologia",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

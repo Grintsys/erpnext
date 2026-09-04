@@ -1,0 +1,1592 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2026-07-01 12:54:43.694008",
+ "description": "\n\nSi\nNo\nNo se cuenta con informaci\u00f3n\n\nNo se cuenta con informaci\u00f3n / Informante no responde",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "naming_series",
+  "patient",
+  "pat_name",
+  "pat_info_html",
+  "section_break_4",
+  "fecha",
+  "pat_edadhoy",
+  "buscar",
+  "sint_hist",
+  "narativa01",
+  "cent_educativo",
+  "informacion1",
+  "procedencia",
+  "vice_con",
+  "cuidador",
+  "patient_relation",
+  "informantes_otros",
+  "seccion02",
+  "narrativa02",
+  "seccion02_1",
+  "dificultadad",
+  "problemas_condu",
+  "ansiedad",
+  "sintomas",
+  "dificultades",
+  "problemas_emosio",
+  "sospechas",
+  "otros01",
+  "seccion03",
+  "narrativa03",
+  "informacion03",
+  "hist_inicio",
+  "hist_curso",
+  "hist_contexto",
+  "hc1",
+  "hc2",
+  "hc3",
+  "hc4",
+  "hist_impacto",
+  "hist_desencadena",
+  "hist_mantenedor",
+  "seccion04",
+  "fun41_0",
+  "narrativa_04",
+  "informacio_01",
+  "rendi",
+  "dificul4_01",
+  "di41",
+  "di42",
+  "di43",
+  "di44",
+  "di45",
+  "reporte4_01",
+  "adapta4_02",
+  "rept4_01",
+  "materia",
+  "dif4_02",
+  "encabe42",
+  "narrativa42",
+  "informa42",
+  "conflic42",
+  "estres42",
+  "estilo42",
+  "autoridad42",
+  "perm42",
+  "negl42",
+  "democra42",
+  "incon42",
+  "otros42",
+  "coherencia42",
+  "seccion04_3",
+  "narra43",
+  "informacion43",
+  "predo43",
+  "predo43_1",
+  "regula43",
+  "ideacion43",
+  "auto43",
+  "sintomas43",
+  "narra44",
+  "informacion44",
+  "relacion44",
+  "bullying44",
+  "actividad44",
+  "otros44",
+  "seccion04_5",
+  "narra45",
+  "informacion45",
+  "opo45",
+  "apr45",
+  "imp45",
+  "ment45",
+  "con45",
+  "otro45",
+  "seccion04_6",
+  "narrativa46",
+  "informacion4_46",
+  "sue46",
+  "sue462",
+  "apetito46",
+  "energia46",
+  "enuresis",
+  "otrosintoma46",
+  "seccion04_7",
+  "narrativa47",
+  "informacion4_47",
+  "pantalla47",
+  "actividad47",
+  "rutina47",
+  "seccion05",
+  "narra47",
+  "informacion5",
+  "enfermedades5",
+  "enfermedad51",
+  "hospital5",
+  "cirugia5",
+  "alergias5",
+  "otraalergia5",
+  "medicacion5",
+  "antecedentes5",
+  "detalle5",
+  "seccion6_1",
+  "narrativa61",
+  "informacion61",
+  "enfermedad61",
+  "trastornos61",
+  "consumo61",
+  "suicidio61",
+  "parentezco61",
+  "otros61",
+  "seccion6_2",
+  "narrativa62",
+  "informacion62",
+  "enfermedad62",
+  "trastornos62",
+  "consumo62",
+  "suicidio62",
+  "parentezco62",
+  "otros62",
+  "seccion7",
+  "narrativa7",
+  "informacion7",
+  "percentil71",
+  "percentil72",
+  "percentil73",
+  "perimetro7",
+  "percentil74",
+  "nutricional7",
+  "signos7",
+  "hallazgo7",
+  "seccion8",
+  "narrativa8",
+  "informacion8",
+  "apariencia8",
+  "interaccion8",
+  "inter81",
+  "inter82",
+  "inter83",
+  "inter84",
+  "juego8",
+  "atencion8",
+  "lenguaje8",
+  "afecto8",
+  "pensamiento8",
+  "pensamiento8_2",
+  "percepcion8",
+  "jucio8",
+  "riesgos8",
+  "riego8",
+  "otros8",
+  "seccion9",
+  "narrativa9",
+  "informacion9",
+  "areas9",
+  "escolar9",
+  "familiar9",
+  "emosional9",
+  "social9",
+  "conductual9",
+  "somatico9",
+  "informacion9_2",
+  "deterioro9",
+  "concordi9",
+  "seccion10",
+  "narrativa10",
+  "informacion10",
+  "eje1",
+  "eje2",
+  "eje3",
+  "eje4",
+  "eje5",
+  "seccion11",
+  "narrativa11",
+  "informacion11",
+  "informacion11_1",
+  "hemograma",
+  "glicemia",
+  "tsgo",
+  "cratinina",
+  "t3t4",
+  "lipido",
+  "sericos_litio",
+  "sereico_carba",
+  "serico_acido",
+  "tomog_cerebral",
+  "electro",
+  "cefalico",
+  "resonancia",
+  "otro11",
+  "comentarios11",
+  "seccion12",
+  "narrativa12",
+  "informacion12",
+  "psicoedu",
+  "psitera",
+  "interesc",
+  "farmaco",
+  "intervecion",
+  "otros12",
+  "seccion13",
+  "narrativa13",
+  "informacion13",
+  "reevaluacion13",
+  "otros13",
+  "alarma",
+  "seguimiento13"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Historia Clinica Psiquiatrica",
+   "options": "HCPSQ-UNA-.YY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "UNA Historia Clinica Psiquiatrica",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "fecha",
+   "fieldtype": "Date",
+   "label": "Fecha",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pat_edadhoy",
+   "fieldtype": "Data",
+   "label": "Edad Actual"
+  },
+  {
+   "fieldname": "buscar",
+   "fieldtype": "Link",
+   "label": "Buscar Signos vitales mas actuales",
+   "options": "Vital Signs"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: contexto general del paciente, etapa del desarrollo, escolaridad, cuidador pricipal, informantes y confiabilidad del relato.",
+   "fieldname": "sint_hist",
+   "fieldtype": "Section Break",
+   "label": "1. DATOS DE IDENTIFICACI\u00d3N"
+  },
+  {
+   "fieldname": "cent_educativo",
+   "fieldtype": "Select",
+   "label": "Centro educativo",
+   "options": "\nPublico\nPrivado\nNo escolarizado"
+  },
+  {
+   "fieldname": "procedencia",
+   "fieldtype": "Data",
+   "label": "Procedencia"
+  },
+  {
+   "fieldname": "vice_con",
+   "fieldtype": "Select",
+   "label": "Vive con",
+   "options": "\nMadre\nPadre\nOtro"
+  },
+  {
+   "fieldname": "cuidador",
+   "fieldtype": "Select",
+   "label": "Cuidador principal",
+   "options": "\nMadre\nPadre\nOtro"
+  },
+  {
+   "fieldname": "patient_relation",
+   "fieldtype": "Select",
+   "label": "Informantes",
+   "options": "\nMadre\nPadre\nAmbos\nEscuela\nPaciente\nOtros"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: Motivo referido por cada informante; registra concordancias y discrepacias, y la principal area afectada.",
+   "fieldname": "seccion02",
+   "fieldtype": "Section Break",
+   "label": "2. MOTIVO DE CONSULTA"
+  },
+  {
+   "fieldname": "narativa01",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "fieldname": "narrativa02",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: Cronologia, inicio, curso, contexto, desencadenantes / mantenedores e impacto funcional.",
+   "fieldname": "seccion03",
+   "fieldtype": "Section Break",
+   "label": "3. HISTORIA DEL PROBLEMA ACTUAL"
+  },
+  {
+   "default": "0",
+   "fieldname": "dificultadad",
+   "fieldtype": "Check",
+   "label": "Dificultades atencionales"
+  },
+  {
+   "default": "0",
+   "fieldname": "problemas_condu",
+   "fieldtype": "Check",
+   "label": "Problemas conductuales"
+  },
+  {
+   "default": "0",
+   "fieldname": "ansiedad",
+   "fieldtype": "Check",
+   "label": "Ansiedad"
+  },
+  {
+   "default": "0",
+   "fieldname": "sintomas",
+   "fieldtype": "Check",
+   "label": "Sintomas depresivos"
+  },
+  {
+   "default": "0",
+   "fieldname": "dificultades",
+   "fieldtype": "Check",
+   "label": "Dificultades escolares"
+  },
+  {
+   "default": "0",
+   "fieldname": "problemas_emosio",
+   "fieldtype": "Check",
+   "label": "Problemas emocionales"
+  },
+  {
+   "default": "0",
+   "fieldname": "sospechas",
+   "fieldtype": "Check",
+   "label": "Sospecha diagnostica previa"
+  },
+  {
+   "fieldname": "otros01",
+   "fieldtype": "Data",
+   "label": "Otros:"
+  },
+  {
+   "collapsible": 1,
+   "description": "En cada \u00e1rea: describir funcionamiento actual, cambios respecto a l\u00ednea base y discrepancias por informante.",
+   "fieldname": "seccion04",
+   "fieldtype": "Section Break",
+   "label": "4. AREAS DE FUNCIONAMIENTO"
+  },
+  {
+   "fieldname": "narrativa03",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "fieldname": "hist_inicio",
+   "fieldtype": "Select",
+   "label": "Inicio",
+   "options": "\nAgudo\nInsidioso\nAsociado a evento"
+  },
+  {
+   "fieldname": "hist_curso",
+   "fieldtype": "Select",
+   "label": "Curso",
+   "options": "\nContinuo\nFluctuante\nEpis\u00f3dico"
+  },
+  {
+   "fieldname": "hist_contexto",
+   "fieldtype": "Heading",
+   "label": "Contexto predominante"
+  },
+  {
+   "fieldname": "hist_impacto",
+   "fieldtype": "Select",
+   "label": "Impactor funcional global",
+   "options": "\nLeve\nModerado\nSevero"
+  },
+  {
+   "fieldname": "hist_desencadena",
+   "fieldtype": "Data",
+   "label": "Factores desencadenantes"
+  },
+  {
+   "fieldname": "hist_mantenedor",
+   "fieldtype": "Data",
+   "label": "Factores mantenedores"
+  },
+  {
+   "collapsible": 1,
+   "default": "0",
+   "fieldname": "seccion02_1",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n / Informante no responde"
+  },
+  {
+   "fieldname": "narrativa_04",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacio_01",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n / Informante no responde"
+  },
+  {
+   "fieldname": "dificul4_01",
+   "fieldtype": "Heading",
+   "label": "Dificultades observadas"
+  },
+  {
+   "fieldname": "reporte4_01",
+   "fieldtype": "Select",
+   "label": "Reporte disciplinarios",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "adapta4_02",
+   "fieldtype": "Select",
+   "label": "Adaptaciones escolares",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "rept4_01",
+   "fieldtype": "Select",
+   "label": "Repeticion de grado",
+   "options": "\nSi\nNo\nNo se cuenta con informacion"
+  },
+  {
+   "fieldname": "materia",
+   "fieldtype": "Data",
+   "label": "Materias con dificultad"
+  },
+  {
+   "fieldname": "dif4_02",
+   "fieldtype": "Data",
+   "label": "Otras dificultades escolares"
+  },
+  {
+   "fieldname": "rendi",
+   "fieldtype": "Select",
+   "label": "Rendimiento",
+   "options": "\nAdecuado\nIrregular\nBajo"
+  },
+  {
+   "description": "Gu\u00eda narrativa: Rendimiento real, atenci\u00f3n en aula, conducta escolar, relaci\u00f3n con docentes, necesidad de apoyos / adaptaciones.",
+   "fieldname": "fun41_0",
+   "fieldtype": "Heading",
+   "label": "4.1 FUNCIONAMIENTO ESCOLAR / ACADEMICO"
+  },
+  {
+   "collapsible": 1,
+   "description": "Gu\u00eda narrativa: Clima familiar, l\u00edmites, disciplina, coherencia entre cuidadores, entr\u00e9s, parental y relaci\u00f3n con s\u00edntomas.",
+   "fieldname": "encabe42",
+   "fieldtype": "Section Break",
+   "label": "4.2 FUNCIOAMIENTO FAMILIAR Y ESTILOS DE CRIANZA"
+  },
+  {
+   "fieldname": "narrativa42",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informa42",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informacion / informe no responde"
+  },
+  {
+   "fieldname": "conflic42",
+   "fieldtype": "Select",
+   "label": "Conflictos familiares",
+   "options": "\nFrecuentes\nOcacionales\nAusentes"
+  },
+  {
+   "fieldname": "estres42",
+   "fieldtype": "Select",
+   "label": "Estres parental",
+   "options": "\nBajo\nModerado\nAlto"
+  },
+  {
+   "fieldname": "estilo42",
+   "fieldtype": "Heading",
+   "label": "Estilo de crianza predominante"
+  },
+  {
+   "default": "0",
+   "fieldname": "autoridad42",
+   "fieldtype": "Check",
+   "label": "Autoritario"
+  },
+  {
+   "default": "0",
+   "fieldname": "perm42",
+   "fieldtype": "Check",
+   "label": "Permisivo"
+  },
+  {
+   "default": "0",
+   "fieldname": "negl42",
+   "fieldtype": "Check",
+   "label": "Negligente"
+  },
+  {
+   "default": "0",
+   "fieldname": "democra42",
+   "fieldtype": "Check",
+   "label": "Democrativo/Autoritativo"
+  },
+  {
+   "default": "0",
+   "fieldname": "incon42",
+   "fieldtype": "Check",
+   "label": "Inconsistente"
+  },
+  {
+   "fieldname": "otros42",
+   "fieldtype": "Data",
+   "label": "Otros"
+  },
+  {
+   "fieldname": "coherencia42",
+   "fieldtype": "Select",
+   "label": "Coherencia entre cuidadores",
+   "options": "\nAlta\nParcial\nBaja\nNo se cuenta con informacion"
+  },
+  {
+   "fieldname": "narra43",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion43",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informacion / informe no responde"
+  },
+  {
+   "fieldname": "predo43",
+   "fieldtype": "Select",
+   "label": "Estado de \u00e1nimo predominante",
+   "options": "\nEut\u00edmico\nIrritable\nTriste\nAnsioso\nOtros"
+  },
+  {
+   "fieldname": "predo43_1",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "fieldname": "regula43",
+   "fieldtype": "Select",
+   "label": "Regulaci\u00f3n emocional",
+   "options": "\nAdecuada\nDisminuida\nNo se cuenta con inforamaci\u00f3n"
+  },
+  {
+   "fieldname": "ideacion43",
+   "fieldtype": "Select",
+   "label": "Ideaci\u00f3n suicida",
+   "options": "\nPresente\nAusente\nNo se cuenta con inforamci\u00f3n"
+  },
+  {
+   "fieldname": "auto43",
+   "fieldtype": "Select",
+   "label": "Autolesiones",
+   "options": "\nSi\nNo\nNo se cuenta con informacion"
+  },
+  {
+   "fieldname": "sintomas43",
+   "fieldtype": "Data",
+   "label": "Otros s\u00edntomas emosionales"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: \u00c1nimo basal, irritabilidad, regulaci\u00f3n emocional, reactividad y expresi\u00f3n afectiva acorde a edad.",
+   "fieldname": "seccion04_3",
+   "fieldtype": "Section Break",
+   "label": "4.3 FUNCIONAMIENTO EMOCIONAL / AFECTIVO"
+  },
+  {
+   "fieldname": "narra44",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion44",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informacion / informe no responde"
+  },
+  {
+   "fieldname": "relacion44",
+   "fieldtype": "Select",
+   "label": "Relaciones con pares:",
+   "options": "\nAdecuadas\nLimitadas\nAislamiento\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "bullying44",
+   "fieldtype": "Select",
+   "label": "Bullying:",
+   "options": "\nVictima\nAgresor\nAmbos\nNiega\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "actividad44",
+   "fieldtype": "Data",
+   "label": "Actividades Sociales / recreativas:"
+  },
+  {
+   "fieldname": "otros44",
+   "fieldtype": "Data",
+   "label": "Otros aspectos sociales:"
+  },
+  {
+   "collapsible": 1,
+   "description": "Gu\u00eda narrativa: Opesici\u00f3n, agresividad, impulsividad, transgresi\u00f3n de normas; diferenciar casa vs escuela y severidad.",
+   "fieldname": "seccion04_5",
+   "fieldtype": "Section Break",
+   "label": "4.5 FUNCIONAMIENTO CONDUCTUAL"
+  },
+  {
+   "fieldname": "narra45",
+   "fieldtype": "Small Text",
+   "label": "Narravita"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion45",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informacion / informante no responde"
+  },
+  {
+   "fieldname": "opo45",
+   "fieldtype": "Select",
+   "label": "Oposici\u00f3n",
+   "options": "\nAusente\nLeve\nModerada\nSevera\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "apr45",
+   "fieldtype": "Select",
+   "label": "Apresividad",
+   "options": "\nSi\nNo\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "imp45",
+   "fieldtype": "Select",
+   "label": "Impulsividad",
+   "options": "\nSi\nNo\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "ment45",
+   "fieldtype": "Select",
+   "label": "Mentiras/enga\u00f1os",
+   "options": "\nSi\nNo\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "con45",
+   "fieldtype": "Select",
+   "label": "Conductas de riesgo (edad pertinente)",
+   "options": "\nSi\nNo\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "otro45",
+   "fieldtype": "Data",
+   "label": "Otras conductas relevantes"
+  },
+  {
+   "collapsible": 1,
+   "description": "Gu\u00eda narrativa: Sue\u00f1o, apetito, energ\u00eda, s\u00edntomas som\u00e1ticos, control de esfinteres.",
+   "fieldname": "seccion04_6",
+   "fieldtype": "Section Break",
+   "label": "4.6 FUNCIOAMIENTO SOM\u00c1TICO / BIOL\u00d3GICO"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion4_46",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "sue46",
+   "fieldtype": "Select",
+   "label": "Sue\u00f1o",
+   "options": "\nAdecuado\nDificultadad para conciliar\nDespertares\nOtros"
+  },
+  {
+   "fieldname": "sue462",
+   "fieldtype": "Data",
+   "label": "Sue\u00f1o-Otros"
+  },
+  {
+   "fieldname": "apetito46",
+   "fieldtype": "Select",
+   "label": "Apetito",
+   "options": "\nConservado\nDisminuido\nAumentado\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "energia46",
+   "fieldtype": "Select",
+   "label": "Energ\u00eda diurna",
+   "options": "\nAdecuada\nDisminuida\nAumentada\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "enuresis",
+   "fieldtype": "Select",
+   "label": "Enuresis/Encopresis",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "otrosintoma46",
+   "fieldtype": "Data",
+   "label": "Otros s\u00edntomas som\u00e1ticos"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion04_7",
+   "fieldtype": "Section Break",
+   "label": "4.7 OTRAS \u00c1REAS DE FUNCIONAMIENTO"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion4_47",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "pantalla47",
+   "fieldtype": "Select",
+   "label": "Uso de pantallas",
+   "options": "\n<3 h al d\u00eda\n>=3 h al d\u00eda\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "actividad47",
+   "fieldtype": "Select",
+   "label": "Actividad Fisica regular",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "rutina47",
+   "fieldtype": "Data",
+   "label": "Rutinas y h\u00e1bitos relevantes"
+  },
+  {
+   "collapsible": 1,
+   "description": "Gu\u00eda narrativa: Enfermedades cr\u00f3nicas, hospotalizaciones, cirug\u00edas, alergias, medicaci\u00f3n, actual y antecedentes neurol\u00f3gicos.",
+   "fieldname": "seccion05",
+   "fieldtype": "Section Break",
+   "label": "5. ANTECEDENTES M\u00c9DICOS PERSONALES"
+  },
+  {
+   "fieldname": "narra47",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion5",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "enfermedades5",
+   "fieldtype": "Select",
+   "label": "Enfermedades cr\u00f3nicas",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "hospital5",
+   "fieldtype": "Select",
+   "label": "Hospitalizaciones",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "cirugia5",
+   "fieldtype": "Select",
+   "label": "Cirug\u00edas",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "alergias5",
+   "fieldtype": "Select",
+   "label": "Alergias",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "medicacion5",
+   "fieldtype": "Select",
+   "label": "Medicaciones actuales",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "antecedentes5",
+   "fieldtype": "Select",
+   "label": "Antecedentes neurol\u00f3gicos (convulsiones/TEC/ETC.)",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "detalle5",
+   "fieldtype": "Data",
+   "label": "Detalles / Otros:"
+  },
+  {
+   "collapsible": 1,
+   "description": "Gu\u00eda narrativa: Antecedentes m\u00e9dicos y psiqui\u00e1tricos en familiares maternos; incluir consumo de sustenacias y suicidio.",
+   "fieldname": "seccion6_1",
+   "fieldtype": "Section Break",
+   "label": "6.1 L\u00cdNEA MATERNA"
+  },
+  {
+   "fieldname": "narrativa61",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "fieldname": "otros61",
+   "fieldtype": "Data",
+   "label": "Otros:"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: Antecedentes medicos y psiquiatricos en familiares paternos; incluir cosumo de sustancias y suicidio.",
+   "fieldname": "seccion6_2",
+   "fieldtype": "Section Break",
+   "label": "6.2 LINEA PATERNA"
+  },
+  {
+   "fieldname": "narrativa62",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "fieldname": "otros62",
+   "fieldtype": "Data",
+   "label": "Otros:"
+  },
+  {
+   "collapsible": 1,
+   "description": "Gu\u00eda narrativa: Impresi\u00f3n general, signos cl\u00ednicos relevantes, higiene, desarrollo; registrar antropometr\u00eda.",
+   "fieldname": "seccion7",
+   "fieldtype": "Section Break",
+   "label": "7. EXAMEN F\u00cdSICO (PEDI\u00c1TRICO B\u00c1SICO)"
+  },
+  {
+   "fieldname": "narrativa7",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion7",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "percentil71",
+   "fieldtype": "Data",
+   "label": "Peso Percentil:"
+  },
+  {
+   "fieldname": "percentil72",
+   "fieldtype": "Data",
+   "label": "Talla Percentil:"
+  },
+  {
+   "fieldname": "percentil73",
+   "fieldtype": "Data",
+   "label": "IMC Percentil:"
+  },
+  {
+   "fieldname": "perimetro7",
+   "fieldtype": "Data",
+   "label": "Per\u00edmetro cef\u00e1lico: cm"
+  },
+  {
+   "fieldname": "percentil74",
+   "fieldtype": "Data",
+   "label": "Percentil:"
+  },
+  {
+   "fieldname": "nutricional7",
+   "fieldtype": "Select",
+   "label": "Estado nutricional",
+   "options": "\nEutr\u00f3fico\nBajo peso\nSobrepeso\nObesidad\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "signos7",
+   "fieldtype": "Select",
+   "label": "Signos neurologicos evidentes",
+   "options": "\nSi\nNo\nNo se cuneta con informaci\u00f3n"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: Conducta, interaccion, juego, lenguaje, atencion, afecto y pensamiento acorde al desarrollo; riesgo.",
+   "fieldname": "seccion8",
+   "fieldtype": "Section Break",
+   "label": "8. EXAMEN DEL ESTADO MENTAL (ENFOQUE INFANTIL / EVOLUTIVO)"
+  },
+  {
+   "fieldname": "narrativa8",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion8",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "apariencia8",
+   "fieldtype": "Select",
+   "label": "Apariencia y conducta:",
+   "options": "\nAcorde a edad\nInquieto\nRetraido\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "interaccion8",
+   "fieldtype": "Heading",
+   "label": "Interaci\u00f3n con entrevistador/cuidador"
+  },
+  {
+   "fieldname": "juego8",
+   "fieldtype": "Select",
+   "label": "Juego/actividad (si aplica)",
+   "options": "\nAcorde\nPobre\nDesorganizado\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "atencion8",
+   "fieldtype": "Select",
+   "label": "Atenci\u00f3n",
+   "options": "\nAdecuada\nFluctuante\nMuy dispersa\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "lenguaje8",
+   "fieldtype": "Select",
+   "label": "Lenguaje",
+   "options": "\nAcorde\nInmaduro\nAlterado\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "afecto8",
+   "fieldtype": "Select",
+   "label": "Afecto",
+   "options": "\nAcorde\nIrritable\nAnsioso\nL\u00e1bil\nRestringido\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "pensamiento8",
+   "fieldtype": "Select",
+   "label": "Pensamiento (curso)",
+   "options": "\nCoherente\nTangencial\nDesorganizado\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "pensamiento8_2",
+   "fieldtype": "Select",
+   "label": "Pensamiento (contenido)",
+   "options": "\nAcorde a edad\nIdeas de muerte\nIdeas delirantes\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "percepcion8",
+   "fieldtype": "Select",
+   "label": "Percepci\u00f3n",
+   "options": "\nSin alteraciones\nAlteraciones perceptivas\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "jucio8",
+   "fieldtype": "Select",
+   "label": "Juicio/Insight",
+   "options": "\nConservado\nLimitado\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "riesgos8",
+   "fieldtype": "Select",
+   "label": "Riesgo suicida",
+   "options": "\nPresente\nAusente\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "riego8",
+   "fieldtype": "Select",
+   "label": "Riesgo heteroagresivo",
+   "options": "\nPresente\nAusente\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "otros8",
+   "fieldtype": "Data",
+   "label": "Otros hallazgos mentales"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: Sintomas + areas de funcionamiento + contexto; discrepancias por informante; juicio clinico integrador.",
+   "fieldname": "seccion9",
+   "fieldtype": "Section Break",
+   "label": "9. INTEGRACI\u00d3N CL\u00cdNICA"
+  },
+  {
+   "fieldname": "narrativa9",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion9",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "areas9",
+   "fieldtype": "Heading",
+   "label": "Areas mas afectadas:"
+  },
+  {
+   "default": "0",
+   "fieldname": "escolar9",
+   "fieldtype": "Check",
+   "label": "Escolar"
+  },
+  {
+   "default": "0",
+   "fieldname": "familiar9",
+   "fieldtype": "Check",
+   "label": "Familiar"
+  },
+  {
+   "default": "0",
+   "fieldname": "emosional9",
+   "fieldtype": "Check",
+   "label": "Emocional"
+  },
+  {
+   "default": "0",
+   "fieldname": "social9",
+   "fieldtype": "Check",
+   "label": "Social"
+  },
+  {
+   "default": "0",
+   "fieldname": "conductual9",
+   "fieldtype": "Check",
+   "label": "Conductual"
+  },
+  {
+   "default": "0",
+   "fieldname": "somatico9",
+   "fieldtype": "Check",
+   "label": "Somatico"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion9_2",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "deterioro9",
+   "fieldtype": "Select",
+   "label": "Deterioro Funcional",
+   "options": "\nLeve\nModerado\nSevero\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "concordi9",
+   "fieldtype": "Select",
+   "label": "Concordancia entre informantes",
+   "options": "\nAlta\nParcial\nBaja\nNo se cuenta con informaci\u00f3n"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion10",
+   "fieldtype": "Section Break",
+   "label": "10. DIAGNOSTICO MULTIAXIAL - CIE10"
+  },
+  {
+   "fieldname": "eje1",
+   "fieldtype": "Table",
+   "label": "EJE I Trastorno cl\u00ednico:",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "eje2",
+   "fieldtype": "Table",
+   "label": "EJE II Trastornos del desarrollo / Discapacidad intelectual:",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "eje3",
+   "fieldtype": "Table",
+   "label": "EJE III Condiciones m\u00e9dicas generales:",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "eje4",
+   "fieldtype": "Small Text",
+   "label": "EJE IV Factores psicosociales y ambientales:"
+  },
+  {
+   "fieldname": "narrativa10",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion10",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n / Informante no responde"
+  },
+  {
+   "fieldname": "eje5",
+   "fieldtype": "Select",
+   "label": "EJE V Nivel de funcionmiento global:",
+   "options": "\nAdecuado\nLeve\nModerado\nSevero\nNo se"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "seccion11",
+   "fieldtype": "Section Break",
+   "label": "11. EX\u00c1MENES COMPLEMENTARIOS SOLICITADOS"
+  },
+  {
+   "fieldname": "narrativa11",
+   "fieldtype": "Small Text",
+   "label": "Narrativa / justicicaci\u00f3n"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion11",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n / Informante no responde"
+  },
+  {
+   "fieldname": "informacion11_1",
+   "fieldtype": "Heading",
+   "label": "Estudios de Laboratorio"
+  },
+  {
+   "default": "0",
+   "fieldname": "hemograma",
+   "fieldtype": "Check",
+   "label": "Hemograma completo"
+  },
+  {
+   "default": "0",
+   "fieldname": "glicemia",
+   "fieldtype": "Check",
+   "label": "Glicemia"
+  },
+  {
+   "default": "0",
+   "fieldname": "tsgo",
+   "fieldtype": "Check",
+   "label": "TSGO / TSGP"
+  },
+  {
+   "default": "0",
+   "fieldname": "cratinina",
+   "fieldtype": "Check",
+   "label": "BUN Creatinina"
+  },
+  {
+   "default": "0",
+   "fieldname": "t3t4",
+   "fieldtype": "Check",
+   "label": "T3, T4, THS"
+  },
+  {
+   "default": "0",
+   "fieldname": "lipido",
+   "fieldtype": "Check",
+   "label": "Perfil lip\u00eddo"
+  },
+  {
+   "default": "0",
+   "fieldname": "sericos_litio",
+   "fieldtype": "Check",
+   "label": "Niveles s\u00e9ricos de litio"
+  },
+  {
+   "default": "0",
+   "fieldname": "sereico_carba",
+   "fieldtype": "Check",
+   "label": "Niveles s\u00e9ricos de Carbamazepina"
+  },
+  {
+   "default": "0",
+   "fieldname": "serico_acido",
+   "fieldtype": "Check",
+   "label": "Niveles s\u00e9ricos de acido valproico"
+  },
+  {
+   "default": "0",
+   "fieldname": "tomog_cerebral",
+   "fieldtype": "Check",
+   "label": "Tomograf\u00eda cerebral"
+  },
+  {
+   "default": "0",
+   "fieldname": "electro",
+   "fieldtype": "Check",
+   "label": "Electrocardiograma"
+  },
+  {
+   "default": "0",
+   "fieldname": "cefalico",
+   "fieldtype": "Check",
+   "label": "Electroencefalograma"
+  },
+  {
+   "default": "0",
+   "fieldname": "resonancia",
+   "fieldtype": "Check",
+   "label": "Resonancia magnetica cerebral"
+  },
+  {
+   "fieldname": "otro11",
+   "fieldtype": "Data",
+   "label": "Otro"
+  },
+  {
+   "fieldname": "comentarios11",
+   "fieldtype": "Small Text",
+   "label": "Comentarios"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: Intervenciones dirigidas a las \u00e1reas; incluir educai\u00f3n familiar, escuela, psicoterapia y f\u00e1rmacos si aplica.",
+   "fieldname": "seccion12",
+   "fieldtype": "Section Break",
+   "label": "12. PLAN TERAP\u00c9UTICO"
+  },
+  {
+   "fieldname": "narrativa12",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion12",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n / Informante no responde"
+  },
+  {
+   "default": "0",
+   "fieldname": "psicoedu",
+   "fieldtype": "Check",
+   "label": "Psicoeducaci\u00f3n"
+  },
+  {
+   "default": "0",
+   "fieldname": "psitera",
+   "fieldtype": "Check",
+   "label": "Psicoterapia"
+  },
+  {
+   "default": "0",
+   "fieldname": "interesc",
+   "fieldtype": "Check",
+   "label": "Intervencion Escolar"
+  },
+  {
+   "default": "0",
+   "fieldname": "farmaco",
+   "fieldtype": "Check",
+   "label": "Farmacoterapia"
+  },
+  {
+   "default": "0",
+   "fieldname": "intervecion",
+   "fieldtype": "Check",
+   "label": "Intervencion familiar"
+  },
+  {
+   "fieldname": "otros12",
+   "fieldtype": "Data",
+   "label": "Otros (especificar)"
+  },
+  {
+   "collapsible": 1,
+   "description": "Guia narrativa: Objetivos, criterios de mejor\u00eda por \u00e1reas de funcionamiento y plan de reevaluaci\u00f3n.",
+   "fieldname": "seccion13",
+   "fieldtype": "Section Break",
+   "label": "13. SEGUIMIENTO"
+  },
+  {
+   "fieldname": "narrativa13",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion13",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n / Informante no responde"
+  },
+  {
+   "fieldname": "reevaluacion13",
+   "fieldtype": "Select",
+   "label": "Reevaluacion funcional",
+   "options": "\n4 Semanas\n8 Semanas\n12 Semanas\nOtros"
+  },
+  {
+   "fieldname": "otros13",
+   "fieldtype": "Data",
+   "label": "Otros:"
+  },
+  {
+   "default": "0",
+   "fieldname": "alarma",
+   "fieldtype": "Check",
+   "label": "Se le explica sobre signos de alarma y efectos secundarios de la medicacai\u00f3n"
+  },
+  {
+   "fieldname": "seguimiento13",
+   "fieldtype": "Data",
+   "label": "Otros aspectos de seguimiento:"
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "pat_name",
+   "fieldtype": "Read Only",
+   "label": "Nombre del paciente"
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "pat_info_html",
+   "fieldtype": "HTML",
+   "label": "Informaci\u00f3n del paciente"
+  },
+  {
+   "fieldname": "informantes_otros",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion1",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n / Informante no responde"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion03",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n / Informante no responde"
+  },
+  {
+   "default": "0",
+   "fieldname": "hc1",
+   "fieldtype": "Check",
+   "label": "Escolar"
+  },
+  {
+   "default": "0",
+   "fieldname": "hc2",
+   "fieldtype": "Check",
+   "label": "Familiar"
+  },
+  {
+   "default": "0",
+   "fieldname": "hc3",
+   "fieldtype": "Check",
+   "label": "Social"
+  },
+  {
+   "default": "0",
+   "fieldname": "hc4",
+   "fieldtype": "Check",
+   "label": "M\u00faltiple"
+  },
+  {
+   "default": "0",
+   "fieldname": "di41",
+   "fieldtype": "Check",
+   "label": "Inatenci\u00f3n"
+  },
+  {
+   "default": "0",
+   "fieldname": "di42",
+   "fieldtype": "Check",
+   "label": "Hiperactividad"
+  },
+  {
+   "default": "0",
+   "fieldname": "di43",
+   "fieldtype": "Check",
+   "label": "Impulsividad"
+  },
+  {
+   "default": "0",
+   "fieldname": "di44",
+   "fieldtype": "Check",
+   "label": "Conducta disruptiva"
+  },
+  {
+   "default": "0",
+   "fieldname": "di45",
+   "fieldtype": "Check",
+   "label": "Ninguna"
+  },
+  {
+   "fieldname": "narrativa46",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "fieldname": "narrativa47",
+   "fieldtype": "Small Text",
+   "label": "Narrativa"
+  },
+  {
+   "fieldname": "enfermedad51",
+   "fieldtype": "Table",
+   "label": "Enfermedades no psiquiatricas",
+   "options": "diagnostico no cei10"
+  },
+  {
+   "fieldname": "otraalergia5",
+   "fieldtype": "Data",
+   "label": "Especifique"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion61",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "enfermedad61",
+   "fieldtype": "Table",
+   "label": "Enfermedades medicas relevantes",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "trastornos61",
+   "fieldtype": "Table",
+   "label": "Trastornos psiquiatricos",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "consumo61",
+   "fieldtype": "Data",
+   "label": "Consumo de sustancias"
+  },
+  {
+   "fieldname": "suicidio61",
+   "fieldtype": "Select",
+   "label": "Suicidio",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "parentezco61",
+   "fieldtype": "Data",
+   "label": "Parentezco"
+  },
+  {
+   "default": "0",
+   "fieldname": "informacion62",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "enfermedad62",
+   "fieldtype": "Table",
+   "label": "Enfermedades medicas relevantes",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "trastornos62",
+   "fieldtype": "Table",
+   "label": "Trastornos psiquiatricos",
+   "options": "diagnostico cei10"
+  },
+  {
+   "fieldname": "consumo62",
+   "fieldtype": "Data",
+   "label": "Consumo de sustancias"
+  },
+  {
+   "fieldname": "suicidio62",
+   "fieldtype": "Select",
+   "label": "Suicidio",
+   "options": "\nSi\nNo"
+  },
+  {
+   "fieldname": "parentezco62",
+   "fieldtype": "Data",
+   "label": "Parentezco"
+  },
+  {
+   "fieldname": "hallazgo7",
+   "fieldtype": "Data",
+   "label": "Otros hallazgos fisicos"
+  },
+  {
+   "default": "0",
+   "fieldname": "inter81",
+   "fieldtype": "Check",
+   "label": "Adecuada"
+  },
+  {
+   "default": "0",
+   "fieldname": "inter82",
+   "fieldtype": "Check",
+   "label": "Evitativa"
+  },
+  {
+   "default": "0",
+   "fieldname": "inter83",
+   "fieldtype": "Check",
+   "label": "Oposicionista"
+  },
+  {
+   "default": "0",
+   "fieldname": "inter84",
+   "fieldtype": "Check",
+   "label": "No se cuenta con informaci\u00f3n"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2026-08-26 22:07:56.085353",
+ "modified_by": "Administrator",
+ "module": "Healthcare",
+ "name": "UNA Historia Clinica Psiquiatrica",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -232,7 +232,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2025-10-30 21:40:50.908055",
+ "modified": "2026-07-22 19:21:45.234257",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "Vital Signs",
@@ -268,7 +268,7 @@
   }
  ],
  "restrict_to_domain": "Healthcare",
- "search_fields": "patient, signs_date",
+ "search_fields": "patient, patient_name, signs_date",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
