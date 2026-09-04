@@ -434,6 +434,12 @@ def get_data():
 					"is_query_report": True,
 					"name": "Accounts Receivable By Sales Partner",
 					"doctype": "Sales Invoice"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Facturas pendientes por cliente",
+					"doctype": "Sales Invoice"
 				}
 			]
 		},

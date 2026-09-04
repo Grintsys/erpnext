@@ -1,7 +1,8 @@
 // Copyright (c) 2016, Frappe Technologies Pvt. Ltd. and contributors
 // For license information, please see license.txt
+/* eslint-disable */
 
-frappe.query_reports["Accounts Receivable By Sales Partner"] = {
+frappe.query_reports["Accounts Pruebas"] = {
 	"filters": [
 		{
 			"fieldname":"company",
