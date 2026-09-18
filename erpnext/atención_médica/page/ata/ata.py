@@ -17,22 +17,21 @@ def get_appointments(appointment_date=None, status=None, search=None):
     # BUSCAR PROFESIONAL ASOCIADO AL USUARIO
     # ==========================================================
 
-    professionals = frappe.get_all(
+    professional = frappe.get_value(
         "Healthcare Practitioner",
-        filters={
+        {
             "user_id": user
         },
-        fields=[
-            "name"
-        ]
+        "name"
     )
 
-    if not professionals:
+    if not professional:
         frappe.throw(
-            _("El usuario actual no está asociado a un profesional médico.")
+            _(
+                "El usuario actual no está asociado "
+                "a un profesional médico."
+            )
         )
-
-    professional = professionals[0]
 
     # ==========================================================
     # CONDICIONES
@@ -43,7 +42,7 @@ def get_appointments(appointment_date=None, status=None, search=None):
     ]
 
     values = {
-        "professional": professional.name
+        "professional": professional
     }
 
     # ==========================================================
@@ -60,9 +59,18 @@ def get_appointments(appointment_date=None, status=None, search=None):
 
     # ==========================================================
     # FILTRO ESTADO
+    # ATA SOLO MANEJA:
+    # Pendiente
+    # Atendido
     # ==========================================================
 
-    if status and status != "Todos":
+    if status:
+
+        if status not in ["Pendiente", "Atendido"]:
+
+            frappe.throw(
+                _("Estado no válido para ATA.")
+            )
 
         conditions.append(
             "cm.status = %(status)s"
@@ -71,7 +79,7 @@ def get_appointments(appointment_date=None, status=None, search=None):
         values["status"] = status
 
     # ==========================================================
-    # BUSQUEDA PACIENTE
+    # BUSQUEDA DE PACIENTE
     # ==========================================================
 
     if search:
@@ -90,32 +98,61 @@ def get_appointments(appointment_date=None, status=None, search=None):
     # ==========================================================
     # CONSULTA
     # ==========================================================
+    #
+    # Usamos una subconsulta para obtener solamente una receta
+    # asociada a la cita y evitar duplicar la cita en caso de que
+    # existan varias recetas.
+    #
+    # La lógica de ATA considera:
+    #
+    # 1 Cita -> 0 o 1 receta activa
+    #
+    # ==========================================================
 
     appointments = frappe.db.sql(
         """
         SELECT
+
             cm.name,
+
             cm.patient,
+
             p.patient_name,
 
             cm.branch,
+
             cm.service,
+
             cm.unit,
 
             cm.profesional,
+
             cm.appointment_type,
 
             cm.register_date,
+
             cm.appointment_date,
 
             cm.start_hour,
+
             cm.end_hour,
 
             cm.status,
+
             cm.observations,
 
             cm.start_datetime,
-            cm.end_datetime
+
+            cm.end_datetime,
+
+            (
+                SELECT rm.name
+                FROM `tabReceta Medica` rm
+                WHERE rm.cita_medica = cm.name
+                  AND rm.docstatus < 2
+                ORDER BY rm.creation DESC
+                LIMIT 1
+            ) AS receta_name
 
         FROM `tabCita Medica` cm
 
@@ -127,6 +164,7 @@ def get_appointments(appointment_date=None, status=None, search=None):
         ORDER BY
             cm.start_hour ASC,
             cm.appointment_date ASC
+
         """.format(
             conditions=" AND ".join(conditions)
         ),
@@ -139,13 +177,13 @@ def get_appointments(appointment_date=None, status=None, search=None):
     # ==========================================================
 
     return {
+
         "user": user,
 
-        "professional": {
-            "name": professional.name
-        },
+        "professional": professional,
 
         "appointments": appointments,
 
         "total": len(appointments)
+
     }

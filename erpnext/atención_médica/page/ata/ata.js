@@ -14,17 +14,27 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 	// ==========================================================
 	// FECHA INICIAL
 	// ==========================================================
-
-	// Para las pruebas utilizaremos mañana.
-	// Cuando quieras que abra en la fecha actual,
-	// cambia esta línea por:
 	//
-	// frappe.datetime.get_today();
+	// Se mantiene mañana porque actualmente tienes citas
+	// para el 19/09/2026 y así podemos continuar probando.
+	//
+	// Cuando quieras regresar a hoy:
+	//
+	// frappe.datetime.get_today()
+	//
+	// ==========================================================
 
 	var default_date = frappe.datetime.add_days(
 		frappe.datetime.get_today(),
 		1
 	);
+
+
+	// ==========================================================
+	// ESTADO INICIAL
+	// ==========================================================
+
+	var default_status = 'Pendiente';
 
 
 	// ==========================================================
@@ -35,8 +45,9 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 		<div class="ata-page">
 
+
 			<!-- ================================================= -->
-			<!-- HEADER                                           -->
+			<!-- HEADER                                            -->
 			<!-- ================================================= -->
 
 			<div class="ata-header">
@@ -60,6 +71,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 					</div>
 
 				</div>
+
 
 				<div class="ata-doctor">
 
@@ -88,7 +100,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 			<!-- ================================================= -->
-			<!-- FILTROS                                          -->
+			<!-- FILTROS                                           -->
 			<!-- ================================================= -->
 
 			<div class="ata-filter-card">
@@ -107,7 +119,9 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 				<div class="ata-filters">
 
 
-					<!-- FECHA -->
+					<!-- ========================================= -->
+					<!-- FECHA                                     -->
+					<!-- ========================================= -->
 
 					<div class="ata-filter">
 
@@ -131,7 +145,9 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 					</div>
 
 
-					<!-- ESTADO -->
+					<!-- ========================================= -->
+					<!-- ESTADO                                    -->
+					<!-- ========================================= -->
 
 					<div class="ata-filter">
 
@@ -148,28 +164,17 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 								class="ata-input"
 							>
 
-								<option value="Todos">
-									Todos
+								<option
+									value="Pendiente"
+									selected
+								>
+									Pendiente
 								</option>
 
-								<option value="Programado">
-									Programado
-								</option>
-
-								<option value="En Preclínica">
-									En Preclínica
-								</option>
-
-								<option value="En Consulta">
-									En Consulta
-								</option>
-
-								<option value="Finalizada">
-									Finalizada
-								</option>
-
-								<option value="Cancelada">
-									Cancelada
+								<option
+									value="Atendido"
+								>
+									Atendido
 								</option>
 
 							</select>
@@ -179,7 +184,9 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 					</div>
 
 
-					<!-- PACIENTE -->
+					<!-- ========================================= -->
+					<!-- BUSCAR PACIENTE                            -->
+					<!-- ========================================= -->
 
 					<div class="ata-filter ata-filter-search">
 
@@ -203,7 +210,9 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 					</div>
 
 
-					<!-- BOTONES -->
+					<!-- ========================================= -->
+					<!-- BOTONES                                   -->
+					<!-- ========================================= -->
 
 					<div class="ata-filter-buttons">
 
@@ -232,7 +241,6 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 					</div>
 
-
 				</div>
 
 			</div>
@@ -247,8 +255,11 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 				<div class="ata-summary-left">
 
 					<div class="ata-summary-icon">
+
 						<i class="fa fa-calendar-check-o"></i>
+
 					</div>
+
 
 					<div>
 
@@ -332,6 +343,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 						</thead>
 
+
 						<tbody id="ata-appointments">
 
 						</tbody>
@@ -355,6 +367,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 						al médico autenticado.
 
 					</div>
+
 
 					<div>
 
@@ -684,7 +697,9 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 			outline: none;
 
-			transition: border-color .15s, box-shadow .15s;
+			transition:
+				border-color .15s,
+				box-shadow .15s;
 
 			box-sizing: border-box;
 
@@ -695,7 +710,8 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 			border-color: #66afe9;
 
-			box-shadow: 0 0 0 2px rgba(102,175,233,.12);
+			box-shadow:
+				0 0 0 2px rgba(102,175,233,.12);
 
 		}
 
@@ -851,7 +867,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 		/* ======================================================
-		   TABLE
+		   TABLA
 		====================================================== */
 
 		.ata-table-card {
@@ -995,11 +1011,15 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 		}
 
 
+		/* ======================================================
+		   BOTONES
+		====================================================== */
+
 		.ata-action-btn {
 
-			width: 32px;
+			width: 34px;
 
-			height: 30px;
+			height: 31px;
 
 			padding: 0;
 
@@ -1030,7 +1050,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 		/* ======================================================
-		   STATUS
+		   ESTADOS
 		====================================================== */
 
 		.ata-status {
@@ -1050,16 +1070,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 		}
 
 
-		.ata-status-programado {
-
-			background: #eaf3ff;
-
-			color: #2878c8;
-
-		}
-
-
-		.ata-status-preclinica {
+		.ata-status-pendiente {
 
 			background: #fff6df;
 
@@ -1068,29 +1079,11 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 		}
 
 
-		.ata-status-consulta {
-
-			background: #eeeaff;
-
-			color: #6753b5;
-
-		}
-
-
-		.ata-status-finalizada {
+		.ata-status-atendido {
 
 			background: #e9f7ef;
 
 			color: #2c8b5b;
-
-		}
-
-
-		.ata-status-cancelada {
-
-			background: #fdecec;
-
-			color: #bd4b4b;
 
 		}
 
@@ -1324,32 +1317,30 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 			return date;
 		}
 
-		return parts[2] + '/' + parts[1] + '/' + parts[0];
+		return parts[2] +
+			'/' +
+			parts[1] +
+			'/' +
+			parts[0];
 
 	}
 
 
 	function get_status_class(status) {
 
-		if (status === 'Programado') {
-			return 'ata-status ata-status-programado';
+		if (status === 'Pendiente') {
+
+			return 'ata-status ata-status-pendiente';
+
 		}
 
-		if (status === 'En Preclínica') {
-			return 'ata-status ata-status-preclinica';
+
+		if (status === 'Atendido') {
+
+			return 'ata-status ata-status-atendido';
+
 		}
 
-		if (status === 'En Consulta') {
-			return 'ata-status ata-status-consulta';
-		}
-
-		if (status === 'Finalizada') {
-			return 'ata-status ata-status-finalizada';
-		}
-
-		if (status === 'Cancelada') {
-			return 'ata-status ata-status-cancelada';
-		}
 
 		return 'ata-status';
 
@@ -1358,7 +1349,8 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 	function update_selected_date() {
 
-		var date = $('#ata-date').val();
+		var date =
+			$('#ata-date').val();
 
 		$('#ata-selected-date').text(
 			'Fecha: ' + format_date(date)
@@ -1373,20 +1365,25 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 	function load_appointments() {
 
-		var appointment_date = $('#ata-date').val();
+		var appointment_date =
+			$('#ata-date').val();
 
-		var status = $('#ata-status').val();
 
-		var search = $.trim(
-			$('#ata-search').val()
-		);
+		var status =
+			$('#ata-status').val();
+
+
+		var search =
+			$.trim(
+				$('#ata-search').val()
+			);
 
 
 		update_selected_date();
 
 
 		// ------------------------------------------------------
-		// Loading
+		// LOADING
 		// ------------------------------------------------------
 
 		$('#ata-appointments').html(`
@@ -1416,7 +1413,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 		// ------------------------------------------------------
-		// Request
+		// REQUEST
 		// ------------------------------------------------------
 
 		frappe.call({
@@ -1452,29 +1449,20 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 				// --------------------------------------------------
-				// Profesional
+				// PROFESIONAL
 				// --------------------------------------------------
 
-				if (
-					data.professional
-				) {
+				if (data.professional) {
 
 					$('#ata-professional').text(
-						data.professional.name
-					);
-
-				}
-				else {
-
-					$('#ata-professional').text(
-						data.professional.name
+						data.professional
 					);
 
 				}
 
 
 				// --------------------------------------------------
-				// Citas
+				// CITAS
 				// --------------------------------------------------
 
 				render_appointments(
@@ -1500,11 +1488,13 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 								</div>
 
+
 								<div class="ata-empty-title">
 
 									No fue posible cargar las citas
 
 								</div>
+
 
 								<div class="ata-empty-text">
 
@@ -1538,7 +1528,8 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 	function render_appointments(appointments) {
 
-		var tbody = $('#ata-appointments');
+		var tbody =
+			$('#ata-appointments');
 
 
 		tbody.empty();
@@ -1555,7 +1546,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 		// ------------------------------------------------------
-		// Sin resultados
+		// SIN RESULTADOS
 		// ------------------------------------------------------
 
 		if (!appointments.length) {
@@ -1568,169 +1559,311 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 		// ------------------------------------------------------
-		// Citas
+		// CITAS
 		// ------------------------------------------------------
 
-		appointments.forEach(function(appointment) {
+		appointments.forEach(
+			function(appointment) {
 
 
-			var patient_name =
-				appointment.patient_name ||
-				appointment.patient ||
-				'Sin paciente';
+				var patient_name =
+					appointment.patient_name ||
+					appointment.patient ||
+					'Sin paciente';
 
 
-			var status_class =
-				get_status_class(
-					appointment.status
-				);
+				var status_class =
+					get_status_class(
+						appointment.status
+					);
 
 
-			var row = $(`
-				<tr>
-
-					<!-- HORA -->
-
-					<td>
-
-						<div class="ata-time">
-
-							${appointment.start_hour || '--:--'}
-
-						</div>
-
-						<div class="ata-patient-id">
-
-							${appointment.end_hour || ''}
-
-						</div>
-
-					</td>
+				var actions = '';
 
 
-					<!-- PACIENTE -->
+				// ==================================================
+				// PENDIENTE
+				// ==================================================
 
-					<td>
+				if (
+					appointment.status ===
+					'Pendiente'
+				) {
 
-						<div class="ata-patient-name">
-
-							${patient_name}
-
-						</div>
-
-						<div class="ata-patient-id">
-
-							${appointment.patient || ''}
-
-						</div>
-
-					</td>
-
-
-					<!-- SERVICIO -->
-
-					<td>
-
-						${appointment.service || '-'}
-
-					</td>
-
-
-					<!-- UNIDAD -->
-
-					<td>
-
-						${appointment.unit || '-'}
-
-					</td>
-
-
-					<!-- TIPO -->
-
-					<td>
-
-						${appointment.appointment_type || '-'}
-
-					</td>
-
-
-					<!-- ESTADO -->
-
-					<td>
-
-						<span class="${status_class}">
-
-							${appointment.status || 'Sin estado'}
-
-						</span>
-
-					</td>
-
-
-					<!-- ACCIONES -->
-
-					<td class="ata-actions">
-
+					actions = `
 
 						<button
 
-							class="ata-action-btn btn-open"
+							class="ata-action-btn btn-ata"
 
-							title="Abrir cita"
+							title="Agregar ATA al usuario"
 
 							data-name="${appointment.name}"
 
 						>
 
-							<i class="fa fa-external-link"></i>
+							<i class="fa fa-user-plus"></i>
 
 						</button>
 
+					`;
 
-						<button
-
-							class="ata-action-btn btn-vitals"
-
-							title="Signos vitales"
-
-							data-name="${appointment.name}"
-
-							data-patient="${appointment.patient || ''}"
-
-						>
-
-							<i class="fa fa-heartbeat"></i>
-
-						</button>
+				}
 
 
-					</td>
+				// ==================================================
+				// ATENDIDO
+				// ==================================================
 
-				</tr>
-			`);
+				else if (
+					appointment.status ===
+					'Atendido'
+				) {
 
 
-			tbody.append(row);
+					// ==============================================
+					// YA EXISTE RECETA
+					// ==============================================
 
-		});
+					if (
+						appointment.receta_name
+					) {
+
+						actions = `
+
+							<button
+
+								class="ata-action-btn btn-recipe"
+
+								title="Editar receta"
+
+								data-name="${appointment.receta_name}"
+
+							>
+
+								<i class="fa fa-pencil"></i>
+
+							</button>
+
+						`;
+
+					}
+
+
+					// ==============================================
+					// NO EXISTE RECETA
+					// ==============================================
+
+					else {
+
+						actions = `
+
+							<button
+
+								class="ata-action-btn btn-recipe-new"
+
+								title="Crear receta"
+
+								data-name="${appointment.name}"
+
+								data-date="${appointment.appointment_date}"
+
+							>
+
+								<i class="fa fa-file-text-o"></i>
+
+							</button>
+
+						`;
+
+					}
+
+				}
+
+
+				// ==================================================
+				// FILA
+				// ==================================================
+
+				var row = $(`
+
+					<tr>
+
+
+						<!-- ====================================== -->
+						<!-- HORA -->
+						<!-- ====================================== -->
+
+						<td>
+
+							<div class="ata-time">
+
+								${appointment.start_hour || '--:--'}
+
+							</div>
+
+							<div class="ata-patient-id">
+
+								${appointment.end_hour || ''}
+
+							</div>
+
+						</td>
+
+
+						<!-- ====================================== -->
+						<!-- PACIENTE -->
+						<!-- ====================================== -->
+
+						<td>
+
+							<div class="ata-patient-name">
+
+								${patient_name}
+
+							</div>
+
+							<div class="ata-patient-id">
+
+								${appointment.patient || ''}
+
+							</div>
+
+						</td>
+
+
+						<!-- ====================================== -->
+						<!-- SERVICIO -->
+						<!-- ====================================== -->
+
+						<td>
+
+							${appointment.service || '-'}
+
+						</td>
+
+
+						<!-- ====================================== -->
+						<!-- UNIDAD -->
+						<!-- ====================================== -->
+
+						<td>
+
+							${appointment.unit || '-'}
+
+						</td>
+
+
+						<!-- ====================================== -->
+						<!-- TIPO -->
+						<!-- ====================================== -->
+
+						<td>
+
+							${appointment.appointment_type || '-'}
+
+						</td>
+
+
+						<!-- ====================================== -->
+						<!-- ESTADO -->
+						<!-- ====================================== -->
+
+						<td>
+
+							<span
+								class="${status_class}"
+							>
+
+								${appointment.status || 'Sin estado'}
+
+							</span>
+
+						</td>
+
+
+						<!-- ====================================== -->
+						<!-- ACCIONES -->
+						<!-- ====================================== -->
+
+						<td class="ata-actions">
+
+							${actions}
+
+						</td>
+
+
+					</tr>
+
+				`);
+
+
+				tbody.append(row);
+
+			}
+		);
 
 
 		// ======================================================
-		// EVENTO ABRIR CITA
+		// PENDIENTE - AGREGAR ATA
 		// ======================================================
 
-		tbody.find('.btn-open').on(
+		tbody.find('.btn-ata').on(
 			'click',
 			function() {
 
-				var name =
+				var appointment =
 					$(this).data('name');
 
 
-				frappe.set_route(
-					'Form',
-					'Cita Medica',
-					name
+				frappe.msgprint({
+
+					title:
+						'Agregar ATA al Usuario',
+
+					message:
+						'Esta funcionalidad está pendiente de desarrollo.',
+
+					indicator:
+						'orange'
+
+				});
+
+			}
+		);
+
+
+		// ======================================================
+		// ATENDIDO - CREAR RECETA
+		// ======================================================
+
+		tbody.find('.btn-recipe-new').on(
+			'click',
+			function() {
+
+				var appointment =
+					$(this).data('name');
+
+
+				var date =
+					$(this).data('date');
+
+
+				// ==============================================
+				// CREAR NUEVO DOCUMENTO
+				// ==============================================
+
+				frappe.new_doc(
+					'Receta Medica',
+					{
+
+						cita_medica:
+							appointment,
+
+						date:
+							date
+
+					}
 				);
 
 			}
@@ -1738,33 +1871,25 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 		// ======================================================
-		// EVENTO SIGNOS VITALES
+		// ATENDIDO - EDITAR RECETA
 		// ======================================================
 
-		tbody.find('.btn-vitals').on(
+		tbody.find('.btn-recipe').on(
 			'click',
 			function() {
 
-				var appointment =
+				var recipe =
 					$(this).data('name');
 
-				var patient =
-					$(this).data('patient');
 
+				// ==============================================
+				// ABRIR RECETA EXISTENTE
+				// ==============================================
 
-				console.log(
-					'Cita:',
-					appointment
-				);
-
-				console.log(
-					'Paciente:',
-					patient
-				);
-
-
-				frappe.msgprint(
-					'Próximamente conectaremos esta acción con Vital Signs.'
+				frappe.set_route(
+					'Form',
+					'Receta Medica',
+					recipe
 				);
 
 			}
@@ -1824,7 +1949,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 	// ==========================================================
-	// BOTÓN BUSCAR
+	// BOTON BUSCAR
 	// ==========================================================
 
 	$('#ata-search-button').on(
@@ -1895,13 +2020,16 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 				default_date
 			);
 
+
 			$('#ata-status').val(
-				'Todos'
+				default_status
 			);
+
 
 			$('#ata-search').val(
 				''
 			);
+
 
 			load_appointments();
 

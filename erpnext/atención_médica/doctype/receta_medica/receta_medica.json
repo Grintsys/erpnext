@@ -1,0 +1,112 @@
+{
+ "creation": "2026-09-18 05:49:38.661750",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section1",
+  "cita_medica",
+  "patient",
+  "column1",
+  "date",
+  "service",
+  "section2",
+  "items",
+  "section3",
+  "observation",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cita_medica",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cita M\u00e9dica",
+   "options": "Cita Medica",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "cita_medica.patient",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "label": "Nombre Paciente",
+   "options": "Patient",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Fecha",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "cita_medica.service",
+   "fieldname": "service",
+   "fieldtype": "Link",
+   "label": "Servicio",
+   "options": "Servicio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Medicamentos",
+   "options": "Receta Medica Detail",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "observation",
+   "fieldtype": "Long Text",
+   "label": "Observaciones"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Receta Medica",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2026-09-18 06:08:19.948900",
+ "modified_by": "gersoncaballero306@gmail.com",
+ "module": "Atenci\u00f3n M\u00e9dica",
+ "name": "Receta Medica",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
