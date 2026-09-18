@@ -1,4 +1,4 @@
-frappe.pages['ata'].on_page_load = function(wrapper) {
+frappe.pages['ata'].on_page_load = function (wrapper) {
 
 	var page = frappe.ui.make_app_page({
 
@@ -1434,7 +1434,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 			},
 
-			callback: function(r) {
+			callback: function (r) {
 
 				if (!r.message) {
 
@@ -1472,7 +1472,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 			},
 
 
-			error: function() {
+			error: function () {
 
 				$('#ata-appointments').html(`
 
@@ -1563,8 +1563,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 		// ------------------------------------------------------
 
 		appointments.forEach(
-			function(appointment) {
-
+			function (appointment) {
 
 				var patient_name =
 					appointment.patient_name ||
@@ -1582,6 +1581,30 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 
 				// ==================================================
+				// BOTÓN ABRIR CITA
+				// Siempre visible
+				// ==================================================
+
+				actions += `
+
+				<button
+
+					class="ata-action-btn btn-open"
+
+					title="Abrir cita"
+
+					data-name="${appointment.name}"
+
+				>
+
+					<i class="fa fa-external-link"></i>
+
+				</button>
+
+			`;
+
+
+				// ==================================================
 				// PENDIENTE
 				// ==================================================
 
@@ -1590,23 +1613,23 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 					'Pendiente'
 				) {
 
-					actions = `
+					actions += `
 
-						<button
+					<button
 
-							class="ata-action-btn btn-ata"
+						class="ata-action-btn btn-ata"
 
-							title="Agregar ATA al usuario"
+						title="Agregar ATA al usuario"
 
-							data-name="${appointment.name}"
+						data-name="${appointment.name}"
 
-						>
+					>
 
-							<i class="fa fa-user-plus"></i>
+						<i class="fa fa-user-plus"></i>
 
-						</button>
+					</button>
 
-					`;
+				`;
 
 				}
 
@@ -1629,23 +1652,23 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 						appointment.receta_name
 					) {
 
-						actions = `
+						actions += `
 
-							<button
+						<button
 
-								class="ata-action-btn btn-recipe"
+							class="ata-action-btn btn-recipe"
 
-								title="Editar receta"
+							title="Editar receta"
 
-								data-name="${appointment.receta_name}"
+							data-name="${appointment.receta_name}"
 
-							>
+						>
 
-								<i class="fa fa-pencil"></i>
+							<i class="fa fa-pencil"></i>
 
-							</button>
+						</button>
 
-						`;
+					`;
 
 					}
 
@@ -1656,25 +1679,25 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 					else {
 
-						actions = `
+						actions += `
 
-							<button
+						<button
 
-								class="ata-action-btn btn-recipe-new"
+							class="ata-action-btn btn-recipe-new"
 
-								title="Crear receta"
+							title="Crear receta"
 
-								data-name="${appointment.name}"
+							data-name="${appointment.name}"
 
-								data-date="${appointment.appointment_date}"
+							data-date="${appointment.appointment_date}"
 
-							>
+						>
 
-								<i class="fa fa-file-text-o"></i>
+							<i class="fa fa-file-text-o"></i>
 
-							</button>
+						</button>
 
-						`;
+					`;
 
 					}
 
@@ -1687,118 +1710,180 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 				var row = $(`
 
-					<tr>
+				<tr>
 
 
-						<!-- ====================================== -->
-						<!-- HORA -->
-						<!-- ====================================== -->
+					<!-- ====================================== -->
+					<!-- HORA -->
+					<!-- ====================================== -->
 
-						<td>
+					<td>
 
-							<div class="ata-time">
+						<div class="ata-time">
 
-								${appointment.start_hour || '--:--'}
+							${appointment.start_hour || '--:--'}
 
-							</div>
+						</div>
 
-							<div class="ata-patient-id">
+						<div class="ata-patient-id">
 
-								${appointment.end_hour || ''}
+							${appointment.end_hour || ''}
 
-							</div>
+						</div>
 
-						</td>
+					</td>
 
 
-						<!-- ====================================== -->
-						<!-- PACIENTE -->
-						<!-- ====================================== -->
+					<!-- ====================================== -->
+					<!-- PACIENTE -->
+					<!-- ====================================== -->
 
-						<td>
+					<td>
 
-							<div class="ata-patient-name">
+						<div class="ata-patient-name">
+
+							<a
+								href="#"
+								class="ata-patient-link"
+								data-name="${appointment.patient || ''}"
+							>
 
 								${patient_name}
 
-							</div>
+							</a>
 
-							<div class="ata-patient-id">
+						</div>
 
-								${appointment.patient || ''}
+						<div class="ata-patient-id">
 
-							</div>
+							${appointment.patient || ''}
 
-						</td>
+						</div>
 
-
-						<!-- ====================================== -->
-						<!-- SERVICIO -->
-						<!-- ====================================== -->
-
-						<td>
-
-							${appointment.service || '-'}
-
-						</td>
+					</td>
 
 
-						<!-- ====================================== -->
-						<!-- UNIDAD -->
-						<!-- ====================================== -->
+					<!-- ====================================== -->
+					<!-- SERVICIO -->
+					<!-- ====================================== -->
 
-						<td>
+					<td>
 
-							${appointment.unit || '-'}
+						${appointment.service || '-'}
 
-						</td>
-
-
-						<!-- ====================================== -->
-						<!-- TIPO -->
-						<!-- ====================================== -->
-
-						<td>
-
-							${appointment.appointment_type || '-'}
-
-						</td>
+					</td>
 
 
-						<!-- ====================================== -->
-						<!-- ESTADO -->
-						<!-- ====================================== -->
+					<!-- ====================================== -->
+					<!-- UNIDAD -->
+					<!-- ====================================== -->
 
-						<td>
+					<td>
 
-							<span
-								class="${status_class}"
-							>
+						${appointment.unit || '-'}
 
-								${appointment.status || 'Sin estado'}
-
-							</span>
-
-						</td>
+					</td>
 
 
-						<!-- ====================================== -->
-						<!-- ACCIONES -->
-						<!-- ====================================== -->
+					<!-- ====================================== -->
+					<!-- TIPO DE CITA -->
+					<!-- ====================================== -->
 
-						<td class="ata-actions">
+					<td>
 
-							${actions}
+						${appointment.appointment_type || '-'}
 
-						</td>
+					</td>
 
 
-					</tr>
+					<!-- ====================================== -->
+					<!-- ESTADO -->
+					<!-- ====================================== -->
 
-				`);
+					<td>
+
+						<span
+							class="${status_class}"
+						>
+
+							${appointment.status || 'Sin estado'}
+
+						</span>
+
+					</td>
+
+
+					<!-- ====================================== -->
+					<!-- ACCIONES -->
+					<!-- ====================================== -->
+
+					<td class="ata-actions">
+
+						${actions}
+
+					</td>
+
+
+				</tr>
+
+			`);
 
 
 				tbody.append(row);
+
+			}
+		);
+
+
+		// ======================================================
+		// ABRIR CITA
+		// ======================================================
+
+		tbody.find('.btn-open').on(
+			'click',
+			function () {
+
+				var name =
+					$(this).data('name');
+
+
+				frappe.set_route(
+					'Form',
+					'Cita Medica',
+					name
+				);
+
+			}
+		);
+
+
+		// ======================================================
+		// ABRIR PACIENTE
+		// ======================================================
+
+		tbody.find('.ata-patient-link').on(
+			'click',
+			function (e) {
+
+				e.preventDefault();
+
+
+				var patient =
+					$(this).data('name');
+
+
+				if (!patient) {
+
+					return;
+
+				}
+
+
+				frappe.set_route(
+					'Form',
+					'Patient',
+					patient
+				);
 
 			}
 		);
@@ -1810,7 +1895,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 		tbody.find('.btn-ata').on(
 			'click',
-			function() {
+			function () {
 
 				var appointment =
 					$(this).data('name');
@@ -1839,7 +1924,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 		tbody.find('.btn-recipe-new').on(
 			'click',
-			function() {
+			function () {
 
 				var appointment =
 					$(this).data('name');
@@ -1848,10 +1933,6 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 				var date =
 					$(this).data('date');
 
-
-				// ==============================================
-				// CREAR NUEVO DOCUMENTO
-				// ==============================================
 
 				frappe.new_doc(
 					'Receta Medica',
@@ -1876,15 +1957,11 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 		tbody.find('.btn-recipe').on(
 			'click',
-			function() {
+			function () {
 
 				var recipe =
 					$(this).data('name');
 
-
-				// ==============================================
-				// ABRIR RECETA EXISTENTE
-				// ==============================================
 
 				frappe.set_route(
 					'Form',
@@ -1896,7 +1973,6 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 		);
 
 	}
-
 
 	// ==========================================================
 	// SIN RESULTADOS
@@ -1954,7 +2030,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 	$('#ata-search-button').on(
 		'click',
-		function() {
+		function () {
 
 			load_appointments();
 
@@ -1968,7 +2044,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 	$('#ata-search').on(
 		'keypress',
-		function(e) {
+		function (e) {
 
 			if (e.which === 13) {
 
@@ -1986,7 +2062,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 	$('#ata-date').on(
 		'change',
-		function() {
+		function () {
 
 			load_appointments();
 
@@ -2000,7 +2076,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 	$('#ata-status').on(
 		'change',
-		function() {
+		function () {
 
 			load_appointments();
 
@@ -2014,7 +2090,7 @@ frappe.pages['ata'].on_page_load = function(wrapper) {
 
 	$('#ata-clear-button').on(
 		'click',
-		function() {
+		function () {
 
 			$('#ata-date').val(
 				default_date
