@@ -25,11 +25,11 @@ def get_data():
 			},
 			{
 				'label': _('Historial Psicología'),
-				'items': ['Historia Clinica Psicologia', 'Notas de Evolucion Medico Psicologia', 'Psychology Test Sheet', 'Reference and Response', 'Scanned Contracts Psycology']
+				'items': ['UNA Historia Clinica Psicologia','Historia Clinica Psicologia', 'Notas de Evolucion Medico Psicologia', 'Psychology Test Sheet', 'Reference and Response', 'Scanned Contracts Psycology']
 			},
 			{
 				'label': _('Historial de Psiquiatria'),
-				'items': ['Historia Clinica Psiquiatrica', 'Notas de Evolucion Medico Psiquiatrica', 'Psychiatric Examination Sheet', 'Reference and Answers Psychiatric', 'Clinical Deposit Registration']
+				'items': ['UNA Historia Clinica Psiquiatrica', 'Historia Clinica Psiquiatrica', 'Notas de Evolucion Medico Psiquiatrica', 'Psychiatric Examination Sheet', 'Reference and Answers Psychiatric', 'Clinical Deposit Registration']
 			},
 			{
 				'label': _('Trabajo Social'),

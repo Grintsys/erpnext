@@ -15,6 +15,7 @@
   "fecha",
   "pat_edadhoy",
   "buscar",
+  "pat_sv_html",
   "sint_hist",
   "narativa01",
   "cent_educativo",
@@ -255,13 +256,14 @@
   {
    "fieldname": "patient",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Patient",
    "options": "Patient",
    "reqd": 1
   },
   {
    "fieldname": "section_break_4",
-   "fieldtype": "Section Break"
+   "fieldtype": "Column Break"
   },
   {
    "default": "Today",
@@ -1361,12 +1363,6 @@
    "label": "Nombre del paciente"
   },
   {
-   "fetch_from": "patient.patient_name",
-   "fieldname": "pat_info_html",
-   "fieldtype": "HTML",
-   "label": "Informaci\u00f3n del paciente"
-  },
-  {
    "fieldname": "informantes_otros",
    "fieldtype": "Data",
    "label": "Especifique"
@@ -1554,10 +1550,20 @@
    "fieldname": "inter84",
    "fieldtype": "Check",
    "label": "No se cuenta con informaci\u00f3n"
+  },
+  {
+   "fieldname": "pat_info_html",
+   "fieldtype": "HTML",
+   "label": "Informaci\u00f3n del paciente"
+  },
+  {
+   "fieldname": "pat_sv_html",
+   "fieldtype": "HTML",
+   "label": "Signos Vitales del paciente"
   }
  ],
  "is_submittable": 1,
- "modified": "2026-08-26 22:07:56.085353",
+ "modified": "2026-09-23 18:15:38.919051",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "UNA Historia Clinica Psiquiatrica",

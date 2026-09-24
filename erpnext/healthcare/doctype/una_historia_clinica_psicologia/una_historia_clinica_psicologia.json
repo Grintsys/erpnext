@@ -8,12 +8,13 @@
   "amended_from",
   "naming_series",
   "patient",
-  "column_break_4",
+  "pat_name",
+  "pat_info_html",
+  "column_break_6",
   "fecha",
   "pat_edadhoy",
   "buscar",
-  "pat_name",
-  "pat_info_html",
+  "pat_sv_html",
   "seccion1",
   "motivo1",
   "seccion2",
@@ -175,6 +176,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "patient.patient_name",
    "fieldname": "pat_name",
    "fieldtype": "Read Only",
    "label": "Nombre del paciente"
@@ -1019,10 +1021,6 @@
    "label": "PLAN TERAP\u00c9UTICO"
   },
   {
-   "fieldname": "column_break_4",
-   "fieldtype": "Column Break"
-  },
-  {
    "default": "Today",
    "fieldname": "fecha",
    "fieldtype": "Date",
@@ -1039,10 +1037,19 @@
    "fieldtype": "Link",
    "label": "Buscar Signos vitales mas actuales",
    "options": "Vital Signs"
+  },
+  {
+   "fieldname": "pat_sv_html",
+   "fieldtype": "HTML",
+   "label": "Signos Vitales del paciente"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
   }
  ],
  "is_submittable": 1,
- "modified": "2026-08-26 18:11:21.906181",
+ "modified": "2026-09-23 18:41:49.231867",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "UNA Historia Clinica Psicologia",
